@@ -6,18 +6,26 @@ import { Experience } from "@/components/sections/experience";
 import { Hero } from "@/components/sections/hero";
 import { PremiumTools } from "@/components/sections/premium-tools";
 import { RecentProjects } from "@/components/sections/recent-projects";
+import { ProfileCard } from "@/components/ui/profile-card";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
-        <Hero />
-        <RecentProjects />
-        <Experience />
-        <PremiumTools />
-        <DesignThoughts />
-        <ContactForm />
+      <main className="container-site pt-28 sm:pt-32 lg:pt-36">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(260px,320px)_1fr] lg:gap-16">
+          <div className="lg:sticky lg:top-6 lg:self-start">
+            <ProfileCard />
+          </div>
+          <div className="min-w-0">
+            <Hero />
+            <RecentProjects />
+            <Experience />
+            <PremiumTools />
+            <DesignThoughts />
+            <ContactForm />
+          </div>
+        </div>
       </main>
       <Footer />
     </>
