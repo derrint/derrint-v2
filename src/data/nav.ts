@@ -1,11 +1,5 @@
-import {
-  BriefcaseIcon,
-  FolderIcon,
-  HomeIcon,
-  PencilIcon,
-  ToolIcon,
-} from "@/components/icons";
 import type { ComponentType, SVGProps } from "react";
+import { LuBriefcase, LuFolder, LuHouse, LuLayers, LuPencil } from "react-icons/lu";
 
 export type NavItem = {
   label: string;
@@ -14,9 +8,9 @@ export type NavItem = {
 };
 
 export const NAV_ITEMS: readonly NavItem[] = [
-  { label: "Home", href: "#home", Icon: HomeIcon },
-  { label: "Projects", href: "#projects", Icon: FolderIcon },
-  { label: "Experience", href: "#experience", Icon: BriefcaseIcon },
-  { label: "Tech Stack", href: "#tools", Icon: ToolIcon },
-  { label: "Thoughts", href: "#thoughts", Icon: PencilIcon },
+  { label: "Home", href: "#home", Icon: LuHouse },
+  { label: "Projects", href: "#projects", Icon: LuFolder },
+  { label: "Experience", href: "#experience", Icon: LuBriefcase },
+  { label: "Tech Stack", href: "#tools", Icon: LuLayers },
+  { label: "Thoughts", href: "#thoughts", Icon: LuPencil },
 ];

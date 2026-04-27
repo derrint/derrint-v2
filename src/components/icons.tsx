@@ -13,52 +13,6 @@ const baseProps: Partial<IconProps> = {
   strokeLinejoin: "round",
 };
 
-export function HomeIcon(props: IconProps) {
-  return (
-    <svg {...baseProps} {...props}>
-      <path d="M3 10.5 12 3l9 7.5" />
-      <path d="M5 9.5V21h14V9.5" />
-      <path d="M10 21v-6h4v6" />
-    </svg>
-  );
-}
-
-export function FolderIcon(props: IconProps) {
-  return (
-    <svg {...baseProps} {...props}>
-      <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
-    </svg>
-  );
-}
-
-export function BriefcaseIcon(props: IconProps) {
-  return (
-    <svg {...baseProps} {...props}>
-      <rect x="3" y="7" width="18" height="13" rx="2" />
-      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-      <path d="M3 12h18" />
-    </svg>
-  );
-}
-
-export function ToolIcon(props: IconProps) {
-  return (
-    <svg {...baseProps} {...props}>
-      <path d="m14.7 6.3 3 3-9.6 9.6a2 2 0 0 1-2.8 0l-.2-.2a2 2 0 0 1 0-2.8Z" />
-      <path d="m13 8 3 3" />
-      <path d="M17 3c1.6 0 3 1.4 3 3 0 1-.4 1.9-1.1 2.5L16 11l-3-3 2.5-2.9A3.4 3.4 0 0 1 17 3Z" />
-    </svg>
-  );
-}
-
-export function PencilIcon(props: IconProps) {
-  return (
-    <svg {...baseProps} {...props}>
-      <path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3Z" />
-      <path d="m14 7 3 3" />
-    </svg>
-  );
-}
 
 export function ArrowUpRightIcon(props: IconProps) {
   return (
@@ -69,13 +23,6 @@ export function ArrowUpRightIcon(props: IconProps) {
   );
 }
 
-export function PlayIcon(props: IconProps) {
-  return (
-    <svg {...baseProps} {...props} fill="currentColor" stroke="none">
-      <path d="M8 5.5v13l11-6.5Z" />
-    </svg>
-  );
-}
 
 export function LayersIcon(props: IconProps) {
   return (
