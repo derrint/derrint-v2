@@ -11,7 +11,7 @@ export function Hero() {
       className="relative isolate overflow-hidden pt-28 sm:pt-32 lg:pt-36"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-20 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[#ff6b2c]/15 blur-3xl" />
+        <div className="absolute left-1/2 top-20 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-ink-300/30 blur-3xl" />
         <div className="absolute inset-0 grain opacity-60" />
       </div>
 

@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink-50: #f6f6f5;
-  --color-ink-100: #e7e6e3;
-  --color-ink-200: #c9c7c1;
-  --color-ink-300: #a8a59c;
-  --color-ink-400: #7d7a70;
-  --color-ink-500: #56534b;
-  --color-ink-600: #3a3833;
-  --color-ink-700: #26241f;
-  --color-ink-800: #181714;
-  --color-ink-900: #0f0e0c;
-  --color-ink-950: #070605;
+  --color-ink-50: #ffffff;
+  --color-ink-100: #f8f8f8;
+  --color-ink-200: #ebebeb;
+  --color-ink-300: #dfdfdf;
+  --color-ink-400: #999999;
+  --color-ink-500: #888888;
+  --color-ink-600: #767676;
+  --color-ink-700: #444444;
+  --color-ink-800: #1a1a1a;
+  --color-ink-900: #0a0a0a;
+  --color-ink-950: #000000;
 
-  --color-accent: #e8ff5a;
-  --color-accent-soft: #f2ff8a;
+  --color-accent: #000000;
+  --color-accent-soft: #444444;
 
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
@@ -33,7 +33,7 @@ body {
 }
 
 ::selection {
-  @apply bg-accent text-ink-950;
+  @apply bg-accent text-ink-50;
 }
 
 @layer components {

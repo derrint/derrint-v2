@@ -9,19 +9,19 @@ export const PROJECTS: readonly Project[] = [
   {
     name: "NajmAI",
     category: "SaaS Framer Template",
-    accent: "#6b3bff",
+    accent: "#1a1a1a",
     href: "#",
   },
   {
     name: "Damas",
     category: "Free Framer Template",
-    accent: "#e7e6e3",
+    accent: "#dfdfdf",
     href: "#",
   },
   {
     name: "Faseelh",
     category: "Free Framer Template",
-    accent: "#9be3c7",
+    accent: "#888888",
     href: "#",
   },
 ];

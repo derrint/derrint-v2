@@ -13,7 +13,7 @@ export function ExperienceItem({
         className="group flex items-start gap-6 border-b border-ink-200 py-6 transition-colors hover:border-ink-400"
       >
         <div className="flex-1">
-          <h3 className="font-display text-lg font-semibold text-ink-950 transition-colors group-hover:text-[#ff6b2c]">
+          <h3 className="font-display text-lg font-semibold text-ink-950 transition-colors group-hover:text-ink-700">
             {company}
           </h3>
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-600">

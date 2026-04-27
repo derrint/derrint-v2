@@ -14,7 +14,7 @@ export const THOUGHTS: readonly Thought[] = [
       "As the internet continues to develop and grow exponentially, jobs related to the industry do too, particularly those that relate to web design and development.",
     date: "Apr 8, 2022",
     readTime: "6 min read",
-    accent: "#f2c18b",
+    accent: "#444444",
     href: "#",
   },
   {
@@ -23,7 +23,7 @@ export const THOUGHTS: readonly Thought[] = [
       "Whether you work in marketing, sales, or product design, you understand the importance of a quality landing page — they help you increase your revenue.",
     date: "Mar 15, 2022",
     readTime: "6 min read",
-    accent: "#b6a7ff",
+    accent: "#1a1a1a",
     href: "#",
   },
   {
@@ -32,7 +32,7 @@ export const THOUGHTS: readonly Thought[] = [
       "Standalone websites used to generate leads or sales are changing fast. Here's how product designers can stay ahead of the curve in the coming years.",
     date: "Feb 28, 2022",
     readTime: "6 min read",
-    accent: "#9be3c7",
+    accent: "#888888",
     href: "#",
   },
 ];

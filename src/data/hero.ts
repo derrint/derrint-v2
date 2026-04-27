@@ -24,15 +24,15 @@ export const HERO_TAGS: readonly HeroTag[] = [
   {
     text: "Dynamic Animation, Motion Design",
     Icon: LayersIcon,
-    color: "#ff6b2c",
-    textColor: "#1a0a00",
+    color: "#000000",
+    textColor: "#ffffff",
     href: "#",
   },
   {
     text: "Framer, Figma, WordPress, ReactJS",
     Icon: GridIcon,
-    color: "#d4ff4a",
-    textColor: "#0f1400",
+    color: "#f8f8f8",
+    textColor: "#000000",
     href: "#",
   },
 ];

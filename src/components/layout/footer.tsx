@@ -7,20 +7,20 @@ export function Footer() {
         <div className="flex items-center gap-2 text-sm text-ink-500">
           <span
             aria-hidden
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-[#ff6b2c] text-white"
+            className="flex h-7 w-7 items-center justify-center rounded-full bg-ink-950 text-white"
           >
             <span className="font-bold">s.</span>
           </span>
           <span>
             Made by{" "}
-            <a href="#" className="text-ink-950 hover:text-[#ff6b2c]">
+            <a href="#" className="text-ink-950 hover:text-ink-700">
               Templyo
             </a>{" "}
             · Inspired by{" "}
             <a
               href="https://sawad.framer.website/"
               rel="noreferrer"
-              className="text-ink-950 hover:text-[#ff6b2c]"
+              className="text-ink-950 hover:text-ink-700"
             >
               Sawad
             </a>

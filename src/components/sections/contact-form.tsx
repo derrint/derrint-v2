@@ -82,7 +82,7 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="inline-flex items-center gap-2 rounded-full bg-[#ff6b2c] px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
+            className="inline-flex items-center gap-2 rounded-full bg-ink-950 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {status === "sent"
               ? "Sent ✓"
@@ -97,22 +97,22 @@ export function ContactForm() {
         :global(.input-base) {
           width: 100%;
           border-radius: 0.75rem;
-          border: 1px solid rgb(201 199 193);
+          border: 1px solid rgb(235 235 235);
           background-color: #ffffff;
           padding: 0.875rem 1rem;
           font-size: 0.875rem;
-          color: rgb(15 14 12);
+          color: rgb(0 0 0);
           outline: none;
           transition:
             border-color 150ms ease,
             box-shadow 150ms ease;
         }
         :global(.input-base:focus) {
-          border-color: #ff6b2c;
-          box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.15);
+          border-color: #000000;
+          box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
         }
         :global(.input-base::placeholder) {
-          color: rgb(168 165 156);
+          color: rgb(153 153 153);
         }
       `}</style>
     </Section>

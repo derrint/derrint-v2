@@ -15,7 +15,7 @@ export function ProfileCard() {
           </h2>
           <div
             aria-hidden
-            className="mx-auto mt-3 flex h-8 w-8 items-center justify-center rounded-full bg-[#ff6b2c] text-white"
+            className="mx-auto mt-3 flex h-8 w-8 items-center justify-center rounded-full bg-ink-950 text-white"
           >
             <span className="text-sm font-bold">✦</span>
           </div>
@@ -44,8 +44,8 @@ export function ProfileCard() {
 
 function PortraitPlaceholder() {
   return (
-    <div className="relative mx-auto aspect-[4/5] w-full overflow-hidden rounded-2xl bg-[#e7552a]">
-      <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_30%_20%,rgba(255,180,120,0.55),transparent_55%)]" />
+    <div className="relative mx-auto aspect-[4/5] w-full overflow-hidden rounded-2xl bg-ink-700">
+      <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_30%_20%,rgba(255,255,255,0.18),transparent_60%)]" />
       <svg
         viewBox="0 0 200 250"
         className="absolute inset-0 h-full w-full"
@@ -53,8 +53,8 @@ function PortraitPlaceholder() {
       >
         <defs>
           <linearGradient id="silhouette" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1a1208" />
-            <stop offset="100%" stopColor="#0a0603" />
+            <stop offset="0%" stopColor="#2a2a2a" />
+            <stop offset="100%" stopColor="#000000" />
           </linearGradient>
         </defs>
         <path
@@ -71,7 +71,7 @@ function DashedDecorations() {
     <svg
       aria-hidden
       viewBox="0 0 400 500"
-      className="pointer-events-none absolute -inset-10 z-0 h-[calc(100%+80px)] w-[calc(100%+80px)] text-[#ff6b2c]/50"
+      className="pointer-events-none absolute -inset-10 z-0 h-[calc(100%+80px)] w-[calc(100%+80px)] text-ink-300/60"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.2"
