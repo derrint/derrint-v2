@@ -6,7 +6,7 @@ import { TOOLS } from "@/data/tools";
 export function PremiumTools() {
   return (
     <Section id="tools">
-      <SectionHeading line1="Premium" line2="Tools" />
+      <SectionHeading line1="Tech" line2="Stack" />
       <div className="grid grid-cols-1 gap-5 gap-y-6 sm:grid-cols-2">
         {TOOLS.map((tool) => (
           <ToolCard key={tool.name} {...tool} />
