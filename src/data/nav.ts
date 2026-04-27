@@ -17,6 +17,6 @@ export const NAV_ITEMS: readonly NavItem[] = [
   { label: "Home", href: "#home", Icon: HomeIcon },
   { label: "Projects", href: "#projects", Icon: FolderIcon },
   { label: "Experience", href: "#experience", Icon: BriefcaseIcon },
-  { label: "Tools", href: "#tools", Icon: ToolIcon },
+  { label: "Tech Stack", href: "#tools", Icon: ToolIcon },
   { label: "Thoughts", href: "#thoughts", Icon: PencilIcon },
 ];

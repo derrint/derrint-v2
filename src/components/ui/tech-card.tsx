@@ -1,6 +1,6 @@
-import type { Tool } from "@/data/tools";
+import type { TechItem } from "@/data/tech-stack";
 
-export function ToolCard({ name, subtitle, Icon, color, iconColor = "#ffffff" }: Tool) {
+export function TechCard({ name, subtitle, Icon, color, iconColor = "#ffffff" }: TechItem) {
   return (
     <div className="flex items-center gap-3">
       <div
@@ -20,4 +20,4 @@ export function ToolCard({ name, subtitle, Icon, color, iconColor = "#ffffff" }:
   );
 }
 
-export default ToolCard;
+export default TechCard;

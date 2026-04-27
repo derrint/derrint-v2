@@ -9,7 +9,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 
-export type Tool = {
+export type TechItem = {
   name: string;
   subtitle: string;
   Icon: ComponentType<SVGProps<SVGSVGElement>>;
@@ -17,7 +17,7 @@ export type Tool = {
   iconColor?: string;
 };
 
-export const TOOLS: readonly Tool[] = [
+export const TECH_STACK: readonly TechItem[] = [
   {
     name: "TypeScript / JavaScript",
     subtitle: "Core Language",
