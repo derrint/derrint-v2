@@ -13,7 +13,7 @@ export function Hero() {
 
       <Headline />
 
-      <p className="max-w-md text-sm leading-relaxed text-ink-600 sm:text-base">
+      <p className="text-sm leading-relaxed text-ink-600 sm:text-base">
         {PROFILE.description}
       </p>
 

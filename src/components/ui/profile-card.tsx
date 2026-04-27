@@ -9,7 +9,7 @@ export function ProfileCard() {
         <Portrait />
 
         <div className="text-center">
-          <h2 className="font-display text-2xl font-bold tracking-tight text-ink-900">
+          <h2 className="font-display text-3xl font-bold tracking-tight text-ink-900">
             {PROFILE.name}
           </h2>
           <div
@@ -18,7 +18,7 @@ export function ProfileCard() {
           >
             <span className="text-sm font-bold">✦</span>
           </div>
-          <p className="mx-auto mt-4 max-w-[22ch] text-sm leading-relaxed text-ink-500">
+          <p className="mx-auto mt-4 max-w-[22ch] text-md leading-relaxed text-ink-500">
             {PROFILE.bio}
           </p>
         </div>

@@ -6,7 +6,7 @@ export function StatCard({ value, label }: Stat) {
       <span className="heading-display text-5xl font-bold leading-none text-ink-950 sm:text-6xl">
         {value}
       </span>
-      <span className="mt-3 max-w-[9rem] text-[11px] font-semibold uppercase leading-tight tracking-[0.15em] text-ink-500">
+      <span className="mt-3 max-w-36 text-sm font-semibold uppercase leading-tight tracking-[0.15em] text-ink-500">
         {label}
       </span>
     </div>

@@ -14,9 +14,23 @@ export type HeroTag = {
   href: string;
 };
 
+const CAREER_START = new Date("2012-06-01T00:00:00Z");
+
+function yearsSince(start: Date, now: Date = new Date()): number {
+  let years = now.getUTCFullYear() - start.getUTCFullYear();
+  const monthDiff = now.getUTCMonth() - start.getUTCMonth();
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && now.getUTCDate() < start.getUTCDate())
+  ) {
+    years -= 1;
+  }
+  return years;
+}
+
 export const STATS: readonly Stat[] = [
-  { value: "+12", label: "Years of Experience" },
-  { value: "+46", label: "Projects Completed" },
+  { value: `+${yearsSince(CAREER_START)}`, label: "Years of Experience" },
+  { value: "+50", label: "Projects Involved" },
   { value: "+20", label: "Worldwide Clients" },
 ];
 

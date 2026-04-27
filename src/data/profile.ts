@@ -15,9 +15,9 @@ export type Social = {
 export const PROFILE = {
   name: "Lorensio Derrint",
   role: "Software Engineer",
-  bio: "A Software Engineer who has developed countless innovative solutions.",
+  bio: "Senior Front-End Engineer at KangarooHealth, building healthcare dashboards and remote patient monitoring solutions.",
   description:
-    "Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into beautifully crafted products.",
+    "Experienced crafting high-performance web and mobile products — across Healthcare, EdTech, Automotive, Marketplace, Broadcasting, Finance, Travel, and Hospitality.",
   email: "hello@sawad.design",
   location: "Remote · Worldwide",
 } as const;
