@@ -1,4 +1,5 @@
-import { PlayIcon } from "@/components/icons";
+import Image from "next/image";
+
 import { PROFILE, SOCIALS } from "@/data/profile";
 
 export function ProfileCard() {
@@ -7,7 +8,7 @@ export function ProfileCard() {
       <DashedDecorations />
 
       <div className="relative z-10 flex flex-col gap-5 rounded-[28px] border border-ink-200 bg-white p-5 text-ink-900 shadow-[0_25px_50px_-20px_rgba(15,14,12,0.18)]">
-        <PortraitPlaceholder />
+        <Portrait />
 
         <div className="text-center">
           <h2 className="font-display text-2xl font-bold tracking-tight text-ink-900">
@@ -42,26 +43,19 @@ export function ProfileCard() {
   );
 }
 
-function PortraitPlaceholder() {
+function Portrait() {
   return (
-    <div className="relative mx-auto aspect-[4/5] w-full overflow-hidden rounded-2xl bg-ink-700">
-      <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_30%_20%,rgba(255,255,255,0.18),transparent_60%)]" />
-      <svg
-        viewBox="0 0 200 250"
-        className="absolute inset-0 h-full w-full"
-        aria-hidden
-      >
-        <defs>
-          <linearGradient id="silhouette" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#2a2a2a" />
-            <stop offset="100%" stopColor="#000000" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M100 60c18 0 32 15 32 34 0 12-5 22-12 28 18 8 30 23 34 48 1 7 1 20 1 30H45c0-10 0-23 1-30 4-25 16-40 34-48-7-6-12-16-12-28 0-19 14-34 32-34Z"
-          fill="url(#silhouette)"
+    <div className="relative mx-auto aspect-square w-full max-w-[260px]">
+      <div className="animate-morph relative h-full w-full overflow-hidden bg-ink-100 shadow-[inset_0_0_0_9px_rgba(255,255,255,0.3)]">
+        <Image
+          src="/avatar.jpg"
+          alt={PROFILE.name}
+          fill
+          sizes="(max-width: 768px) 220px, 260px"
+          className="object-cover"
+          priority
         />
-      </svg>
+      </div>
     </div>
   );
 }
