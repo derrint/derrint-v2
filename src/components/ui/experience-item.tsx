@@ -3,6 +3,7 @@ import type { Experience } from "@/data/experience";
 
 export function ExperienceItem({
   company,
+  role,
   description,
   period,
 }: Experience) {
@@ -13,7 +14,10 @@ export function ExperienceItem({
         className="group flex items-start gap-6 border-b border-ink-200 py-6 transition-colors hover:border-ink-400"
       >
         <div className="flex-1">
-          <h3 className="font-display text-lg font-semibold text-ink-950 transition-colors group-hover:text-ink-700">
+          <p className="text-xs font-medium uppercase tracking-wider text-ink-400">
+            {role}
+          </p>
+          <h3 className="mt-1 font-display text-lg font-semibold text-ink-950 transition-colors group-hover:text-ink-700">
             {company}
           </h3>
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-600">

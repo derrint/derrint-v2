@@ -1,26 +1,44 @@
 export type Experience = {
   company: string;
+  role: string;
   description: string;
   period: string;
 };
 
 export const EXPERIENCES: readonly Experience[] = [
   {
-    company: "PixelForge Studios",
+    company: "KangarooHealth Inc.",
+    role: "Senior Front-End Engineer",
     description:
-      "Led the design team in creating user-centric mobile and web applications, improving the user experience and increasing user engagement.",
-    period: "Jan 2020 — Present",
+      "Building & maintaining intelligent virtual care program, healthcare dashboards and remote patient monitoring solutions. Improving care coordination and patient onboarding for a US-based telehealth platform.",
+    period: "2024 — Present",
   },
   {
-    company: "BlueWave Innovators",
+    company: "PT Quipper Edukasi Indonesia",
+    role: "Senior Front-End Engineer",
     description:
-      "Developed and implemented design strategies for new product lines, collaborated closely with engineers and product managers.",
-    period: "Jun 2017 — Dec 2019",
+      "Collaborated with the design team to create new features for an E-Learning web app ecosystem. Involved in School Management web app redesign & new feature development.",
+    period: "2022 — 2024",
   },
   {
-    company: "TrendCraft Solutions",
+    company: "PT Qlip Qlop Qlap",
+    role: "Senior Front-End Engineer",
     description:
-      "Designed user interfaces for e-commerce platforms, focusing on enhancing usability and visual appeal.",
-    period: "Mar 2015 — May 2017",
+      "Built new Marketplace & Game Supporting website app related to NFT & Cryptocurrency. Involved in Blockchain Explorer app development.",
+    period: "2021 — 2022",
+  },
+  {
+    company: "PT Kano Teknologi Utama & EACIIT Pte. Ltd.",
+    role: "Software Engineer",
+    description:
+      "Built Marketplace & Event Supporting mobile app for national-scale event with 70K+ downloads. Initiated full-stack development of Car Insurance & Tax Management web app. Collaborated with product team members to implement new features for Bank Report web app.",
+    period: "2019 — 2022",
+  },
+  {
+    company: "PT WeSolve Solusi Indonesia",
+    role: "Full Stack Developer",
+    description:
+      "Involved in full-stack development of Booking Engine solution for Hospitality & Tourism Industry. Implemented & maintained 30+ responsive, mobile-first approach websites for client needs.",
+    period: "2016 — 2018",
   },
 ];

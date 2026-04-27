@@ -29,8 +29,10 @@ function yearsSince(start: Date, now: Date = new Date()): number {
   return years;
 }
 
+export const yearsOfExperience = yearsSince(CAREER_START);
+
 export const STATS: readonly Stat[] = [
-  { value: `+${yearsSince(CAREER_START)}`, label: "Years of Experience" },
+  { value: `+${yearsOfExperience}`, label: "Years of Experience" },
   { value: `+${ALL_PROJECTS.length}`, label: "Projects Completed" },
   { value: "+9", label: "Industries Involved" },
 ];
