@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { PROFILE, SOCIALS } from "@/data/profile";
 
 export function ProfileCard() {
@@ -45,17 +43,19 @@ export function ProfileCard() {
 
 function Portrait() {
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[260px]">
-      <div className="animate-morph relative h-full w-full overflow-hidden bg-ink-100 shadow-[inset_0_0_0_9px_rgba(255,255,255,0.3)]">
-        <Image
-          src="/avatar.jpg"
-          alt={PROFILE.name}
-          fill
-          sizes="(max-width: 768px) 220px, 260px"
-          className="object-cover"
-          priority
-        />
-      </div>
+    <div
+      className="avatar relative mx-auto aspect-square w-full max-w-[260px] rounded-full"
+      data-type="wave"
+    >
+      <div
+        className="image animate-morph absolute inset-0 bg-cover bg-center bg-no-repeat shadow-[inset_0_0_0_9px_rgba(255,255,255,0.3)]"
+        style={{
+          backgroundImage: `url('/avatar.jpg')`,
+          backgroundBlendMode: "multiply",
+        }}
+        role="img"
+        aria-label={PROFILE.name}
+      />
     </div>
   );
 }
