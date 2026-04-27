@@ -1,4 +1,5 @@
 import { GridIcon, LayersIcon } from "@/components/icons";
+import { ALL_PROJECTS } from "@/data/projects";
 import type { ComponentType, SVGProps } from "react";
 
 export type Stat = {
@@ -30,8 +31,8 @@ function yearsSince(start: Date, now: Date = new Date()): number {
 
 export const STATS: readonly Stat[] = [
   { value: `+${yearsSince(CAREER_START)}`, label: "Years of Experience" },
-  { value: "+50", label: "Projects Involved" },
-  { value: "+20", label: "Worldwide Clients" },
+  { value: `+${ALL_PROJECTS.length}`, label: "Projects Completed" },
+  { value: "+9", label: "Industries Involved" },
 ];
 
 export const HERO_TAGS: readonly HeroTag[] = [

@@ -1,10 +1,13 @@
+import Image from "next/image";
+
 import { ArrowUpRightIcon } from "@/components/icons";
 import type { Project } from "@/data/projects";
 
 export function ProjectCard({
   name,
-  category,
+  description,
   accent,
+  cover,
   href = "#",
 }: Project) {
   return (
@@ -13,13 +16,25 @@ export function ProjectCard({
         href={href}
         className="group flex items-center gap-5 border-b border-ink-200 py-5 transition-colors hover:border-ink-400"
       >
-        <ProjectThumbnail color={accent} />
+        {cover ? (
+          <div className="relative h-14 w-20 shrink-0 overflow-hidden rounded-lg border border-ink-200">
+            <Image
+              src={cover}
+              alt={name}
+              fill
+              sizes="80px"
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <ProjectThumbnail color={accent} />
+        )}
 
         <div className="min-w-0 flex-1">
           <p className="font-display text-lg font-semibold text-ink-950">
             {name}
           </p>
-          <p className="text-xs text-ink-500">{category}</p>
+          <p className="text-xs text-ink-500">{description}</p>
         </div>
 
         <span
