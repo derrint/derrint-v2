@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink-50: #ffffff;
+  --color-ink-50: #efece5;
   --color-ink-100: #f8f8f8;
   --color-ink-200: #ebebeb;
   --color-ink-300: #dfdfdf;
@@ -69,8 +69,12 @@ body {
   background-image:
     radial-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px),
     radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-  background-size: 3px 3px, 5px 5px;
-  background-position: 0 0, 1px 2px;
+  background-size:
+    3px 3px,
+    5px 5px;
+  background-position:
+    0 0,
+    1px 2px;
 }
 
 @keyframes morph {
