@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jadwal Misa Malang Raya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9993A;
+    --gold-light: #E8C57A;
+    --gold-dim: #7a5c1e;
+    --dark: #0f0c08;
+    --dark-2: #1a1610;
+    --dark-3: #252018;
+    --dark-4: #2e2820;
+    --cream: #f5efe3;
+    --cream-dim: #c9bfa8;
+    --text: #e8dfc8;
+    --text-dim: #9a8f78;
+    --green: #4caf82;
+    --yellow: #d4a843;
+    --red: #c0544a;
+    --border: rgba(201,153,58,0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 10%, rgba(201,153,58,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(201,153,58,0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: relative;
+    z-index: 10;
+    padding: 3rem 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(to bottom, rgba(201,153,58,0.06), transparent);
+  }
+
+  .cross-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(201,153,58,0.5);
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(201,153,58,0.4); }
+    50% { text-shadow: 0 0 40px rgba(201,153,58,0.8), 0 0 60px rgba(201,153,58,0.3); }
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  header h1 span {
+    color: var(--gold);
+  }
+
+  header p.subtitle {
+    margin-top: 0.5rem;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .header-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    background: rgba(201,153,58,0.08);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .meta-badge .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* ── MAIN ── */
+  main {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  /* ── SEARCH & FILTER ── */
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-wrap {
+    position: relative;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dim);
+    width: 16px; height: 16px;
+  }
+
+  #searchInput {
+    width: 100%;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.8rem 1rem 0.8rem 2.8rem;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  #searchInput:focus { border-color: var(--gold); }
+  #searchInput::placeholder { color: var(--text-dim); }
+
+  .filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.45rem 0.9rem;
+    color: var(--text-dim);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .filter-btn:hover { border-color: var(--gold-dim); color: var(--gold-light); }
+  .filter-btn.active {
+    background: rgba(201,153,58,0.15);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .filter-group-label {
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    margin: 0.4rem 0 0.15rem;
+  }
+  .controls .filter-group-label:first-of-type {
+    margin-top: 0;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin: 1.8rem 0 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* ── CARD ── */
+  .church-card {
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .church-card:hover { border-color: rgba(201,153,58,0.4); }
+  .church-card.hidden { display: none; }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem 1.1rem 0.9rem;
+    cursor: pointer;
+    gap: 0.8rem;
+    user-select: none;
+  }
+
+  .card-header-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: rgba(201,153,58,0.1);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .card-title-block { flex: 1; min-width: 0; }
+
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.3;
+  }
+
+  .card-paroki {
+    font-size: 0.72rem;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-top: 1px;
+  }
+
+  .card-location {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.73rem;
+    color: var(--text-dim);
+    margin-top: 0.25rem;
+  }
+
+  .card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+    flex-shrink: 0;
+  }
+
+  .trust-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .trust-high { background: rgba(76,175,130,0.15); color: var(--green); border: 1px solid rgba(76,175,130,0.25); }
+  .trust-med  { background: rgba(212,168,67,0.15); color: var(--yellow); border: 1px solid rgba(212,168,67,0.25); }
+  .trust-low  { background: rgba(192,84,74,0.15);  color: var(--red);    border: 1px solid rgba(192,84,74,0.25); }
+
+  .chevron {
+    color: var(--text-dim);
+    transition: transform 0.3s;
+    font-size: 0.75rem;
+    line-height: 1;
+  }
+  .church-card.open .chevron { transform: rotate(180deg); }
+
+  /* ── SCHEDULE PREVIEW (always visible) ── */
+  .schedule-preview {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 1.1rem 0.9rem 5rem;
+    flex-wrap: wrap;
+  }
+
+  .sched-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.2rem 0.55rem;
+    font-size: 0.72rem;
+    color: var(--text);
+  }
+
+  .sched-pill .day-label {
+    font-size: 0.62rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── EXPANDED DETAILS ── */
+  .card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .church-card.open .card-body { max-height: 800px; }
+
+  .card-body-inner {
+    padding: 0 1.1rem 1.2rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .detail-box {
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.8rem;
+  }
+
+  .detail-box-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .time-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .time-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text);
+  }
+
+  .time-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .source-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .source-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .note-box {
+    background: rgba(201,153,58,0.06);
+    border: 1px solid rgba(201,153,58,0.2);
+    border-radius: 8px;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.75rem;
+    color: var(--cream-dim);
+    line-height: 1.5;
+    margin-top: 0.7rem;
+  }
+
+  .note-box strong { color: var(--gold-light); }
+
+  .note-box--warn {
+    background: rgba(212,168,67,0.06);
+    border-color: rgba(212,168,67,0.2);
+  }
+  .note-box--danger {
+    background: rgba(192,84,74,0.06);
+    border-color: rgba(192,84,74,0.2);
+  }
+
+  /* ── NO RESULTS ── */
+  #noResults {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-dim);
+    display: none;
+  }
+
+  /* ── INFO PANEL ── */
+  .info-panel {
+    background: var(--dark-2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  .info-panel h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--cream);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-panel ul {
+    padding-left: 1.2rem;
+  }
+
+  .info-panel li { margin-bottom: 0.25rem; }
+  .info-panel li strong { color: var(--cream); }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    .detail-grid { grid-template-columns: 1fr; }
+    .schedule-preview { padding-left: 1.1rem; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .church-card {
+    animation: fadeUp 0.4s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label, .controls, header {
+    animation: fadeIn 0.5s ease both;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* count badge */
+  #resultCount {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+    padding-left: 0.2rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="cross-icon">✝</div>
+  <h1>Jadwal Misa <span>Malang Raya</span></h1>
+  <p class="subtitle">Kota Malang &amp; Kabupaten Malang — 2026</p>
+  <div class="header-meta">
+    <span class="meta-badge"><span class="dot"></span> <span id="parish-count-num">14</span> Paroki</span>
+    <span class="meta-badge"><span class="dot"></span> Data terverifikasi</span>
+    <span class="meta-badge"><span class="dot"></span> Keuskupan Malang</span>
+  </div>
+</header>
+
+<main>
+  <div class="controls">
+    <div class="search-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Cari nama gereja, lokasi…" autocomplete="off" enterkeyhint="search">
+    </div>
+    <div class="filter-group-label">Wilayah &amp; tingkat data</div>
+    <div class="filter-tabs" id="filter-region" role="group" aria-label="Wilayah dan tingkat kepercayaan data">
+      <button type="button" class="filter-btn active" data-region="all">Semua</button>
+      <button type="button" class="filter-btn" data-region="kota">Kota Malang</button>
+      <button type="button" class="filter-btn" data-region="kabupaten">Kab. Malang</button>
+      <button type="button" class="filter-btn" data-region="tinggi">✅ Data Valid</button>
+      <button type="button" class="filter-btn" data-region="perludicek">⚠️ Perlu Dicek</button>
+    </div>
+    <div class="filter-group-label">Waktu liturgi</div>
+    <div class="filter-tabs" id="filter-liturgy" role="group" aria-label="Filter waktu misa (vigil dan Minggu)">
+      <button type="button" class="filter-btn active" data-liturgy="all" title="Tampilkan semua jadwal">Semua jam</button>
+      <button type="button" class="filter-btn" data-liturgy="sabtu_sore" title="Misa Sabtu mulai 16.00 WIB atau sesudahnya">Sabtu sore</button>
+      <button type="button" class="filter-btn" data-liturgy="minggu_pagi" title="Misa Minggu sebelum 11.00 WIB">Minggu pagi</button>
+      <button type="button" class="filter-btn" data-liturgy="minggu_sore" title="Misa Minggu mulai 15.00 WIB atau sesudahnya">Minggu sore</button>
+    </div>
+  </div>
+
+  <div id="resultCount"></div>
+
+  <div id="parishes-root" aria-live="polite"></div>
+
+<script type="application/json" id="parishes-data">
+{
+  "version": 1,
+  "title": "Jadwal Misa Malang Raya",
+  "parishes": [
+    {
+      "sectionLabel": "🏛 Kota Malang — Dekenat I",
+      "id": "ijen",
+      "wilayah": "kota",
+      "trust": "tinggi",
+      "search": "ijen katedral spmgk santa perawan maria gunung karmel buring klojen",
+      "cardName": "Gereja Katedral Ijen",
+      "cardParoki": "Paroki SPMGK (Ijen)",
+      "location": "📍 Jl. Buring No. 60, Klojen",
+      "sabtu": [
+        "16.30",
+        "18.30"
+      ],
+      "minggu": [
+        "05.30",
+        "07.30",
+        "16.30",
+        "18.30"
+      ],
+      "noteHtml": "<strong>Kapel:</strong> Kapel Sengkaling (Sabtu 17.00) · Kapel Landungsari (Sabtu 18.00)<br><strong>Misa Harian:</strong> 05.30 WIB setiap hari<br><strong>Kontak:</strong> (0341) 362524",
+      "sources": [
+        "🌐 parokiijenmalang.my.id",
+        "📷 @parokiijen"
+      ]
+    },
+    {
+      "id": "langsep",
+      "wilayah": "kota",
+      "trust": "tinggi",
+      "search": "langsep vincentius paulo ananas sukun pisang candi",
+      "cardName": "Gereja St. Vincentius A Paulo",
+      "cardParoki": "Paroki Langsep",
+      "location": "📍 Jl. Ananas No. 41, Sukun",
+      "sabtu": [
+        "17.00"
+      ],
+      "minggu": [
+        "06.00",
+        "08.00",
+        "17.00"
+      ],
+      "noteHtml": "<strong>Misa Harian:</strong> 05.30 WIB setiap hari<br><strong>Misa Penyembuhan:</strong> Diadakan setiap bulan (konfirmasi ke paroki)<br><strong>Kontak:</strong> (0341) 561336",
+      "sources": [
+        "🌐 parokilangsep.org",
+        "📷 @parokilangsep_malang"
+      ]
+    },
+    {
+      "id": "tidar",
+      "wilayah": "kota",
+      "trust": "tinggi",
+      "search": "tidar andreas puncak esberg dau karangwidoro",
+      "cardName": "Gereja St. Andreas",
+      "cardParoki": "Paroki Tidar",
+      "location": "📍 Jl. Puncak Esberg No. 22, Dau",
+      "sabtu": [
+        "17.00"
+      ],
+      "minggu": [
+        "06.30",
+        "09.00",
+        "17.00"
+      ],
+      "noteHtml": "<strong>Misa Harian:</strong> 05.30 WIB · <strong>Jalan Salib Jumat:</strong> 17.00 (dilanjut misa)<br><strong>Ordo:</strong> Karmel (O.Carm)<br><strong>Website:</strong> parokitidarmalang.org",
+      "sources": [
+        "🌐 parokitidarmalang.org",
+        "🗓 Update: Maret 2026"
+      ]
+    },
+    {
+      "sectionLabel": "🏙 Kota Malang — Dekenat II",
+      "id": "blimbing",
+      "wilayah": "kota",
+      "trust": "tinggi",
+      "search": "blimbing albertus trapani yani ahmad",
+      "cardName": "Gereja St. Albertus de Trapani",
+      "cardParoki": "Paroki Blimbing",
+      "location": "📍 Jl. A. Yani No. 22, Blimbing",
+      "sabtu": [
+        "17.00",
+        "19.00"
+      ],
+      "minggu": [
+        "06.00",
+        "08.00",
+        "17.00",
+        "19.00"
+      ],
+      "noteHtml": "<strong>Misa Harian:</strong> 05.30 & 19.00 WIB · <strong>Jumat Pertama:</strong> 18.00 WIB<br><strong>Kapel Kolese St. Yusuf:</strong> Sabtu Minggu pagi 07.00 (Mojolangu)<br><strong>Kontak:</strong> (0341) 491842",
+      "sources": [
+        "🌐 parokiblimbing.org",
+        "📷 @parokiblimbing"
+      ]
+    },
+    {
+      "id": "kayutangan",
+      "wilayah": "kota",
+      "trust": "tinggi",
+      "search": "kayutangan hati kudus yesus sugiyopranoto klojen kiduldalem",
+      "cardName": "Gereja Hati Kudus Yesus",
+      "cardParoki": "Paroki Kayutangan",
+      "location": "📍 Jl. MGR Sugiyopranoto No. 2, Klojen",
+      "sabtu": [
+        "17.00"
+      ],
+      "minggu": [
+        "07.00",
+        "09.00",
+        "17.00"
+      ],
+      "noteHtml": "<strong>Misa Harian:</strong> Senin–Kamis 12.00, Jumat 11.30 · <strong>Ordo:</strong> Karmel (O.Carm)<br><strong>Gereja Neo-Gothic tertua di Malang</strong> (berdiri 1897, bangunan 1905)<br><strong>Kontak:</strong> (0341) 323938",
+      "sources": [
+        "🌐 hkykayutangan.org",
+        "📷 @hky.kayutangan"
+      ]
+    },
+    {
+      "id": "kesatrian",
+      "wilayah": "kota",
+      "trust": "sedang",
+      "search": "kesatrian ratu rosari plongkowati blimbing",
+      "cardName": "Gereja Maria Ratu Rosari",
+      "cardParoki": "Paroki Kesatrian",
+      "location": "📍 Jl. Plongkowati No. 2, Blimbing",
+      "sabtu": [
+        "16.30"
+      ],
+      "minggu": [
+        "06.00",
+        "08.00",
+        "16.30"
+      ],
+      "noteSkin": "warn",
+      "noteHtml": "⚠️ <strong>Perlu dicek ulang.</strong> Data dari agregator, belum ada website/IG resmi yang terverifikasi.<br><strong>Kontak:</strong> (0341) 366371",
+      "sources": [
+        "🗃 jadwalmisa.id (agregator)"
+      ]
+    },
+    {
+      "id": "janti",
+      "wilayah": "kota",
+      "trust": "sedang",
+      "search": "janti yohanes pemandi keben surya timur kedungkandang",
+      "cardName": "Gereja St. Yohanes Pemandi",
+      "cardParoki": "Paroki Janti",
+      "location": "📍 Jl. Keben II Surya Timur No. 9-10, Kedungkandang",
+      "sabtu": [
+        "17.00"
+      ],
+      "minggu": [
+        "06.00",
+        "08.00"
+      ],
+      "noteSkin": "warn",
+      "noteHtml": "⚠️ <strong>Perlu dicek ulang.</strong> Data dari agregator, belum ada konfirmasi dari sumber resmi 2026.<br><strong>Kontak:</strong> (0341) 800441",
+      "sources": [
+        "🗃 jadwalmisa.id (agregator)"
+      ]
+    },
+    {
+      "id": "lely",
+      "wilayah": "kota",
+      "trust": "sedang",
+      "search": "lely maria diangkat surga celaket bunga lely lowokwaru",
+      "cardName": "Gereja Maria Diangkat Ke Surga",
+      "cardParoki": "Paroki Lely (Celaket)",
+      "location": "📍 Jl. Bunga Lely No. 17-19, Lowokwaru",
+      "sabtu": [
+        "17.00"
+      ],
+      "minggu": [
+        "06.00",
+        "08.00"
+      ],
+      "noteHtml": "<strong>Misa Harian:</strong> Senin, Selasa, Rabu, Jumat 17.30 · Kamis 05.30<br><strong>Gereja Cor Jesu</strong> (area paroki): Sabtu 17.00 · Minggu 06.00, 08.00, 17.00<br><strong>IG:</strong> @mdks_lelycelaket",
+      "sources": [
+        "🌐 parokimdkslely.org",
+        "📷 @mdks_lelycelaket"
+      ]
+    },
+    {
+      "sectionLabel": "🌿 Kabupaten Malang — Dekenat Utara",
+      "id": "lawang",
+      "wilayah": "kabupaten",
+      "trust": "sedang",
+      "search": "lawang santa maria tak bernoda gereja jago stasiun",
+      "cardName": "Gereja Santa Maria Tak Bernoda",
+      "cardParoki": "Paroki Lawang",
+      "location": "📍 Area Stasiun Lawang, Kab. Malang",
+      "sabtu": [
+        "17.00"
+      ],
+      "minggu": [
+        "07.00"
+      ],
+      "noteHtml": "<strong>Misa Harian:</strong> Senin–Kamis 05.30 · <strong>Jumat Pertama:</strong> 17.00<br><strong>Gereja tertua ketiga</strong> Keuskupan Malang (dibangun 1918) — dikenal sebagai \"Gereja Jago\"<br><strong>Facebook:</strong> paroki.lawang",
+      "sources": [
+        "🗃 jadwalmisa.id + Google Maps"
+      ]
+    },
+    {
+      "id": "singosari",
+      "wilayah": "kabupaten",
+      "trust": "tinggi",
+      "search": "singosari yohanes maria vianney tni au",
+      "cardName": "Gereja St. Yohanes Maria Vianney",
+      "cardParoki": "Paroki Singosari",
+      "location": "📍 Area TNI AU Singosari, Kab. Malang",
+      "sabtuDetail": [
+        "06.00 WIB (harian)",
+        "17.00 WIB (mingguan)"
+      ],
+      "sabtu": [
+        "06.00",
+        "17.00"
+      ],
+      "minggu": [
+        "08.00"
+      ],
+      "noteHtml": "<strong>Misa Harian:</strong> Senin–Jumat 18.00, Sabtu 06.00<br><strong>IG:</strong> @parokisingosari (aktif 2025)",
+      "sources": [
+        "📷 @parokisingosari",
+        "🗃 jadwalmisa.id"
+      ]
+    },
+    {
+      "id": "tumpang",
+      "wilayah": "kabupaten",
+      "trust": "sedang",
+      "search": "tumpang maria diangkat ke surga raya tumpang",
+      "cardName": "Gereja Santa Maria Diangkat Ke Surga",
+      "cardParoki": "Paroki Tumpang",
+      "location": "📍 Jl. Raya Tumpang, Kec. Tumpang",
+      "sabtu": [
+        "17.00"
+      ],
+      "minggu": [
+        "08.00"
+      ],
+      "noteSkin": "warn",
+      "noteHtml": "<strong>Jumat Pertama:</strong> 18.00 WIB<br>⚠️ Data dari agregator — disarankan konfirmasi langsung ke paroki sebelum hadir.",
+      "sources": [
+        "🗃 jadwalmisa.id (agregator)"
+      ]
+    },
+    {
+      "sectionLabel": "🌾 Kabupaten Malang — Dekenat Selatan",
+      "id": "kepanjen",
+      "wilayah": "kabupaten",
+      "trust": "sedang",
+      "search": "kepanjen santa maria tak bernoda kawi banurejo",
+      "cardName": "Gereja Santa Maria Tak Bernoda",
+      "cardParoki": "Paroki Kepanjen",
+      "location": "📍 Jl. Kawi No. 21, Kepanjen",
+      "sabtu": [
+        "18.00"
+      ],
+      "minggu": [
+        "06.30"
+      ],
+      "noteSkin": "warn",
+      "noteHtml": "<strong>Jumat Pertama:</strong> 17.30 WIB<br>⚠️ Website paroki ada tapi jadwal misa tidak tampil eksplisit. Disarankan konfirmasi langsung.",
+      "sources": [
+        "🗃 jadwalmisa.id (agregator)"
+      ]
+    },
+    {
+      "id": "purworejo",
+      "wilayah": "kabupaten",
+      "trust": "tinggi",
+      "search": "purworejo santa perawan maria ratu damai gondanglegi",
+      "cardName": "Gereja Santa Perawan Maria",
+      "cardParoki": "Paroki Purworejo (Maria Ratu Damai)",
+      "location": "📍 Jl. Raya Purworejo, area Gondanglegi",
+      "sabtu": [
+        "18.00"
+      ],
+      "minggu": [
+        "07.00",
+        "18.00"
+      ],
+      "mingguDetail": [
+        "07.00 WIB",
+        "18.00 WIB ✦ Bahasa Jawa (Minggu I)"
+      ],
+      "noteHtml": "<strong>Misa Harian:</strong> Senin 05.30 (di gereja) · Selasa–Kamis 05.30 (di stasi)<br><strong>Jumat Pertama:</strong> 17.00 WIB<br>Misa Minggu sore pertama setiap bulan menggunakan <strong>bahasa Jawa</strong>.",
+      "sources": [
+        "🌐 spmariapwr.org",
+        "✅ Terverifikasi"
+      ]
+    },
+    {
+      "id": "lodalem",
+      "wilayah": "kabupaten",
+      "trust": "rendah",
+      "search": "lodalem maria annuntiata trisula arjowilangun kalipare",
+      "cardName": "Gereja Maria Annuntiata",
+      "cardParoki": "Paroki Lodalem",
+      "location": "📍 Jl. Trisula No. 57, Arjowilangun, Kalipare",
+      "noSchedule": true,
+      "schedulePreviewSabtu": "—",
+      "schedulePreviewMinggu": "Data tidak tersedia",
+      "sabtu": [],
+      "minggu": [],
+      "noteSkin": "danger",
+      "noteHtml": "❓ <strong>Data tidak tersedia secara online.</strong><br>Paroki ini berlokasi di Malang Selatan (Kalipare) — wilayah terpencil dengan kehadiran digital yang sangat terbatas.<br><br><strong>Sangat disarankan:</strong> Hubungi langsung ke (0341) 379629 untuk konfirmasi jadwal misa terbaru.",
+      "sources": [
+        "📋 Terdaftar di Keuskupan Malang"
+      ]
+    }
+  ]
+}
+</script>
+
+  <div id="noResults">
+    <div style="font-size:2rem;margin-bottom:0.5rem;">🔍</div>
+    <div>Tidak ada gereja yang sesuai dengan pencarian.</div>
+  </div>
+
+  <!-- INFO PANEL -->
+  <div class="info-panel">
+    <h3>📌 Panduan & Catatan Penting</h3>
+    <ul>
+      <li>Jadwal ini berlaku untuk <strong>misa reguler</strong>. Pada Hari Raya Besar (Natal, Paskah, dll.) jadwal biasanya berubah — selalu cek website/IG resmi.</li>
+      <li>Jadwal bisa berubah sewaktu-waktu karena acara paroki, renovasi, atau kondisi khusus.</li>
+      <li>Data diverifikasi dari sumber resmi paroki per <strong><time id="info-page-updated" datetime=""></time></strong>. Paroki dengan badge ⚠️ disarankan dikonfirmasi langsung.</li>
+      <li>Seluruh paroki di bawah naungan <strong>Keuskupan Malang</strong> — keuskupanmalang.com</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  Data diambil dari website resmi paroki, Instagram resmi, dan sumber terverifikasi (tersimpan sebagai JSON di berkas ini)<br>
+  Keuskupan Malang · Data diambil per tanggal <time id="footer-page-updated" datetime=""></time> · Untuk keperluan informasi pribadi
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var TRUST_CLASS = { tinggi: "trust-high", sedang: "trust-med", rendah: "trust-low" };
+  var TRUST_TEXT = { tinggi: "✅ Tinggi", sedang: "⚠️ Sedang", rendah: "❓ Rendah" };
+  var SABTU_SORE_MIN = 16 * 60;
+  var MINGGU_PAGI_CUTOFF = 11 * 60;
+  var MINGGU_SORE_MIN = 15 * 60;
+
+  var activeRegion = "all";
+  var activeLiturgy = "all";
+  var parishCount = 0;
+
+  window.toggleCard = function (header) {
+    var card = header.closest(".church-card");
+    if (card) card.classList.toggle("open");
+  };
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function parseMinutes(t) {
+    var p = String(t).replace(/\./g, ":").split(":");
+    var h = parseInt(p[0], 10) || 0;
+    var m = parseInt(p[1], 10) || 0;
+    return h * 60 + m;
+  }
+
+  function hasSabtuSore(p) {
+    if (!p.sabtu || !p.sabtu.length) return false;
+    return p.sabtu.some(function (t) {
+      return parseMinutes(t) >= SABTU_SORE_MIN;
+    });
+  }
+
+  function hasMingguPagi(p) {
+    if (!p.minggu || !p.minggu.length) return false;
+    return p.minggu.some(function (t) {
+      return parseMinutes(t) < MINGGU_PAGI_CUTOFF;
+    });
+  }
+
+  function hasMingguSore(p) {
+    if (!p.minggu || !p.minggu.length) return false;
+    return p.minggu.some(function (t) {
+      return parseMinutes(t) >= MINGGU_SORE_MIN;
+    });
+  }
+
+  function matchesLiturgy(p, lit) {
+    if (lit === "all") return true;
+    if (p.noSchedule) return false;
+    if (lit === "sabtu_sore") return hasSabtuSore(p);
+    if (lit === "minggu_pagi") return hasMingguPagi(p);
+    if (lit === "minggu_sore") return hasMingguSore(p);
+    return true;
+  }
+
+  function previewSabtu(p) {
+    if (p.schedulePreviewSabtu != null) return p.schedulePreviewSabtu;
+    if (!p.sabtu || !p.sabtu.length) return "—";
+    return p.sabtu.join(", ");
+  }
+
+  function previewMinggu(p) {
+    if (p.schedulePreviewMinggu != null) return p.schedulePreviewMinggu;
+    if (!p.minggu || !p.minggu.length) return "—";
+    return p.minggu.join(", ");
+  }
+
+  function sectionDataAttr(label) {
+    if (!label) return "kota";
+    return label.indexOf("Kabupaten") !== -1 ? "kabupaten" : "kota";
+  }
+
+  function timeRow(htmlLine) {
+    return '<div class="time-item"><span class="time-dot"></span> ' + htmlLine + "</div>";
+  }
+
+  function buildSabtuDetail(p) {
+    if (p.sabtuDetail && p.sabtuDetail.length) {
+      return p.sabtuDetail
+        .map(function (line) {
+          return timeRow(esc(line));
+        })
+        .join("");
+    }
+    if (!p.sabtu || !p.sabtu.length) return timeRow("—");
+    return p.sabtu
+      .map(function (t) {
+        return timeRow(esc(t) + " WIB");
+      })
+      .join("");
+  }
+
+  function buildMingguDetail(p) {
+    if (p.mingguDetail && p.mingguDetail.length) {
+      return p.mingguDetail
+        .map(function (line) {
+          return timeRow(esc(line));
+        })
+        .join("");
+    }
+    if (!p.minggu || !p.minggu.length) return timeRow("—");
+    return p.minggu
+      .map(function (t) {
+        return timeRow(esc(t) + " WIB");
+      })
+      .join("");
+  }
+
+  function renderParishCard(p) {
+    var id = esc(p.id);
+    var trustCls = TRUST_CLASS[p.trust] || "trust-med";
+    var trustTxt = TRUST_TEXT[p.trust] || p.trust;
+    var noteClass =
+      "note-box" +
+      (p.noteSkin === "warn" ? " note-box--warn" : p.noteSkin === "danger" ? " note-box--danger" : "");
+    var sources = (p.sources || [])
+      .map(function (t) {
+        return '<span class="source-tag">' + esc(t) + "</span>";
+      })
+      .join("");
+
+    var innerDetail = "";
+    if (!p.noSchedule) {
+      innerDetail =
+        '<div class="detail-grid">' +
+        '<div class="detail-box">' +
+        '<div class="detail-box-label">🕯 Misa Sabtu</div>' +
+        '<div class="time-list">' +
+        buildSabtuDetail(p) +
+        "</div></div>" +
+        '<div class="detail-box">' +
+        '<div class="detail-box-label">☀️ Misa Minggu</div>' +
+        '<div class="time-list">' +
+        buildMingguDetail(p) +
+        "</div></div></div>";
+    }
+
+    return (
+      '<div class="church-card" id="card-' +
+      id +
+      '" data-wilayah="' +
+      esc(p.wilayah) +
+      '" data-trust="' +
+      esc(p.trust) +
+      '" data-search="' +
+      esc(p.search || "") +
+      '">' +
+      '<div class="card-header" onclick="toggleCard(this)">' +
+      '<div class="card-header-left">' +
+      '<div class="card-icon">⛪</div>' +
+      '<div class="card-title-block">' +
+      '<div class="card-name">' +
+      esc(p.cardName) +
+      "</div>" +
+      '<div class="card-paroki">' +
+      esc(p.cardParoki) +
+      "</div>" +
+      '<div class="card-location">' +
+      esc(p.location) +
+      "</div></div></div>" +
+      '<div class="card-right">' +
+      '<span class="trust-badge ' +
+      trustCls +
+      '">' +
+      esc(trustTxt) +
+      "</span>" +
+      '<span class="chevron">▼</span>' +
+      "</div></div>" +
+      '<div class="schedule-preview">' +
+      '<div class="sched-pill"><span class="day-label">SAB</span> ' +
+      esc(previewSabtu(p)) +
+      "</div>" +
+      '<div class="sched-pill"><span class="day-label">MIN</span> ' +
+      esc(previewMinggu(p)) +
+      "</div></div>" +
+      '<div class="card-body"><div class="card-body-inner">' +
+      innerDetail +
+      '<div class="' +
+      noteClass +
+      '">' +
+      (p.noteHtml || "") +
+      "</div>" +
+      '<div class="source-row">' +
+      sources +
+      "</div></div></div></div>"
+    );
+  }
+
+  function renderAll(parishes) {
+    var html = [];
+    parishes.forEach(function (p) {
+      if (p.sectionLabel) {
+        html.push(
+          '<div class="section-label" data-section="' +
+            sectionDataAttr(p.sectionLabel) +
+            '">' +
+            esc(p.sectionLabel) +
+            "</div>"
+        );
+      }
+      html.push(renderParishCard(p));
+    });
+    return html.join("");
+  }
+
+  function buildLookup(parishes) {
+    var byId = {};
+    parishes.forEach(function (p) {
+      if (p.id) byId[p.id] = p;
+    });
+    return byId;
+  }
+
+  function filterCards() {
+    var q = (document.getElementById("searchInput").value || "").toLowerCase().trim();
+    var cards = document.querySelectorAll(".church-card");
+    var visible = 0;
+    var byId = window.__PARISH_BY_ID || {};
+
+    cards.forEach(function (card) {
+      var wilayah = card.getAttribute("data-wilayah");
+      var trust = card.getAttribute("data-trust");
+      var search = (card.getAttribute("data-search") || "").toLowerCase();
+      var nameEl = card.querySelector(".card-name");
+      var locEl = card.querySelector(".card-location");
+      var name = (nameEl && nameEl.textContent) || "";
+      var loc = (locEl && locEl.textContent) || "";
+      var combined = (search + " " + name + " " + loc).toLowerCase();
+
+      var matchRegion =
+        activeRegion === "all" ||
+        (activeRegion === "kota" && wilayah === "kota") ||
+        (activeRegion === "kabupaten" && wilayah === "kabupaten") ||
+        (activeRegion === "tinggi" && trust === "tinggi") ||
+        (activeRegion === "perludicek" && (trust === "sedang" || trust === "rendah"));
+
+      var pid = card.id.replace(/^card-/, "");
+      var p = byId[pid];
+      var matchLiturgy = !p || matchesLiturgy(p, activeLiturgy);
+
+      var matchSearch = !q || combined.indexOf(q) !== -1;
+
+      if (matchRegion && matchLiturgy && matchSearch) {
+        card.classList.remove("hidden");
+        visible++;
+      } else {
+        card.classList.add("hidden");
+        card.classList.remove("open");
+      }
+    });
+
+    document.querySelectorAll(".section-label").forEach(function (label) {
+      var afterCards = [];
+      var el = label.nextElementSibling;
+      while (el && !el.classList.contains("section-label") && !el.classList.contains("info-panel")) {
+        if (el.classList.contains("church-card")) afterCards.push(el);
+        el = el.nextElementSibling;
+      }
+      var anyVisible = afterCards.some(function (c) {
+        return !c.classList.contains("hidden");
+      });
+      label.style.display = anyVisible ? "" : "none";
+    });
+
+    var noRes = document.getElementById("noResults");
+    noRes.style.display = visible === 0 ? "block" : "none";
+
+    var countEl = document.getElementById("resultCount");
+    countEl.textContent =
+      visible === parishCount ? "" : "Menampilkan " + visible + " dari " + parishCount + " paroki";
+  }
+
+  function setRegionFilter(filter, btn) {
+    activeRegion = filter;
+    document.querySelectorAll("#filter-region .filter-btn").forEach(function (b) {
+      b.classList.toggle("active", b === btn);
+    });
+    filterCards();
+  }
+
+  function setLiturgyFilter(filter, btn) {
+    activeLiturgy = filter;
+    document.querySelectorAll("#filter-liturgy .filter-btn").forEach(function (b) {
+      b.classList.toggle("active", b === btn);
+    });
+    filterCards();
+  }
+
+  function wireFilters() {
+    document.getElementById("filter-region").addEventListener("click", function (e) {
+      var b = e.target.closest(".filter-btn");
+      if (!b || !b.getAttribute("data-region")) return;
+      setRegionFilter(b.getAttribute("data-region"), b);
+    });
+    document.getElementById("filter-liturgy").addEventListener("click", function (e) {
+      var b = e.target.closest(".filter-btn");
+      if (!b || !b.getAttribute("data-liturgy")) return;
+      setLiturgyFilter(b.getAttribute("data-liturgy"), b);
+    });
+  }
+
+  function staggerCards() {
+    document.querySelectorAll(".church-card").forEach(function (card, i) {
+      card.style.animationDelay = i * 0.04 + "s";
+    });
+  }
+
+  function setPageUpdatedDates() {
+    var d = new Date();
+    var y = d.getFullYear();
+    var m = String(d.getMonth() + 1).padStart(2, "0");
+    var day = String(d.getDate()).padStart(2, "0");
+    var iso = y + "-" + m + "-" + day;
+    var formatted = d.toLocaleDateString("id-ID", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+    ["info-page-updated", "footer-page-updated"].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.setAttribute("datetime", iso);
+        el.textContent = formatted;
+      }
+    });
+  }
+
+  function init() {
+    setPageUpdatedDates();
+    var root = document.getElementById("parishes-root");
+    var dataEl = document.getElementById("parishes-data");
+    var parishes;
+    try {
+      parishes = JSON.parse(dataEl.textContent).parishes || [];
+    } catch (err) {
+      root.innerHTML =
+        '<div class="note-box note-box--danger" style="margin-top:0">' +
+        "<strong>Data JSON rusak atau tidak ditemukan.</strong> Periksa elemen <code>#parishes-data</code>." +
+        "</div>";
+      return;
+    }
+    parishCount = parishes.filter(function (p) {
+      return p.id;
+    }).length;
+    var nEl = document.getElementById("parish-count-num");
+    if (nEl) nEl.textContent = String(parishCount);
+    window.__PARISH_BY_ID = buildLookup(parishes);
+    root.innerHTML = renderAll(parishes);
+    wireFilters();
+    document.getElementById("searchInput").addEventListener("input", filterCards);
+    staggerCards();
+    filterCards();
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+
+
+</body>
+</html>
