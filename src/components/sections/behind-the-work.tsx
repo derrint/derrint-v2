@@ -61,7 +61,7 @@ function WorkspaceModal({ story, onClose }: WorkspaceModalProps) {
       role="presentation"
     >
       <article
-        className="relative w-full max-w-4xl overflow-hidden rounded-3xl border border-ink-200 bg-white shadow-[0_40px_100px_-40px_rgba(0,0,0,0.45)]"
+        className="relative w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-[0_40px_100px_-40px_rgba(0,0,0,0.45)]"
         onClick={(event) => event.stopPropagation()}
       >
         <button
