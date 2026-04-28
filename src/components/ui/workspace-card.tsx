@@ -3,9 +3,25 @@ import Image from "next/image";
 import { FiMapPin } from "react-icons/fi";
 import type { WorkspaceStory } from "@/data/workspace";
 
-export function WorkspaceCard({ title, location, date, photo, story }: WorkspaceStory) {
+type WorkspaceCardProps = WorkspaceStory & {
+  onOpen?: () => void;
+};
+
+export function WorkspaceCard({
+  title,
+  location,
+  date,
+  photo,
+  story,
+  onOpen,
+}: WorkspaceCardProps) {
   return (
-    <article className="card-surface group flex h-full flex-col overflow-hidden">
+    <button
+      type="button"
+      onClick={onOpen}
+      className="card-surface group flex h-full w-full flex-col overflow-hidden text-left"
+      aria-label={`Open details for ${title}`}
+    >
       <div className="relative h-52 w-full shrink-0 overflow-hidden bg-ink-100">
         {photo ? (
           <Image
@@ -33,11 +49,9 @@ export function WorkspaceCard({ title, location, date, photo, story }: Workspace
           {title}
         </h3>
 
-        <p className="text-sm leading-relaxed text-ink-600 line-clamp-3">
-          {story}
-        </p>
+        <p className="line-clamp-3 text-sm leading-relaxed text-ink-600">{story}</p>
       </div>
-    </article>
+    </button>
   );
 }
 
