@@ -1,6 +1,6 @@
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { ContactForm } from "@/components/sections/contact-form";
+// import { ContactForm } from "@/components/sections/contact-form";
 import { BehindTheWork } from "@/components/sections/behind-the-work";
 import { Experience } from "@/components/sections/experience";
 import { Hero } from "@/components/sections/hero";
@@ -23,7 +23,7 @@ export default function Home() {
             <Experience />
             <TechStack />
             <BehindTheWork />
-            <ContactForm />
+            {/* <ContactForm /> */}
           </div>
         </div>
       </main>
