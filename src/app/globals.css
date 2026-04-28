@@ -22,6 +22,10 @@
   --tracking-tightest: -0.04em;
 
   --animate-morph: morph 8s ease-in-out infinite;
+  --animate-wave: wave 10s ease-in-out infinite;
+  --animate-wave-slow: wave 14s ease-in-out infinite reverse;
+  --animate-wave-y: wave-y 9s ease-in-out infinite;
+  --animate-wave-y-slow: wave-y 13s ease-in-out infinite reverse;
 }
 
 :root {
@@ -75,6 +79,26 @@ body {
   background-position:
     0 0,
     1px 2px;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-40px);
+  }
+}
+
+@keyframes wave-y {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 @keyframes morph {
