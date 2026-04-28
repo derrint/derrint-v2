@@ -1,6 +1,6 @@
-import { FiGrid, FiLayers } from "react-icons/fi";
 import { ALL_PROJECTS } from "@/data/projects";
 import type { ComponentType, SVGProps } from "react";
+import { FiMonitor, FiSmartphone } from "react-icons/fi";
 
 export type Stat = {
   value: string;
@@ -8,7 +8,8 @@ export type Stat = {
 };
 
 export type HeroTag = {
-  text: string;
+  title: string;
+  subtitle: string;
   Icon: ComponentType<SVGProps<SVGSVGElement>>;
   color: string;
   textColor: string;
@@ -39,15 +40,17 @@ export const STATS: readonly Stat[] = [
 
 export const HERO_TAGS: readonly HeroTag[] = [
   {
-    text: "Dynamic Animation, Motion Design",
-    Icon: FiLayers,
-    color: "#000000",
+    title: "FRONT-END DEVELOPMENT",
+    subtitle: "React, Next.js, TypeScript",
+    Icon: FiMonitor,
+    color: "#2C2C2C",
     textColor: "#ffffff",
     href: "#",
   },
   {
-    text: "Framer, Figma, WordPress, ReactJS",
-    Icon: FiGrid,
+    title: "MOBILE DEVELOPMENT",
+    subtitle: "React Native, iOS, Android",
+    Icon: FiSmartphone,
     color: "#f8f8f8",
     textColor: "#000000",
     href: "#",

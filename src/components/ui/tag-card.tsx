@@ -1,7 +1,14 @@
 import { FiArrowUpRight } from "react-icons/fi";
 import type { HeroTag } from "@/data/hero";
 
-export function TagCard({ text, Icon, color, textColor, href }: HeroTag) {
+export function TagCard({
+  title,
+  subtitle,
+  Icon,
+  color,
+  textColor,
+  href,
+}: HeroTag) {
   return (
     <a
       href={href}
@@ -35,16 +42,22 @@ export function TagCard({ text, Icon, color, textColor, href }: HeroTag) {
         <Icon className="h-4 w-4" />
       </div>
 
-      <div className="relative flex items-end justify-between gap-4">
+      <div className="relative flex flex-col justify-between">
         <p className="font-display text-base font-bold uppercase leading-tight tracking-tight sm:text-lg">
-          {text}
+          {title}
         </p>
-        <span
-          aria-hidden
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-black/20 bg-black/5 transition-colors group-hover:bg-black/10"
-        >
-          <FiArrowUpRight className="h-4 w-4" />
-        </span>
+
+        <div className="relative flex items-end justify-between gap-4">
+          <p className="text-sm leading-relaxed text-ink-500 sm:text-base">
+            {subtitle}
+          </p>
+          <span
+            aria-hidden
+            className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-black/20 bg-black/5 transition-colors group-hover:bg-black/10"
+          >
+            <FiArrowUpRight className="h-4 w-4" />
+          </span>
+        </div>
       </div>
     </a>
   );

@@ -25,7 +25,7 @@ export function Hero() {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {HERO_TAGS.map((tag) => (
-          <TagCard key={tag.text} {...tag} />
+          <TagCard key={tag.title} {...tag} />
         ))}
       </div>
     </section>
