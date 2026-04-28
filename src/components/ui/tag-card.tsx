@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon } from "@/components/icons";
+import { FiArrowUpRight } from "react-icons/fi";
 import type { HeroTag } from "@/data/hero";
 
 export function TagCard({ text, Icon, color, textColor, href }: HeroTag) {
@@ -43,7 +43,7 @@ export function TagCard({ text, Icon, color, textColor, href }: HeroTag) {
           aria-hidden
           className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-black/20 bg-black/5 transition-colors group-hover:bg-black/10"
         >
-          <ArrowUpRightIcon className="h-4 w-4" />
+          <FiArrowUpRight className="h-4 w-4" />
         </span>
       </div>
     </a>

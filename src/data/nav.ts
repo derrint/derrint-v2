@@ -1,5 +1,5 @@
 import type { ComponentType, SVGProps } from "react";
-import { LuBriefcase, LuFolder, LuHouse, LuLayers, LuPencil } from "react-icons/lu";
+import { FiBriefcase, FiFolder, FiHome, FiLayers, FiEdit2 } from "react-icons/fi";
 
 export type NavItem = {
   label: string;
@@ -8,9 +8,9 @@ export type NavItem = {
 };
 
 export const NAV_ITEMS: readonly NavItem[] = [
-  { label: "Home", href: "#home", Icon: LuHouse },
-  { label: "Projects", href: "#projects", Icon: LuFolder },
-  { label: "Experience", href: "#experience", Icon: LuBriefcase },
-  { label: "Tech Stack", href: "#tools", Icon: LuLayers },
-  { label: "Thoughts", href: "#thoughts", Icon: LuPencil },
+  { label: "Home", href: "#home", Icon: FiHome },
+  { label: "Projects", href: "#projects", Icon: FiFolder },
+  { label: "Experience", href: "#experience", Icon: FiBriefcase },
+  { label: "Tech Stack", href: "#tools", Icon: FiLayers },
+  { label: "Thoughts", href: "#thoughts", Icon: FiEdit2 },
 ];

@@ -1,4 +1,4 @@
-import { GridIcon, LayersIcon } from "@/components/icons";
+import { FiGrid, FiLayers } from "react-icons/fi";
 import { ALL_PROJECTS } from "@/data/projects";
 import type { ComponentType, SVGProps } from "react";
 
@@ -40,14 +40,14 @@ export const STATS: readonly Stat[] = [
 export const HERO_TAGS: readonly HeroTag[] = [
   {
     text: "Dynamic Animation, Motion Design",
-    Icon: LayersIcon,
+    Icon: FiLayers,
     color: "#000000",
     textColor: "#ffffff",
     href: "#",
   },
   {
     text: "Framer, Figma, WordPress, ReactJS",
-    Icon: GridIcon,
+    Icon: FiGrid,
     color: "#f8f8f8",
     textColor: "#000000",
     href: "#",

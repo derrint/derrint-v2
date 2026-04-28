@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { ArrowUpRightIcon } from "@/components/icons";
+import { FiArrowUpRight } from "react-icons/fi";
 import type { Project } from "@/data/projects";
 
 export function ProjectCard({
@@ -41,7 +41,7 @@ export function ProjectCard({
           aria-hidden
           className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink-500 transition-all group-hover:bg-ink-950 group-hover:text-white"
         >
-          <ArrowUpRightIcon className="h-4 w-4" />
+          <FiArrowUpRight className="h-4 w-4" />
         </span>
       </a>
     </li>

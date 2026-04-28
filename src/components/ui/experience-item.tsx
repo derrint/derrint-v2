@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon } from "@/components/icons";
+import { FiArrowUpRight } from "react-icons/fi";
 import type { Experience } from "@/data/experience";
 
 export function ExperienceItem({
@@ -30,7 +30,7 @@ export function ExperienceItem({
           aria-hidden
           className="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink-500 transition-all group-hover:bg-ink-950 group-hover:text-white"
         >
-          <ArrowUpRightIcon className="h-4 w-4" />
+          <FiArrowUpRight className="h-4 w-4" />
         </span>
       </a>
     </li>

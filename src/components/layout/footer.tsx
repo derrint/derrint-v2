@@ -12,11 +12,7 @@ export function Footer() {
             <span className="font-bold">s.</span>
           </span>
           <span>
-            Made by{" "}
-            <a href="#" className="text-ink-950 hover:text-ink-700">
-              Templyo
-            </a>{" "}
-            · Inspired by{" "}
+            Made from scratch · Inspired by{" "}
             <a
               href="https://sawad.framer.website/"
               rel="noreferrer"
