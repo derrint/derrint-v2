@@ -23,7 +23,7 @@ export function ContactForm() {
   };
 
   return (
-    <Section id="contact">
+    <Section id="contact" className="pb-20 sm:pb-24 lg:pb-28">
       <SectionHeading line1="Let's Work" line2="Together" />
 
       <form
@@ -55,9 +55,18 @@ export function ContactForm() {
         </Field>
 
         <Field label="Budget" htmlFor="budget" className="sm:col-span-2">
-          <select id="budget" name="budget" defaultValue="" className="input-base">
+          <select
+            id="budget"
+            name="budget"
+            defaultValue=""
+            className="input-base"
+          >
             {BUDGET_OPTIONS.map((opt) => (
-              <option key={opt.value} value={opt.value} disabled={opt.value === ""}>
+              <option
+                key={opt.value}
+                value={opt.value}
+                disabled={opt.value === ""}
+              >
                 {opt.label}
               </option>
             ))}

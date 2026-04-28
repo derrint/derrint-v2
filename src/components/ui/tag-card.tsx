@@ -21,7 +21,7 @@ export function TagCard({
   return (
     <a
       href={href}
-      className="group relative flex h-44 flex-col justify-between overflow-hidden rounded-3xl p-5 transition-transform hover:-translate-y-1"
+      className="group relative flex flex-col justify-between overflow-hidden rounded-3xl p-5 transition-transform hover:-translate-y-1"
       style={{ backgroundColor: color, color: textColor }}
     >
       <svg
@@ -46,25 +46,25 @@ export function TagCard({
         />
       </svg>
 
-      <div
-        className={`relative inline-flex h-9 w-9 items-center justify-center rounded-lg border ${borderCls} ${bgCls}`}
-        aria-hidden
-      >
-        <Icon className="h-4 w-4" />
-      </div>
+      <div className="relative flex flex-col gap-5">
+        <Icon className="h-8 w-8 mt-5" />
 
-      <div className="relative flex flex-col gap-1">
-        <p className="font-display text-base font-bold uppercase leading-tight tracking-tight sm:text-lg">
-          {title}
-        </p>
+        <div>
+          <p className="font-display text-2xl font-normal uppercase leading-tight max-w-2/3">
+            {title}
+          </p>
 
-        <div className="flex items-end justify-between gap-4">
-          <p className={`text-xs leading-relaxed ${subtitleCls}`}>{subtitle}</p>
+          <p className={`text-base leading-relaxed ${subtitleCls}`}>
+            {subtitle}
+          </p>
+        </div>
+
+        <div className="flex justify-end ">
           <span
             aria-hidden
             className={`inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border ${borderCls} ${bgCls} ${hoverBgCls} transition-colors`}
           >
-            <FiArrowUpRight className="h-3.5 w-3.5" />
+            <FiArrowUpRight className="h-5 w-5" />
           </span>
         </div>
       </div>
