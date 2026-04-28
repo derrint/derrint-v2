@@ -47,22 +47,22 @@ export const WORKSPACE_STORIES: readonly WorkspaceStory[] = [
     story:
       "The year everything moved remote. This was my first proper home setup — figuring out routines, schedules, and how to stay productive when the office is also the living room.",
   },
-  {
-    title: "The Green Frame Sessions",
-    location: "Malang",
-    date: "January 2023",
-    photo: "/workspace/malang-jan-23.JPG",
-    story:
-      "A café in Malang with floor-to-ceiling green-framed windows and a tree growing indoors. Terminal open, glasses on the table, phone for Slack. One of those sessions where the environment makes the work feel effortless.",
-  },
-  {
-    title: "Wide Open, Deep Focus",
-    location: "Bali",
-    date: "July 2025",
-    photo: "/workspace/bali-july-25.JPG",
-    story:
-      "A clean desk setup facing wide rice fields, with afternoon light filling the room. Just one laptop, one chair, and a long wooden counter. This is where deep-focus coding blocks feel surprisingly easy.",
-  },
+  // {
+  //   title: "The Green Frame Sessions",
+  //   location: "Malang",
+  //   date: "January 2023",
+  //   photo: "/workspace/malang-jan-23.JPG",
+  //   story:
+  //     "A café in Malang with floor-to-ceiling green-framed windows and a tree growing indoors. Terminal open, glasses on the table, phone for Slack. One of those sessions where the environment makes the work feel effortless.",
+  // },
+  // {
+  //   title: "Wide Open, Deep Focus",
+  //   location: "Bali",
+  //   date: "July 2025",
+  //   photo: "/workspace/bali-july-25.JPG",
+  //   story:
+  //     "A clean desk setup facing wide rice fields, with afternoon light filling the room. Just one laptop, one chair, and a long wooden counter. This is where deep-focus coding blocks feel surprisingly easy.",
+  // },
   {
     title: "Lunch Break, Still Shipping",
     location: "Bali",
@@ -71,14 +71,14 @@ export const WORKSPACE_STORIES: readonly WorkspaceStory[] = [
     story:
       "One of those workdays where lunch and sprint updates happen on the same table. Laptop open beside fried calamari and juice, with notes and earbuds ready. Remote work is mostly about balancing flow and recovery.",
   },
-  {
-    title: "Deploying Between Dinner",
-    location: "Kepanjen",
-    date: "June 2022",
-    photo: "/workspace/kepanjen-june-22.JPG",
-    story:
-      "A real-life snapshot of multitasking: deployment checks on the MacBook while prepping dinner ingredients beside it. Not glamorous, but very real. Some of the most productive sessions happen in imperfect setups.",
-  },
+  // {
+  //   title: "Deploying Between Dinner",
+  //   location: "Kepanjen",
+  //   date: "June 2022",
+  //   photo: "/workspace/kepanjen-june-22.JPG",
+  //   story:
+  //     "A real-life snapshot of multitasking: deployment checks on the MacBook while prepping dinner ingredients beside it. Not glamorous, but very real. Some of the most productive sessions happen in imperfect setups.",
+  // },
   {
     title: "Neighborhood Rhythm",
     location: "Malang",
