@@ -18,17 +18,29 @@ export const PROFILE = {
   role: "Software Engineer",
   bio: "Senior Front-End Engineer at KangarooHealth, building healthcare dashboards and remote patient monitoring solutions.",
   description:
-    "Experienced crafting high-performance web and mobile products — across Healthcare, EdTech, Automotive, Marketplace, Broadcasting, Finance, Travel, and Hospitality.",
+    "Experienced crafting high-performance web and mobile products — across Healthcare, EduTech, Automotive, Marketplace, Broadcasting, Finance, Travel, and Hospitality.",
   email: "hello@sawad.design",
   location: "Remote · Worldwide",
 } as const;
 
 export const SOCIALS: readonly Social[] = [
   { label: "GitHub", href: "https://github.com/derrint", Icon: FiGithub },
-  { label: "Instagram", href: "https://www.instagram.com/lorensioderrint/", Icon: FiInstagram },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/lorensioderrint/",
+    Icon: FiInstagram,
+  },
   { label: "Twitter", href: "https://twitter.com/derrint", Icon: FiTwitter },
-  { label: "Facebook", href: "https://www.facebook.com/derrint", Icon: FiFacebook },
-  { label: "LinkedIn", href: "https://id.linkedin.com/in/lorensioderrint", Icon: FiLinkedin },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/derrint",
+    Icon: FiFacebook,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://id.linkedin.com/in/lorensioderrint",
+    Icon: FiLinkedin,
+  },
 ];
 
 export const FOOTER_SOCIALS = [
