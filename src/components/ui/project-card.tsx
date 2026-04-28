@@ -34,7 +34,7 @@ export function ProjectCard({
           <p className="font-display text-lg font-semibold text-ink-950">
             {name}
           </p>
-          <p className="text-xs text-ink-500">{description}</p>
+          <p className="text-sm text-ink-500">{description}</p>
         </div>
 
         <span

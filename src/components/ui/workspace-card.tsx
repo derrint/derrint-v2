@@ -49,7 +49,9 @@ export function WorkspaceCard({
           {title}
         </h3>
 
-        <p className="line-clamp-3 text-sm leading-relaxed text-ink-600">{story}</p>
+        <p className="line-clamp-3 text-sm leading-relaxed text-ink-600">
+          {story}
+        </p>
       </div>
     </button>
   );

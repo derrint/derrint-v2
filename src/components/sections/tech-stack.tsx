@@ -7,7 +7,7 @@ export function TechStack() {
   return (
     <Section id="tools">
       <SectionHeading line1="Tech" line2="Stack" />
-      <div className="grid grid-cols-1 gap-5 gap-y-6 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 gap-y-6 md:grid-cols-3 lg:grid-cols-2">
         {TECH_STACK.map((item) => (
           <TechCard key={item.name} {...item} />
         ))}

@@ -14,7 +14,7 @@ export function ExperienceItem({
         className="group flex items-start gap-6 border-b border-ink-200 py-6 transition-colors hover:border-ink-400"
       >
         <div className="flex-1">
-          <p className="text-xs font-medium uppercase tracking-wider text-ink-400">
+          <p className="text-sm font-medium uppercase tracking-wider text-ink-400">
             {role}
           </p>
           <h3 className="mt-1 font-display text-lg font-semibold text-ink-950 transition-colors group-hover:text-ink-700">
@@ -23,7 +23,7 @@ export function ExperienceItem({
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-600">
             {description}
           </p>
-          <p className="mt-3 text-xs text-ink-500">{period}</p>
+          <p className="mt-3 text-sm text-ink-500">{period}</p>
         </div>
 
         <span

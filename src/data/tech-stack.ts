@@ -48,12 +48,12 @@ export const TECH_STACK: readonly TechItem[] = [
     Icon: SiGit,
     color: "#f05032",
   },
-  {
-    name: "Figma",
-    subtitle: "Design Handoff",
-    Icon: SiFigma,
-    color: "#f24e1e",
-  },
+  // {
+  //   name: "Figma",
+  //   subtitle: "Design Handoff",
+  //   Icon: SiFigma,
+  //   color: "#f24e1e",
+  // },
   {
     name: "Jest & RTL",
     subtitle: "Testing",

@@ -21,7 +21,7 @@ export function SectionHeading({
           {eyebrow}
         </span>
       ) : null}
-      <h2 className="heading-display text-[clamp(2.5rem,8vw,5.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-ink-950">
+      <h2 className="heading-display text-[clamp(2.5rem,8vw,5.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-ink-950 text-center lg:text-left">
         <span className="block">{line1}</span>
         <span className="text-outline block">{line2}</span>
       </h2>
