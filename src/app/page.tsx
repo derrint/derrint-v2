@@ -1,7 +1,7 @@
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { ContactForm } from "@/components/sections/contact-form";
-import { DesignThoughts } from "@/components/sections/design-thoughts";
+// import { DesignThoughts } from "@/components/sections/design-thoughts";
 import { Experience } from "@/components/sections/experience";
 import { Hero } from "@/components/sections/hero";
 import { TechStack } from "@/components/sections/tech-stack";
@@ -22,7 +22,7 @@ export default function Home() {
             <RecentProjects />
             <Experience />
             <TechStack />
-            <DesignThoughts />
+            {/* <DesignThoughts /> */}
             <ContactForm />
           </div>
         </div>
