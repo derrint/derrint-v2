@@ -6,7 +6,7 @@ export function HomeAnchor() {
   return (
     <div
       id="home"
-      className="pointer-events-none h-px w-full shrink-0 pt-24 lg:pt-36"
+      className="pointer-events-none h-px w-full shrink-0 pt-24 lg:pt-32"
       aria-hidden
     />
   );
