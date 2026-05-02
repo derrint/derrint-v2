@@ -47,6 +47,11 @@ export function ContactForm() {
     <Section id="contact" className="pb-20 sm:pb-24 lg:pb-28">
       <SectionHeading line1="Let's Work" line2="Together" />
 
+      <p className="max-w-2xl text-sm leading-relaxed text-ink-600 sm:text-base">
+        Have a project in mind, or just want to connect? Fill in the form and
+        I&apos;ll get back to you.
+      </p>
+
       <form
         onSubmit={onSubmit}
         className="grid grid-cols-1 gap-4 sm:grid-cols-2"
@@ -75,34 +80,25 @@ export function ContactForm() {
           />
         </Field>
 
-        <div className="flex flex-col gap-2 sm:col-span-2">
-          <label htmlFor="subject" className="flex flex-col gap-2">
-            <span className="text-xs font-medium uppercase tracking-wider text-ink-700">
-              Subject
-            </span>
-            <select
-              id="subject"
-              name="subject"
-              defaultValue=""
-              required
-              className="input-base"
-            >
-              {SUBJECT_OPTIONS.map((opt) => (
-                <option
-                  key={opt.value}
-                  value={opt.value}
-                  disabled={opt.value === ""}
-                >
-                  {opt.label}
-                </option>
-              ))}
-            </select>
-          </label>
-          <p className="text-xs text-ink-500">
-            Pick a topic so replies stay organized—including casual notes (“Just
-            Saying Hi”) is intentional: you don’t need a pitch to reach out.
-          </p>
-        </div>
+        <Field label="Subject" htmlFor="subject" className="sm:col-span-2">
+          <select
+            id="subject"
+            name="subject"
+            defaultValue=""
+            required
+            className="input-base"
+          >
+            {SUBJECT_OPTIONS.map((opt) => (
+              <option
+                key={opt.value}
+                value={opt.value}
+                disabled={opt.value === ""}
+              >
+                {opt.label}
+              </option>
+            ))}
+          </select>
+        </Field>
 
         <Field label="Message" htmlFor="message" className="sm:col-span-2">
           <textarea
@@ -121,14 +117,11 @@ export function ContactForm() {
           </p>
         ) : null}
 
-        <div className="sm:col-span-2 flex flex-wrap items-center justify-between gap-4 pt-2">
-          <p className="text-xs text-ink-500">
-            By submitting you agree to be contacted about your request.
-          </p>
+        <div className="sm:col-span-2 flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-start sm:gap-6">
           <button
             type="submit"
             disabled={status === "sending" || status === "sent"}
-            className="inline-flex items-center gap-2 rounded-full bg-ink-950 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink-950 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
           >
             {status === "sent"
               ? "Sent ✓"
@@ -136,6 +129,7 @@ export function ContactForm() {
                 ? "Sending…"
                 : "Submit"}
           </button>
+          <p className="text-sm text-ink-600">Usually reply within 24 hours.</p>
         </div>
       </form>
 
@@ -143,7 +137,7 @@ export function ContactForm() {
         :global(.input-base) {
           width: 100%;
           border-radius: 0.75rem;
-          border: 1px solid rgb(235 235 235);
+          border: 1px solid #d4cfc8;
           background-color: #ffffff;
           padding: 0.875rem 1rem;
           font-size: 0.875rem;
