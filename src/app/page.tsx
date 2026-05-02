@@ -1,4 +1,5 @@
 import { Footer } from "@/components/layout/footer";
+import { HomeAnchor } from "@/components/layout/home-anchor";
 import { Navbar } from "@/components/layout/navbar";
 import { ContactForm } from "@/components/sections/contact-form";
 import { BehindTheWork } from "@/components/sections/behind-the-work";
@@ -12,7 +13,8 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="container-site pt-28 sm:pt-32 lg:pt-36">
+      <main className="container-site">
+        <HomeAnchor />
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(260px,320px)_1fr] lg:gap-16">
           <div className="lg:sticky lg:top-6 lg:self-start">
             <ProfileCard />
