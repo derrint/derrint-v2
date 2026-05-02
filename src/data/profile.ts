@@ -45,8 +45,8 @@ export const SOCIALS: readonly Social[] = [
 
 export const FOOTER_SOCIALS = [
   { label: "GitHub", href: "https://github.com/derrint" },
+  { label: "LinkedIn", href: "https://id.linkedin.com/in/lorensioderrint" },
   { label: "Instagram", href: "https://www.instagram.com/lorensioderrint/" },
   { label: "Twitter", href: "https://twitter.com/derrint" },
-  { label: "Facebook", href: "https://www.facebook.com/derrint" },
-  { label: "LinkedIn", href: "https://id.linkedin.com/in/lorensioderrint" },
+  // { label: "Facebook", href: "https://www.facebook.com/derrint" },
 ] as const;
