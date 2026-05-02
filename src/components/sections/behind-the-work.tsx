@@ -27,7 +27,7 @@ export function BehindTheWork() {
   }, [activeStory]);
 
   return (
-    <Section id="thoughts">
+    <Section id="behind-the-work">
       <SectionHeading line1="Behind" line2="the Work" />
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
         {WORKSPACE_STORIES.map((story) => (

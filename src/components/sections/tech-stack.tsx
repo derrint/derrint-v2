@@ -5,7 +5,7 @@ import { TECH_STACK } from "@/data/tech-stack";
 
 export function TechStack() {
   return (
-    <Section id="tools">
+    <Section id="stack">
       <SectionHeading line1="Tech" line2="Stack" />
       <div className="grid grid-cols-1 gap-5 gap-y-6 md:grid-cols-3 lg:grid-cols-2">
         {TECH_STACK.map((item) => (
