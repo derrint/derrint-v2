@@ -4,22 +4,43 @@ import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { useState, type FormEvent, type ReactNode } from "react";
 
-const BUDGET_OPTIONS = [
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xaqvnkvz";
+
+const SUBJECT_OPTIONS = [
   { value: "", label: "Select…" },
-  { value: "under-3k", label: "< $3k" },
-  { value: "3k-5k", label: "$3k – $5k" },
-  { value: "5k-10k", label: "$5k – $10k" },
-  { value: "over-10k", label: "> $10k" },
+  { value: "Freelance Project", label: "Freelance Project" },
+  { value: "Full-time Opportunity", label: "Full-time Opportunity" },
+  { value: "Collaboration", label: "Collaboration" },
+  { value: "Just Saying Hi", label: "Just Saying Hi" },
 ] as const;
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = event.currentTarget;
     setStatus("sending");
-    // Placeholder — wire up to an API route / Resend / Formspree in production.
-    setTimeout(() => setStatus("sent"), 900);
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        form.reset();
+        setStatus("sent");
+        window.setTimeout(() => setStatus("idle"), 4000);
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -54,24 +75,34 @@ export function ContactForm() {
           />
         </Field>
 
-        <Field label="Budget" htmlFor="budget" className="sm:col-span-2">
-          <select
-            id="budget"
-            name="budget"
-            defaultValue=""
-            className="input-base"
-          >
-            {BUDGET_OPTIONS.map((opt) => (
-              <option
-                key={opt.value}
-                value={opt.value}
-                disabled={opt.value === ""}
-              >
-                {opt.label}
-              </option>
-            ))}
-          </select>
-        </Field>
+        <div className="flex flex-col gap-2 sm:col-span-2">
+          <label htmlFor="subject" className="flex flex-col gap-2">
+            <span className="text-xs font-medium uppercase tracking-wider text-ink-700">
+              Subject
+            </span>
+            <select
+              id="subject"
+              name="subject"
+              defaultValue=""
+              required
+              className="input-base"
+            >
+              {SUBJECT_OPTIONS.map((opt) => (
+                <option
+                  key={opt.value}
+                  value={opt.value}
+                  disabled={opt.value === ""}
+                >
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <p className="text-xs text-ink-500">
+            Pick a topic so replies stay organized—including casual notes (“Just
+            Saying Hi”) is intentional: you don’t need a pitch to reach out.
+          </p>
+        </div>
 
         <Field label="Message" htmlFor="message" className="sm:col-span-2">
           <textarea
@@ -79,10 +110,16 @@ export function ContactForm() {
             name="message"
             rows={4}
             required
-            placeholder="Tell me about your project…"
+            placeholder="Your message…"
             className="input-base resize-none"
           />
         </Field>
+
+        {status === "error" ? (
+          <p className="sm:col-span-2 text-sm text-red-600" role="alert">
+            Something went wrong. Please try again in a moment.
+          </p>
+        ) : null}
 
         <div className="sm:col-span-2 flex flex-wrap items-center justify-between gap-4 pt-2">
           <p className="text-xs text-ink-500">
@@ -90,7 +127,7 @@ export function ContactForm() {
           </p>
           <button
             type="submit"
-            disabled={status === "sending"}
+            disabled={status === "sending" || status === "sent"}
             className="inline-flex items-center gap-2 rounded-full bg-ink-950 px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {status === "sent"
