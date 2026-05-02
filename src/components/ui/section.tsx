@@ -14,7 +14,7 @@ export function Section({ id, children, className = "" }: SectionProps) {
   return (
     <section
       id={id}
-      className={`flex flex-col gap-10 pt-20 sm:pt-24 lg:pt-28 ${className}`}
+      className={`flex w-full flex-col gap-10 pt-20 sm:pt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:max-w-none lg:pt-28 ${className}`}
     >
       {children}
     </section>
