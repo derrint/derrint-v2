@@ -1,4 +1,5 @@
 import { PROFILE, SOCIALS } from "@/data/profile";
+import { FiMail, FiMapPin } from "react-icons/fi";
 
 export function ProfileCard() {
   return (
@@ -19,7 +20,36 @@ export function ProfileCard() {
           <p className="mx-auto mt-5 max-w-sm text-md leading-relaxed text-ink-500">
             {PROFILE.bio}
           </p>
-          <ul className="mt-5 flex items-center justify-center gap-4 text-ink-500">
+
+          <ul className="mx-auto mt-7 flex w-full max-w-sm flex-col text-left gap-2">
+            <li className="flex items-center justify-center gap-2">
+              <span
+                className="flex items-center justify-center text-ink-800"
+                aria-hidden
+              >
+                <FiMapPin className="h-4 w-4" strokeWidth={2} />
+              </span>
+              <span className="min-w-0 text-sm leading-snug text-ink-800">
+                {PROFILE.location}
+              </span>
+            </li>
+            <li className="flex items-center justify-center gap-2.5">
+              <span
+                className="flex items-center justify-center text-ink-800"
+                aria-hidden
+              >
+                <FiMail className="h-4 w-4" strokeWidth={2} />
+              </span>
+              <a
+                href={`mailto:${PROFILE.email}`}
+                className="min-w-0 break-all text-sm font-medium text-ink-600 underline-offset-2 transition-colors hover:text-ink-700 hover:underline"
+              >
+                {PROFILE.email}
+              </a>
+            </li>
+          </ul>
+
+          <ul className="mt-7 flex items-center justify-center gap-4 text-ink-500">
             {SOCIALS.map(({ label, href, Icon }) => (
               <li key={label}>
                 <a

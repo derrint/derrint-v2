@@ -19,8 +19,8 @@ export const PROFILE = {
   bio: "Senior Front-End Engineer at KangarooHealth, building healthcare dashboards and remote patient monitoring solutions.",
   description:
     "Experienced crafting high-performance web and mobile products — across Healthcare, EduTech, Automotive, Marketplace, Broadcasting, Finance, Travel, and Hospitality.",
-  email: "hello@sawad.design",
-  location: "Remote · Worldwide",
+  email: "lorensioderrint@gmail.com",
+  location: "Malang, East Java",
 } as const;
 
 export const SOCIALS: readonly Social[] = [
