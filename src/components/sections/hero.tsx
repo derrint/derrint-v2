@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate flex w-full flex-col gap-10 items-center md:mx-auto md:max-w-2xl lg:mx-0 lg:max-w-none lg:items-start"
+      className="relative isolate flex flex-col gap-10 items-center lg:items-start"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-ink-300/30 blur-3xl" />
