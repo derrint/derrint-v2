@@ -2,7 +2,10 @@ export type WorkspaceStory = {
   title: string;
   location: string;
   date: string;
-  photo: string;
+  /** Lightweight image for cards/lists. */
+  thumbnail: string;
+  /** HD preview image for the modal. */
+  fullImage: string;
   story: string;
 };
 
@@ -11,7 +14,8 @@ export const WORKSPACE_STORIES: readonly WorkspaceStory[] = [
     title: "The Main Rig",
     location: "Malang",
     date: "January 2025",
-    photo: "/workspace/malang-home-jan-25.jpg",
+    thumbnail: "/workspace/malang-home-jan-25-thumb.webp",
+    fullImage: "/workspace/malang-home-jan-25-full.webp",
     story:
       "The setup that ships most of my work — a single desk lamp, a wide monitor, and a Squidward painting for moral support. The dim lighting is intentional. Less distraction, more focus.",
   },
@@ -19,7 +23,8 @@ export const WORKSPACE_STORIES: readonly WorkspaceStory[] = [
     title: "More Food, Less Work",
     location: "Bali",
     date: "September 2022",
-    photo: "/workspace/bali-sep-22.JPG",
+    thumbnail: "/workspace/bali-sep-22-thumb.webp",
+    fullImage: "/workspace/bali-sep-22-full.webp",
     story:
       "When the café menu looked too good to choose — so I ordered everything. MacBook and iPad open, smoothie bowl on the right, red velvet on the left. Somehow still got work done.",
   },
@@ -27,7 +32,8 @@ export const WORKSPACE_STORIES: readonly WorkspaceStory[] = [
     title: "Mojito, Espresso, Merge",
     location: "Bali",
     date: "January 2024",
-    photo: "/workspace/bali-jan-24.jpg",
+    thumbnail: "/workspace/bali-jan-24-thumb.webp",
+    fullImage: "/workspace/bali-jan-24-full.webp",
     story:
       "Top-down view of my favourite Bali work ritual: MacBook open, iced mojito alongside a small espresso, wooden table. Remote work doesn't have to mean staying indoors.",
   },
@@ -43,7 +49,8 @@ export const WORKSPACE_STORIES: readonly WorkspaceStory[] = [
     title: "When Home Became Office",
     location: "Malang",
     date: "September 2020",
-    photo: "/workspace/malang-sep-20.jpg",
+    thumbnail: "/workspace/malang-sep-20-thumb.webp",
+    fullImage: "/workspace/malang-sep-20-full.webp",
     story:
       "The year everything moved remote. This was my first proper home setup — figuring out routines, schedules, and how to stay productive when the office is also the living room.",
   },
@@ -67,7 +74,8 @@ export const WORKSPACE_STORIES: readonly WorkspaceStory[] = [
     title: "Lunch Break, Still Shipping",
     location: "Bali",
     date: "January 2024",
-    photo: "/workspace/bali-nook-jan-24.JPG",
+    thumbnail: "/workspace/bali-nook-jan-24-thumb.webp",
+    fullImage: "/workspace/bali-nook-jan-24-full.webp",
     story:
       "One of those workdays where lunch and sprint updates happen on the same table. Laptop open beside fried calamari and juice, with notes and earbuds ready. Remote work is mostly about balancing flow and recovery.",
   },
@@ -83,7 +91,8 @@ export const WORKSPACE_STORIES: readonly WorkspaceStory[] = [
     title: "Neighborhood Rhythm",
     location: "Malang",
     date: "August 2024",
-    photo: "/workspace/malang-aug-24.JPG",
+    thumbnail: "/workspace/malang-aug-24-thumb.webp",
+    fullImage: "/workspace/malang-aug-24-full.webp",
     story:
       "Quick coding session in a neighborhood coffee shop — iced latte in front, terminal running on the side. The ambient noise helps me stay in rhythm when working through medium-complexity tasks.",
   },

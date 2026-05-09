@@ -13,6 +13,7 @@ import {
   FiX,
 } from "react-icons/fi";
 import type { Project } from "@/data/projects";
+import { BLUR_DATA_URL } from "@/lib/image-placeholder";
 
 type ProjectModalProps = {
   project: Project;
@@ -81,12 +82,14 @@ export function ProjectModal({
 
         <div className="relative flex min-h-[250px] flex-1 flex-col justify-center sm:min-h-[350px] lg:min-h-0 lg:max-w-[63%]">
           <Image
-            src={project.screenshot}
-            alt={`${project.name} screenshot`}
+            src={project.fullImage}
+            alt={`${project.name} preview`}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-top"
-            priority
+            quality={90}
+            placeholder="blur"
+            blurDataURL={BLUR_DATA_URL}
           />
         </div>
 

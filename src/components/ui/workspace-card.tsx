@@ -3,6 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiMapPin } from "react-icons/fi";
 import type { WorkspaceStory } from "@/data/workspace";
+import { BLUR_DATA_URL } from "@/lib/image-placeholder";
 
 type WorkspaceCardProps = WorkspaceStory & {
   onOpen?: () => void;
@@ -13,7 +14,7 @@ export function WorkspaceCard({
   title,
   location,
   date,
-  photo,
+  thumbnail,
   story,
   onOpen,
   layoutIdBase,
@@ -27,13 +28,16 @@ export function WorkspaceCard({
       layoutId={`${layoutIdBase}-card`}
     >
       <div className="relative h-52 w-full shrink-0 overflow-hidden bg-ink-100">
-        {photo ? (
+        {thumbnail ? (
           <Image
-            src={photo}
+            src={thumbnail}
             alt={title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
+            quality={65}
+            placeholder="blur"
+            blurDataURL={BLUR_DATA_URL}
           />
         ) : (
           <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_80%_10%,rgba(255,255,255,0.35),transparent_55%)] bg-ink-200" />

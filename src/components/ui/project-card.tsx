@@ -3,6 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 import type { Project } from "@/data/projects";
+import { BLUR_DATA_URL } from "@/lib/image-placeholder";
 
 type ProjectCardProps = Project & {
   onOpen: () => void;
@@ -13,7 +14,7 @@ export function ProjectCard({
   name,
   description,
   accent,
-  cover,
+  thumbnail,
   onOpen,
   layoutIdBase,
 }: ProjectCardProps) {
@@ -25,14 +26,17 @@ export function ProjectCard({
         className="group flex w-full cursor-pointer items-center gap-5 border-b border-ink-200 py-5 text-left transition-colors hover:border-ink-400"
         layoutId={`${layoutIdBase}-card`}
       >
-        {cover ? (
+        {thumbnail ? (
           <div className="relative h-14 w-20 shrink-0 overflow-hidden rounded-lg border border-ink-200">
             <Image
-              src={cover}
+              src={thumbnail}
               alt={name}
               fill
               sizes="80px"
               className="object-cover"
+              quality={65}
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
             />
           </div>
         ) : (

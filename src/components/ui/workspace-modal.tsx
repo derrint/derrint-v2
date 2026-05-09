@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { FiCalendar, FiMapPin, FiX } from "react-icons/fi";
 import type { WorkspaceStory } from "@/data/workspace";
+import { BLUR_DATA_URL } from "@/lib/image-placeholder";
 
 type WorkspaceModalProps = {
   story: WorkspaceStory;
@@ -46,13 +47,16 @@ export function WorkspaceModal({
 
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="relative min-h-[280px] bg-ink-100 md:min-h-[520px]">
-            {story.photo ? (
+            {story.fullImage ? (
               <Image
-                src={story.photo}
+                src={story.fullImage}
                 alt={story.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
+                quality={90}
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
               />
             ) : (
               <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_80%_10%,rgba(255,255,255,0.35),transparent_55%)] bg-ink-200" />

@@ -5,9 +5,10 @@ export type Project = {
   description: string;
   stack: string;
   accent: string;
-  cover?: string;
-  /** Large preview in the project modal. */
-  screenshot: string;
+  /** Lightweight image for cards/lists. */
+  thumbnail: string;
+  /** HD preview image for the modal. */
+  fullImage: string;
   href?: string;
 };
 
@@ -20,8 +21,8 @@ export const PROJECTS: readonly Project[] = [
       "A brand new Event Supporting / News Portal / Automotive Marketplace",
     stack: "React Native, Go, PostgreSQL",
     accent: "#0a0a0a",
-    cover: "/portfolio/auto360/cover.png",
-    screenshot: "/portfolio/auto360/screenshot.jpeg",
+    thumbnail: "/portfolio/auto360/cover-thumb.webp",
+    fullImage: "/portfolio/auto360/screenshot-full.webp",
     href: "https://play.google.com/store/apps/details?id=com.seven.auto360Id&hl=id",
   },
   {
@@ -32,8 +33,8 @@ export const PROJECTS: readonly Project[] = [
       "A widget which wraps multiple payment providers data aggregation in a single web app",
     stack: "React, React Native",
     accent: "#1a1a1a",
-    cover: "/portfolio/sophtron/cover.png",
-    screenshot: "/portfolio/sophtron/screenshot.jpeg",
+    thumbnail: "/portfolio/sophtron/cover-thumb.webp",
+    fullImage: "/portfolio/sophtron/screenshot-full.webp",
     href: "https://sophtron-web.vercel.app/",
   },
   {
@@ -44,8 +45,8 @@ export const PROJECTS: readonly Project[] = [
       "An interactive 3D web app wrapper & landing page for NFT Game",
     stack: "React + NextJS, ThreeJS",
     accent: "#444444",
-    cover: "/portfolio/yooniez/cover.png",
-    screenshot: "/portfolio/yooniez/screenshot.jpeg",
+    thumbnail: "/portfolio/yooniez/cover-thumb.webp",
+    fullImage: "/portfolio/yooniez/screenshot-full.webp",
     href: "https://yooniez-derrint.vercel.app/",
   },
   {
@@ -56,8 +57,8 @@ export const PROJECTS: readonly Project[] = [
       "A rich animated landing page for Vessel blockchain network & app SDK",
     stack: "React + NextJS",
     accent: "#888888",
-    cover: "/portfolio/vessel/cover.png",
-    screenshot: "/portfolio/vessel/screenshot.jpeg",
+    thumbnail: "/portfolio/vessel/cover-thumb.webp",
+    fullImage: "/portfolio/vessel/screenshot-full.webp",
     href: "https://vessel-block-explorer-web.vercel.app/",
   },
   {
@@ -67,8 +68,8 @@ export const PROJECTS: readonly Project[] = [
     description: "A playable & interactive landing page for creative agency",
     stack: "React + NextJS",
     accent: "#dfdfdf",
-    cover: "/portfolio/simple-duck-studios/cover.png",
-    screenshot: "/portfolio/simple-duck-studios/screenshot.jpeg",
+    thumbnail: "/portfolio/simple-duck-studios/cover-thumb.webp",
+    fullImage: "/portfolio/simple-duck-studios/screenshot-full.webp",
     href: "https://simple-duck-studios.vercel.app/",
   },
   {
@@ -79,8 +80,8 @@ export const PROJECTS: readonly Project[] = [
       "A new Marketplace / Landing Page / Game Supporting website app related to NFT & Cryptocurrency",
     stack: "React + NextJS, Go",
     accent: "#0a0a0a",
-    cover: "/portfolio/diamond-hands/cover.png",
-    screenshot: "/portfolio/diamond-hands/screenshot.jpeg",
+    thumbnail: "/portfolio/diamond-hands/cover-thumb.webp",
+    fullImage: "/portfolio/diamond-hands/screenshot-full.webp",
     href: "https://diamond-hands-eight.vercel.app/",
   },
   {
@@ -90,8 +91,8 @@ export const PROJECTS: readonly Project[] = [
     description: "A brand new public service mobile app from KEMENAG RI",
     stack: "React Native, PHP, MySQL",
     accent: "#1a1a1a",
-    cover: "/portfolio/dulk/cover.png",
-    screenshot: "/portfolio/dulk/screenshot.jpeg",
+    thumbnail: "/portfolio/dulk/cover-thumb.webp",
+    fullImage: "/portfolio/dulk/screenshot-full.webp",
   },
   {
     name: "TVRI Klik",
@@ -101,8 +102,8 @@ export const PROJECTS: readonly Project[] = [
       "A rebranded TV live streaming service & TV On-demand mobile app from TVRI",
     stack: "React Native, PHP, MySQL",
     accent: "#444444",
-    cover: "/portfolio/tvri/cover.png",
-    screenshot: "/portfolio/tvri/screenshot.jpeg",
+    thumbnail: "/portfolio/tvri/cover-thumb.webp",
+    fullImage: "/portfolio/tvri/screenshot-full.webp",
     href: "https://play.google.com/store/apps/details?id=com.tvriklikv2&hl=id",
   },
 ];
