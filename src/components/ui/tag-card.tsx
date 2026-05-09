@@ -7,7 +7,7 @@ export function TagCard({
   Icon,
   color,
   textColor,
-  href,
+  // href,
 }: HeroTag) {
   const isDark = textColor === "#ffffff";
 
@@ -20,7 +20,7 @@ export function TagCard({
 
   return (
     <a
-      href={href}
+      // href={href}
       className="group relative flex flex-col justify-between overflow-hidden rounded-3xl p-5 transition-transform hover:-translate-y-1"
       style={{ backgroundColor: color, color: textColor }}
     >
