@@ -58,7 +58,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-200 bg-white/95 text-ink-700 shadow-sm transition-colors hover:bg-ink-50 hover:text-ink-950"
+          className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-200 bg-white/95 text-ink-700 shadow-sm transition-colors hover:bg-ink-50 hover:text-ink-950 cursor-pointer"
           aria-label="Close project details"
         >
           <FiX className="h-4 w-4" />

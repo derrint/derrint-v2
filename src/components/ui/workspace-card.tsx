@@ -19,7 +19,7 @@ export function WorkspaceCard({
     <button
       type="button"
       onClick={onOpen}
-      className="card-surface group flex h-full w-full flex-col overflow-hidden text-left"
+      className="card-surface group flex h-full w-full flex-col overflow-hidden text-left cursor-pointer"
       aria-label={`Open details for ${title}`}
     >
       <div className="relative h-52 w-full shrink-0 overflow-hidden bg-ink-100">
