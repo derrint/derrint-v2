@@ -1,10 +1,12 @@
 import Image from "next/image";
 
+import { motion } from "framer-motion";
 import { FiMapPin } from "react-icons/fi";
 import type { WorkspaceStory } from "@/data/workspace";
 
 type WorkspaceCardProps = WorkspaceStory & {
   onOpen?: () => void;
+  layoutIdBase: string;
 };
 
 export function WorkspaceCard({
@@ -14,15 +16,20 @@ export function WorkspaceCard({
   photo,
   story,
   onOpen,
+  layoutIdBase,
 }: WorkspaceCardProps) {
   return (
-    <button
+    <motion.button
       type="button"
       onClick={onOpen}
       className="card-surface group flex h-full w-full flex-col overflow-hidden text-left cursor-pointer"
       aria-label={`Open details for ${title}`}
+      layoutId={`${layoutIdBase}-card`}
     >
-      <div className="relative h-52 w-full shrink-0 overflow-hidden bg-ink-100">
+      <motion.div
+        className="relative h-52 w-full shrink-0 overflow-hidden bg-ink-100"
+        layoutId={`${layoutIdBase}-image`}
+      >
         {photo ? (
           <Image
             src={photo}
@@ -34,9 +41,12 @@ export function WorkspaceCard({
         ) : (
           <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_80%_10%,rgba(255,255,255,0.35),transparent_55%)] bg-ink-200" />
         )}
-      </div>
+      </motion.div>
 
-      <div className="flex flex-1 flex-col gap-4 p-5">
+      <motion.div
+        className="flex flex-1 flex-col gap-4 p-5"
+        layoutId={`${layoutIdBase}-content`}
+      >
         <div className="flex items-center justify-between gap-3 text-xs text-ink-400">
           <span className="inline-flex items-center gap-1">
             <FiMapPin className="h-3 w-3 shrink-0" />
@@ -52,8 +62,8 @@ export function WorkspaceCard({
         <p className="line-clamp-3 text-sm leading-relaxed text-ink-600">
           {story}
         </p>
-      </div>
-    </button>
+      </motion.div>
+    </motion.button>
   );
 }
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -33,16 +34,20 @@ export function BehindTheWork() {
           <WorkspaceCard
             key={story.title}
             {...story}
+            layoutIdBase={`workspace-${story.title}`}
             onOpen={() => setActiveStory(story)}
           />
         ))}
       </div>
-      {activeStory ? (
-        <WorkspaceModal
-          story={activeStory}
-          onClose={() => setActiveStory(null)}
-        />
-      ) : null}
+      <AnimatePresence>
+        {activeStory ? (
+          <WorkspaceModal
+            story={activeStory}
+            layoutIdBase={`workspace-${activeStory.title}`}
+            onClose={() => setActiveStory(null)}
+          />
+        ) : null}
+      </AnimatePresence>
     </Section>
   );
 }
