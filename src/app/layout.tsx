@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
@@ -41,6 +42,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-ink-50 font-sans text-ink-900">
         {children}
+        <Analytics />
       </body>
     </html>
   );
