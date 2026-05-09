@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { ProjectCard } from "@/components/ui/project-card";
 import { ProjectModal } from "@/components/ui/project-modal";
@@ -18,16 +19,20 @@ export function RecentProjects() {
           <ProjectCard
             key={project.name}
             {...project}
+            layoutIdBase={`project-${project.name}`}
             onOpen={() => setActiveProject(project)}
           />
         ))}
       </ul>
-      {activeProject ? (
-        <ProjectModal
-          project={activeProject}
-          onClose={() => setActiveProject(null)}
-        />
-      ) : null}
+      <AnimatePresence>
+        {activeProject ? (
+          <ProjectModal
+            project={activeProject}
+            layoutIdBase={`project-${activeProject.name}`}
+            onClose={() => setActiveProject(null)}
+          />
+        ) : null}
+      </AnimatePresence>
     </Section>
   );
 }

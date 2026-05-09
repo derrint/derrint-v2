@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect } from "react";
 import type { IconType } from "react-icons";
@@ -15,6 +16,7 @@ import type { Project } from "@/data/projects";
 
 type ProjectModalProps = {
   project: Project;
+  layoutIdBase: string;
   onClose: () => void;
 };
 
@@ -29,7 +31,11 @@ function splitCategory(category: string): { platform: string; role: string } {
   return { platform: category, role: "—" };
 }
 
-export function ProjectModal({ project, onClose }: ProjectModalProps) {
+export function ProjectModal({
+  project,
+  layoutIdBase,
+  onClose,
+}: ProjectModalProps) {
   const { platform, role } = splitCategory(project.category);
   const hasLink = Boolean(project.href && project.href !== "#");
 
@@ -46,14 +52,23 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
   }, [onClose]);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm"
+    <motion.div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
       onClick={onClose}
       role="presentation"
+      initial={{ opacity: 0, backgroundColor: "rgba(0, 0, 0, 0)" }}
+      animate={{ opacity: 1, backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+      exit={{ opacity: 0, backgroundColor: "rgba(0, 0, 0, 0)" }}
+      transition={{ duration: 0.24, ease: "easeOut" }}
     >
-      <article
-        className="relative flex max-h-[90vh] w-full max-w-6xl flex-col overflow-hidden rounded-3xl  bg-white shadow-[0_40px_100px_-40px_rgba(0,0,0,0.45)] lg:max-h-[85vh] lg:flex-row"
+      <motion.article
+        className="relative flex max-h-[90vh] w-full max-w-6xl flex-col overflow-hidden rounded-3xl bg-white shadow-[0_40px_100px_-40px_rgba(0,0,0,0.45)] lg:max-h-[85vh] lg:flex-row"
         onClick={(event) => event.stopPropagation()}
+        layoutId={`${layoutIdBase}-card`}
+        initial={{ filter: "blur(4px)" }}
+        animate={{ filter: "blur(0px)" }}
+        exit={{ filter: "blur(3px)" }}
+        transition={{ type: "spring", stiffness: 420, damping: 38 }}
       >
         <button
           type="button"
@@ -64,7 +79,14 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <FiX className="h-4 w-4" />
         </button>
 
-        <div className="relative flex min-h-[250px] flex-1 flex-col justify-center sm:min-h-[350px] lg:min-h-0 lg:max-w-[63%]">
+        <motion.div
+          className="relative flex min-h-[250px] flex-1 flex-col justify-center sm:min-h-[350px] lg:min-h-0 lg:max-w-[63%]"
+          layoutId={`${layoutIdBase}-image`}
+          initial={{ filter: "blur(4px)" }}
+          animate={{ filter: "blur(0px)" }}
+          exit={{ filter: "blur(3px)" }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
+        >
           <Image
             src={project.screenshot}
             alt={`${project.name} screenshot`}
@@ -73,9 +95,16 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             className="object-cover object-top"
             priority
           />
-        </div>
+        </motion.div>
 
-        <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto p-6 sm:p-8 lg:max-w-[37%]">
+        <motion.div
+          className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto p-6 sm:p-8 lg:max-w-[37%]"
+          layoutId={`${layoutIdBase}-content`}
+          initial={{ filter: "blur(3px)" }}
+          animate={{ filter: "blur(0px)" }}
+          exit={{ filter: "blur(2px)" }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+        >
           <div>
             <h2 className="font-display text-2xl font-semibold leading-tight tracking-tight text-ink-950 sm:text-3xl">
               {project.name}
@@ -115,9 +144,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
             ) : null}
           </dl>
-        </div>
-      </article>
-    </div>
+        </motion.div>
+      </motion.article>
+    </motion.div>
   );
 }
 

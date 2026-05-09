@@ -1,10 +1,12 @@
 import Image from "next/image";
 
+import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 import type { Project } from "@/data/projects";
 
 type ProjectCardProps = Project & {
   onOpen: () => void;
+  layoutIdBase: string;
 };
 
 export function ProjectCard({
@@ -13,16 +15,21 @@ export function ProjectCard({
   accent,
   cover,
   onOpen,
+  layoutIdBase,
 }: ProjectCardProps) {
   return (
     <li>
-      <button
+      <motion.button
         type="button"
         onClick={onOpen}
         className="group flex w-full cursor-pointer items-center gap-5 border-b border-ink-200 py-5 text-left transition-colors hover:border-ink-400"
+        layoutId={`${layoutIdBase}-card`}
       >
         {cover ? (
-          <div className="relative h-14 w-20 shrink-0 overflow-hidden rounded-lg border border-ink-200">
+          <motion.div
+            className="relative h-14 w-20 shrink-0 overflow-hidden rounded-lg border border-ink-200"
+            layoutId={`${layoutIdBase}-image`}
+          >
             <Image
               src={cover}
               alt={name}
@@ -30,17 +37,20 @@ export function ProjectCard({
               sizes="80px"
               className="object-cover"
             />
-          </div>
+          </motion.div>
         ) : (
           <ProjectThumbnail color={accent} />
         )}
 
-        <div className="min-w-0 flex-1">
+        <motion.div
+          className="min-w-0 flex-1"
+          layoutId={`${layoutIdBase}-content`}
+        >
           <p className="font-display text-lg font-semibold text-ink-950">
             {name}
           </p>
           <p className="text-sm text-ink-500">{description}</p>
-        </div>
+        </motion.div>
 
         <span
           aria-hidden
@@ -48,7 +58,7 @@ export function ProjectCard({
         >
           <FiArrowUpRight className="h-4 w-4" />
         </span>
-      </button>
+      </motion.button>
     </li>
   );
 }
