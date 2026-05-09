@@ -6,6 +6,8 @@ export type Project = {
   stack: string;
   accent: string;
   cover?: string;
+  /** Large preview in the project modal. */
+  screenshot: string;
   href?: string;
 };
 
@@ -19,7 +21,8 @@ export const PROJECTS: readonly Project[] = [
     stack: "React Native, Go, PostgreSQL",
     accent: "#0a0a0a",
     cover: "/portfolio/auto360/cover.png",
-    href: "https://play.google.com/store/apps/details?id=com.expohub&pli=1",
+    screenshot: "/portfolio/auto360/screenshot.jpeg",
+    href: "https://play.google.com/store/apps/details?id=com.seven.auto360Id&hl=id",
   },
   {
     name: "Sophtron",
@@ -30,6 +33,7 @@ export const PROJECTS: readonly Project[] = [
     stack: "React, React Native",
     accent: "#1a1a1a",
     cover: "/portfolio/sophtron/cover.png",
+    screenshot: "/portfolio/sophtron/screenshot.jpeg",
     href: "https://sophtron-web.vercel.app/",
   },
   {
@@ -41,6 +45,7 @@ export const PROJECTS: readonly Project[] = [
     stack: "React + NextJS, ThreeJS",
     accent: "#444444",
     cover: "/portfolio/yooniez/cover.png",
+    screenshot: "/portfolio/yooniez/screenshot.jpeg",
     href: "https://yooniez-derrint.vercel.app/",
   },
   {
@@ -52,7 +57,8 @@ export const PROJECTS: readonly Project[] = [
     stack: "React + NextJS",
     accent: "#888888",
     cover: "/portfolio/vessel/cover.png",
-    href: "https://www.openvessel.io/",
+    screenshot: "/portfolio/vessel/screenshot.jpeg",
+    href: "https://vessel-block-explorer-web.vercel.app/",
   },
   {
     name: "Simple Duck Studios",
@@ -62,6 +68,7 @@ export const PROJECTS: readonly Project[] = [
     stack: "React + NextJS",
     accent: "#dfdfdf",
     cover: "/portfolio/simple-duck-studios/cover.png",
+    screenshot: "/portfolio/simple-duck-studios/screenshot.jpeg",
     href: "https://simple-duck-studios.vercel.app/",
   },
   {
@@ -73,6 +80,7 @@ export const PROJECTS: readonly Project[] = [
     stack: "React + NextJS, Go",
     accent: "#0a0a0a",
     cover: "/portfolio/diamond-hands/cover.png",
+    screenshot: "/portfolio/diamond-hands/screenshot.jpeg",
     href: "https://diamond-hands-eight.vercel.app/",
   },
   {
@@ -83,6 +91,7 @@ export const PROJECTS: readonly Project[] = [
     stack: "React Native, PHP, MySQL",
     accent: "#1a1a1a",
     cover: "/portfolio/dulk/cover.png",
+    screenshot: "/portfolio/dulk/screenshot.jpeg",
   },
   {
     name: "TVRI Klik",
@@ -93,7 +102,8 @@ export const PROJECTS: readonly Project[] = [
     stack: "React Native, PHP, MySQL",
     accent: "#444444",
     cover: "/portfolio/tvri/cover.png",
-    href: "https://play.google.com/store/apps/details?id=id.go.tvri.klik",
+    screenshot: "/portfolio/tvri/screenshot.jpeg",
+    href: "https://play.google.com/store/apps/details?id=com.tvriklikv2&hl=id",
   },
 ];
 

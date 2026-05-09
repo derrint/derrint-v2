@@ -3,18 +3,23 @@ import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
 import type { Project } from "@/data/projects";
 
+type ProjectCardProps = Project & {
+  onOpen: () => void;
+};
+
 export function ProjectCard({
   name,
   description,
   accent,
   cover,
-  href = "#",
-}: Project) {
+  onOpen,
+}: ProjectCardProps) {
   return (
     <li>
-      <a
-        href={href}
-        className="group flex items-center gap-5 border-b border-ink-200 py-5 transition-colors hover:border-ink-400"
+      <button
+        type="button"
+        onClick={onOpen}
+        className="group flex w-full cursor-pointer items-center gap-5 border-b border-ink-200 py-5 text-left transition-colors hover:border-ink-400"
       >
         {cover ? (
           <div className="relative h-14 w-20 shrink-0 overflow-hidden rounded-lg border border-ink-200">
@@ -43,7 +48,7 @@ export function ProjectCard({
         >
           <FiArrowUpRight className="h-4 w-4" />
         </span>
-      </a>
+      </button>
     </li>
   );
 }
