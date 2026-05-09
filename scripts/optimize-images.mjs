@@ -8,6 +8,8 @@ const ROOT = process.cwd();
 const TARGET_DIRS = ["public/workspace", "public/portfolio"];
 const SOURCE_EXTS = new Set([".jpg", ".jpeg", ".png", ".JPG", ".JPEG", ".PNG"]);
 const SKIP_SUFFIXES = ["-thumb.webp", "-full.webp"];
+const SKIP_NAME_PARTS = ["logo", "icon"];
+const SKIP_IF_SOURCE_UNDER_BYTES = 20 * 1024;
 
 const THUMB_MAX_WIDTH = 640;
 const FULL_MAX_WIDTH = 1920;
@@ -44,7 +46,20 @@ function isSourceImage(filePath) {
   return !SKIP_SUFFIXES.some((suffix) => filePath.endsWith(suffix));
 }
 
+function hasSkippedName(filePath) {
+  const base = path.basename(filePath).toLowerCase();
+  return SKIP_NAME_PARTS.some((part) => base.includes(part));
+}
+
 async function optimizeOne(filePath) {
+  const srcStats = await stat(filePath);
+  if (srcStats.size < SKIP_IF_SOURCE_UNDER_BYTES || hasSkippedName(filePath)) {
+    if (DRY_RUN) {
+      console.log(`[dry][skip] ${path.relative(ROOT, filePath)}`);
+    }
+    return;
+  }
+
   const { thumb, full } = getOutputs(filePath);
 
   if (DRY_RUN) {
@@ -68,7 +83,7 @@ async function optimizeOne(filePath) {
     .webp({ quality: FULL_QUALITY, effort: 5 })
     .toFile(full);
 
-  const srcSize = (await stat(filePath)).size;
+  const srcSize = srcStats.size;
   const thumbSize = (await stat(thumb)).size;
   const fullSize = (await stat(full)).size;
   console.log(
