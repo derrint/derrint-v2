@@ -79,14 +79,7 @@ export function ProjectModal({
           <FiX className="h-4 w-4" />
         </button>
 
-        <motion.div
-          className="relative flex min-h-[250px] flex-1 flex-col justify-center sm:min-h-[350px] lg:min-h-0 lg:max-w-[63%]"
-          layoutId={`${layoutIdBase}-image`}
-          initial={{ filter: "blur(4px)" }}
-          animate={{ filter: "blur(0px)" }}
-          exit={{ filter: "blur(3px)" }}
-          transition={{ duration: 0.22, ease: "easeOut" }}
-        >
+        <div className="relative flex min-h-[250px] flex-1 flex-col justify-center sm:min-h-[350px] lg:min-h-0 lg:max-w-[63%]">
           <Image
             src={project.screenshot}
             alt={`${project.name} screenshot`}
@@ -95,16 +88,9 @@ export function ProjectModal({
             className="object-cover object-top"
             priority
           />
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto p-6 sm:p-8 lg:max-w-[37%]"
-          layoutId={`${layoutIdBase}-content`}
-          initial={{ filter: "blur(3px)" }}
-          animate={{ filter: "blur(0px)" }}
-          exit={{ filter: "blur(2px)" }}
-          transition={{ duration: 0.2, ease: "easeOut" }}
-        >
+        <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto p-6 sm:p-8 lg:max-w-[37%]">
           <div>
             <h2 className="font-display text-2xl font-semibold leading-tight tracking-tight text-ink-950 sm:text-3xl">
               {project.name}
@@ -144,7 +130,7 @@ export function ProjectModal({
               </div>
             ) : null}
           </dl>
-        </motion.div>
+        </div>
       </motion.article>
     </motion.div>
   );

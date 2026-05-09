@@ -26,10 +26,7 @@ export function ProjectCard({
         layoutId={`${layoutIdBase}-card`}
       >
         {cover ? (
-          <motion.div
-            className="relative h-14 w-20 shrink-0 overflow-hidden rounded-lg border border-ink-200"
-            layoutId={`${layoutIdBase}-image`}
-          >
+          <div className="relative h-14 w-20 shrink-0 overflow-hidden rounded-lg border border-ink-200">
             <Image
               src={cover}
               alt={name}
@@ -37,20 +34,17 @@ export function ProjectCard({
               sizes="80px"
               className="object-cover"
             />
-          </motion.div>
+          </div>
         ) : (
           <ProjectThumbnail color={accent} />
         )}
 
-        <motion.div
-          className="min-w-0 flex-1"
-          layoutId={`${layoutIdBase}-content`}
-        >
+        <div className="min-w-0 flex-1">
           <p className="font-display text-lg font-semibold text-ink-950">
             {name}
           </p>
           <p className="text-sm text-ink-500">{description}</p>
-        </motion.div>
+        </div>
 
         <span
           aria-hidden

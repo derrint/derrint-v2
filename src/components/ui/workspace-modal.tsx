@@ -45,14 +45,7 @@ export function WorkspaceModal({
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <motion.div
-            className="relative min-h-[280px] bg-ink-100 md:min-h-[520px]"
-            layoutId={`${layoutIdBase}-image`}
-            initial={{ filter: "blur(4px)" }}
-            animate={{ filter: "blur(0px)" }}
-            exit={{ filter: "blur(3px)" }}
-            transition={{ duration: 0.22, ease: "easeOut" }}
-          >
+          <div className="relative min-h-[280px] bg-ink-100 md:min-h-[520px]">
             {story.photo ? (
               <Image
                 src={story.photo}
@@ -64,16 +57,9 @@ export function WorkspaceModal({
             ) : (
               <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_80%_10%,rgba(255,255,255,0.35),transparent_55%)] bg-ink-200" />
             )}
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="flex flex-col gap-5 p-6 sm:p-7"
-            layoutId={`${layoutIdBase}-content`}
-            initial={{ filter: "blur(3px)" }}
-            animate={{ filter: "blur(0px)" }}
-            exit={{ filter: "blur(2px)" }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-          >
+          <div className="flex flex-col gap-5 p-6 sm:p-7">
             <h3 className="font-display text-2xl font-semibold leading-tight text-ink-950 sm:text-3xl">
               {story.title}
             </h3>
@@ -92,7 +78,7 @@ export function WorkspaceModal({
             <p className="text-sm leading-relaxed text-ink-600 sm:text-base">
               {story.story}
             </p>
-          </motion.div>
+          </div>
         </div>
       </motion.article>
     </motion.div>
