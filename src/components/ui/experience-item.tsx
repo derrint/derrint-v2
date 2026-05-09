@@ -6,11 +6,14 @@ export function ExperienceItem({
   role,
   description,
   period,
+  url,
 }: Experience) {
   return (
     <li>
       <a
-        href="#"
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
         className="group flex items-start gap-6 border-b border-ink-200 py-6 transition-colors hover:border-ink-400"
       >
         <div className="flex-1">
