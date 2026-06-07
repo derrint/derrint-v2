@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa Shortlist · Jun 23–25, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f1ea;
+    --card: #ffffff;
+    --text: #1a1714;
+    --muted: #7a7266;
+    --border: #e2ddd5;
+    --yes: #2d6a4f;
+    --yes-bg: #d8f3dc;
+    --partial: #7c5c00;
+    --partial-bg: #fff3cd;
+    --no: #9b2226;
+    --no-bg: #ffd7d9;
+    --pending: #1a5c8a;
+    --pending-bg: #dbeafe;
+    --accent: #b5451b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+  }
+  header {
+    background: var(--text);
+    color: #f5f1ea;
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    letter-spacing: -0.5px;
+    margin-bottom: 0.4rem;
+  }
+  header p {
+    font-size: 0.95rem;
+    color: #a89e8e;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1.5rem 1.5rem 0.5rem;
+  }
+  .pill {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: white;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.18s;
+    letter-spacing: 0.02em;
+  }
+  .pill:hover { border-color: #aaa; color: var(--text); }
+  .pill.active { background: var(--text); border-color: var(--text); color: #f5f1ea; }
+  .summary {
+    text-align: center;
+    padding: 0.5rem 1rem 1.2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+    padding: 0 1.5rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.09); }
+  .card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background: #ddd;
+  }
+  .card-img-placeholder {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #e8e2d9 0%, #d4cfc6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+  .card-body { padding: 1.1rem 1.25rem 0.8rem; flex: 1; display: flex; flex-direction: column; gap: 0; }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
+  .card-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    color: var(--text);
+  }
+  .badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .b-yes { background: var(--yes-bg); color: var(--yes); }
+  .b-partial { background: var(--partial-bg); color: var(--partial); }
+  .b-no { background: var(--no-bg); color: var(--no); }
+  .b-pending { background: var(--pending-bg); color: var(--pending); }
+  .card-meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
+  .detail-row { display: flex; gap: 8px; align-items: flex-start; font-size: 0.82rem; margin-bottom: 6px; }
+  .detail-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .detail-label { color: var(--muted); min-width: 52px; flex-shrink: 0; font-size: 0.78rem; }
+  .detail-val { color: var(--text); line-height: 1.4; }
+  .card-footer { padding: 0.75rem 1.25rem; border-top: 1px solid var(--border); display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-link {
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1.5px solid var(--border);
+    color: var(--text);
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .btn-link:hover { background: var(--bg); border-color: #aaa; }
+  .btn-link.primary { background: var(--text); color: #f5f1ea; border-color: var(--text); }
+  .btn-link.primary:hover { background: #333; }
+  .empty { grid-column: 1/-1; text-align: center; padding: 4rem 2rem; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Villa Shortlist</h1>
+  <p>Check-in: Selasa 23 Jun &nbsp;·&nbsp; Checkout: Kamis 25 Jun, 2026 &nbsp;·&nbsp; 2 Malam &nbsp;·&nbsp; Bali</p>
+</header>
+
+<div class="filters">
+  <button class="pill active" onclick="filter('all',this)">Semua (11)</button>
+  <button class="pill" onclick="filter('yes',this)">✓ Bisa 2 Mobil</button>
+  <button class="pill" onclick="filter('partial',this)">⚠ Partial</button>
+  <button class="pill" onclick="filter('pending',this)">⏳ Belum Balas</button>
+</div>
+<div class="summary" id="summary">Menampilkan 11 villa</div>
+
+<div class="grid" id="grid"></div>
+
+<script>
+const villas = [
+  {
+    name: "Ocean-View Rooftop Escape",
+    meta: "Kediri, Bali · ★4.62 · 3 BR · 3 Bath",
+    parking: "pending",
+    parkingNote: "Belum balas chat",
+    access: "Kediri, Bali — area dekat Tanah Lot",
+    img: "https://a0.muscache.com/im/pictures/hosting/Hosting-1566911007003967191/original/2ad65b11-9982-4f50-b87c-4bf87d2e833b.jpeg?im_w=720",
+    airbnb: "https://www.airbnb.com/rooms/1566911007003967191",
+    maps: "https://maps.google.com/?q=-8.6181,115.0870"
+  },
+  {
+    name: "Villa Rindu Canggu",
+    meta: "Canggu, Bali · ★4.92 · 3 BR · 3.5 Bath",
+    parking: "pending",
+    parkingNote: "Belum balas chat",
+    access: "Gg. Srikandi, Tibubeneng, Canggu",
+    img: "https://a0.muscache.com/im/pictures/miso/Hosting-52887367/original/cbf6a308-53eb-4f44-b60f-21d48354aa74.jpeg?im_w=720",
+    airbnb: "https://www.airbnb.com/rooms/52887367",
+    maps: "https://maps.google.com/?q=-8.6514,115.1497"
+  },
+  {
+    name: "FREE SPA · 3BR Pool Villa Canggu",
+    meta: "Kuta Utara, Bali · ★4.71 · 3 BR · 3 Bath",
+    parking: "partial",
+    parkingNote: "1 mobil kecil saja. Ada kemungkinan parkir di sekitar.",
+    access: "Canggu, Kuta Utara — belum ada detail akses dari owner",
+    img: "https://a0.muscache.com/im/pictures/hosting/Hosting-963435660205938914/original/04e40247-3dd3-4360-aa0b-317cd03dfb10.png?im_w=720",
+    airbnb: "https://www.airbnb.com/rooms/963435660205938914",
+    maps: "https://maps.google.com/?q=-8.6437,115.1322"
+  },
+  {
+    name: "FREE SPA · Luxe 3BR Villa Canggu",
+    meta: "Mengwi (Pererenan), Bali · ★4.83 · 3 BR · 3 Bath",
+    parking: "partial",
+    parkingNote: "1 mobil kecil saja. Ada kemungkinan parkir di sekitar.",
+    access: "Pererenan, Mengwi — 5 menit ke pantai",
+    img: "https://a0.muscache.com/im/pictures/hosting/Hosting-1166210415286153594/original/8cbdd79f-572a-49de-b973-d76282d69e42.png?im_w=720",
+    airbnb: "https://www.airbnb.com/rooms/1166210415286153594",
+    maps: "https://maps.google.com/?q=-8.6495,115.1239"
+  },
+  {
+    name: "Green Mutiara Jimbaran",
+    meta: "South Kuta (Jimbaran), Bali · ★4.57 · 3 BR · 3 Bath",
+    parking: "yes",
+    parkingNote: "✓ Dikonfirmasi owner: bisa parkir 2 mobil",
+    access: "Jl. Tiga Mutiara, Jimbaran — lokasi luas",
+    img: "https://a0.muscache.com/im/pictures/hosting/Hosting-1591667037991994646/original/499fb548-541d-43ab-82d8-f66daf0fa27b.jpeg?im_w=720",
+    airbnb: "https://www.airbnb.com/rooms/1591667037991994646",
+    maps: "https://maps.google.com/?q=-8.7874,115.1699"
+  },
+  {
+    name: "Tropical 3BR Villa – Pat Mase Jimbaran",
+    meta: "South Kuta (Jimbaran), Bali · ★4.88 · 3 BR · 3.5 Bath",
+    parking: "pending",
+    parkingNote: "Belum balas chat",
+    access: "Jl. Karang Mas Sejahtera, dalam kompleks Pat Mase",
+    img: "https://a0.muscache.com/im/pictures/hosting/Hosting-1572982802582926557/original/d1f5b57c-51c3-491e-bce1-1d9282f214cb.jpeg?im_w=720",
+    airbnb: "https://www.airbnb.com/rooms/1572982802582926557",
+    maps: "https://maps.google.com/?q=-8.7896,115.1564"
+  },
+  {
+    name: "New 3BR Family Villa – Berawa Beach",
+    meta: "Kuta Utara (Berawa), Bali · ★5.0 · 3 BR · 3.5 Bath",
+    parking: "partial",
+    parkingNote: "1 mobil di garasi, 1 mobil di pinggir jalan depan villa",
+    access: "Tibubeneng, Kuta Utara — dekat Berawa Beach",
+    img: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA2MTE0MDE4MDQ3ODQxODY3NA%3D%3D/original/38a0a35e-3f2c-4b74-bbf0-3ee472962643.jpeg?im_w=720",
+    airbnb: "https://www.airbnb.com/rooms/1061140180478418674",
+    maps: "https://maps.google.com/?q=-8.6600,115.1358"
+  },
+  {
+    name: "Tropical 3BR Villa near Pandawa Beach",
+    meta: "South Kuta, Bali · ★4.97 · 3 BR · 2 Bath",
+    parking: "pending",
+    parkingNote: "Belum balas chat",
+    access: "South Kuta — dekat Pantai Pandawa",
+    img: "https://a0.muscache.com/im/pictures/hosting/Hosting-1515871094270089490/original/abd1f8cd-071a-4b82-ba2f-43b4433d8496.png?im_w=720",
+    airbnb: "https://www.airbnb.com/rooms/1515871094270089490",
+    maps: "https://maps.google.com/?q=-8.8450,115.1821"
+  },
+  {
+    name: "Villa La Lucee · 3BR Pool Villa",
+    meta: "Canggu (Babakan), Bali · ★4.84 · 3 BR · 3 Bath",
+    parking: "partial",
+    parkingNote: "1 mobil di dalam, 1 mobil di depan villa (pinggir jalan)",
+    access: "Babakan, Canggu — residential quiet street",
+    img: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1425701161245969706/original/4e2a55a1-a71c-47ad-9d73-5d104bc18a02.jpeg?im_w=720",
+    airbnb: "https://www.airbnb.com/rooms/1425701161245969706",
+    maps: "https://maps.google.com/?q=-8.6271,115.1508"
+  },
+  {
+    name: "3BR Villa Pool · Ricefield View",
+    meta: "Braban (dekat Tanah Lot), Bali · ★5.0 · 3 BR · 3 Bath",
+    parking: "partial",
+    parkingNote: "1 mobil + 2 motor. Sedang tanya parkir sekitar, belum balas.",
+    access: "Braban, Tabanan — view sawah, dekat Tanah Lot",
+    img: "https://a0.muscache.com/im/pictures/hosting/Hosting-1552549932043287599/original/320703f5-4a16-4027-af40-79565c8eb4be.jpeg?im_w=720",
+    airbnb: "https://www.airbnb.com/rooms/1552549932043287599",
+    maps: "https://maps.google.com/?q=-8.6500,115.0830"
+  },
+  {
+    name: "Casa Mochi – Mediterranean 3BR",
+    meta: "Canggu, Bali · ★4.93 · 3 BR · 3.5 Bath",
+    parking: "pending",
+    parkingNote: "Belum balas chat",
+    access: "Jl. Kayutulang, Canggu",
+    img: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIwMzk0MDg2ODgzMDMxODA2MA%3D%3D/original/a49a2de9-8936-4669-8516-6abde894e4cd.jpeg?im_w=720",
+    airbnb: "https://www.airbnb.com/rooms/1203940868830318060",
+    maps: "https://maps.google.com/?q=-8.6421,115.1439"
+  }
+];
+
+const badgeMap = {
+  yes:    { cls: 'b-yes',     label: '✓ Bisa 2 Mobil' },
+  partial:{ cls: 'b-partial', label: '⚠ Partial' },
+  no:     { cls: 'b-no',      label: '✗ Tidak Bisa' },
+  pending:{ cls: 'b-pending', label: '⏳ Belum Balas' }
+};
+
+const iconMap = {
+  yes: '🟢', partial: '🟡', no: '🔴', pending: '⏳'
+};
+
+let cur = 'all';
+
+function filter(f, el) {
+  cur = f;
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  render();
+}
+
+function render() {
+  const list = cur === 'all' ? villas : villas.filter(v => v.parking === cur);
+  document.getElementById('summary').textContent = `Menampilkan ${list.length} villa`;
+  const grid = document.getElementById('grid');
+  if (!list.length) {
+    grid.innerHTML = '<div class="empty">Tidak ada villa di filter ini.</div>';
+    return;
+  }
+  grid.innerHTML = list.map(v => {
+    const b = badgeMap[v.parking];
+    return `
+    <div class="card" data-parking="${v.parking}">
+      <img class="card-img" src="${v.img}" alt="${v.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-img-placeholder" style="display:none">🏡</div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-name">${v.name}</div>
+          <span class="badge ${b.cls}">${b.label}</span>
+        </div>
+        <div class="card-meta">${v.meta}</div>
+        <hr class="divider">
+        <div class="detail-row">
+          <span class="detail-icon">🚗</span>
+          <span class="detail-label">Parkir</span>
+          <span class="detail-val">${v.parkingNote}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-icon">📍</span>
+          <span class="detail-label">Akses</span>
+          <span class="detail-val">${v.access}</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a class="btn-link primary" href="${v.airbnb}" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Airbnb
+        </a>
+        <a class="btn-link" href="${v.maps}" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Maps
+        </a>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+render();
+</script>
+</body>
+</html>
