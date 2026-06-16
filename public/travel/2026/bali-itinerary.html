@@ -1715,6 +1715,10 @@
       let totalDests = 0;
       const initializedMaps = new Set();
 
+      // Auto-open today's day card; fall back to Day 1 before/after the trip.
+      const _dayOffset = Math.floor((Date.now() - new Date('2026-06-21T00:00:00+07:00')) / 864e5);
+      const activeIdx  = (_dayOffset >= 0 && _dayOffset < ITINERARY.length) ? _dayOffset : 0;
+
       ITINERARY.forEach((day, idx) => {
         totalDests += day.items.length;
 
@@ -1723,7 +1727,7 @@
         const card = document.createElement("article");
         card.className = "day-card fade-in";
         card.id = `day-card-${day.id}`;
-        if (idx === 0) card.classList.add("open");
+        if (idx === activeIdx) card.classList.add("open");
 
         const checklistHTML = day.items
           .map((item, jdx) => {
@@ -1772,7 +1776,7 @@
 
         card.innerHTML = `
         <button class="day-toggle"
-          aria-expanded="${idx === 0}"
+          aria-expanded="${idx === activeIdx}"
           aria-controls="day-body-${idx}"
           aria-label="Hari ${day.id}: ${esc(day.title)}">
           <div class="day-bar" style="background:${DAY_COLORS[idx]};"></div>
@@ -1893,7 +1897,7 @@
       }
 
       // Initialize first card's map (it's open by default)
-      setTimeout(() => initDayMap(0), 500);
+      setTimeout(() => initDayMap(activeIdx), 500);
 
       /* ================================================================
        FULL TRIP MAP — day layer groups + filter buttons
