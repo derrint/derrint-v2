@@ -1,1037 +1,1738 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" data-theme="light">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bali Trip 2026 · 21–25 Juni</title>
-  <meta name="description" content="Itinerary perjalanan Bali, 21–25 Juni 2026."/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bali Trip 2026 · 21–25 Juni</title>
+    <meta
+      name="description"
+      content="Itinerary perjalanan Bali, 21–25 Juni 2026."
+    />
 
-  <!-- Inter — clean, highly readable on small screens -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Inter — clean, highly readable on small screens -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Leaflet.js maps -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Leaflet.js maps -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
 
-  <style>
-    /* ================================================================
+    <style>
+      /* ================================================================
        DESIGN TOKENS — calm Bali beach palette
        ================================================================ */
-    :root {
-      --sand:      #F6F1E8;
-      --ivory:     #FAF8F4;
-      --ocean:     #4FA3C7;
-      --ocean-dk:  #2E5E72;
-      --teal:      #7ED6D4;
-      --coral:     #F6A98A;
-      --warm:      #E8956D;
-      --palm:      #4A9B7F;
+      :root {
+        --sand: #f6f1e8;
+        --ivory: #faf8f4;
+        --ocean: #4fa3c7;
+        --ocean-dk: #2e5e72;
+        --teal: #7ed6d4;
+        --coral: #f6a98a;
+        --warm: #e8956d;
+        --palm: #4a9b7f;
 
-      /* Surfaces */
-      --bg:        #FAF8F4;
-      --bg-alt:    #F6F1E8;
-      --surface:   #FFFFFF;
-      --surface-2: #F4EFEA;
-      --text:      #1A2E38;
-      --text-muted:#6B8EA3;
-      --text-sub:  #9DB5C2;
-      --border:    rgba(46,94,114,0.10);
-      --border-2:  rgba(46,94,114,0.16);
+        /* Surfaces */
+        --bg: #faf8f4;
+        --bg-alt: #f6f1e8;
+        --surface: #ffffff;
+        --surface-2: #f4efea;
+        --text: #1a2e38;
+        --text-muted: #6b8ea3;
+        --text-sub: #9db5c2;
+        --border: rgba(46, 94, 114, 0.1);
+        --border-2: rgba(46, 94, 114, 0.16);
 
-      /* Shadows — gentle, not dramatic */
-      --shadow-xs: 0 1px 3px rgba(26,46,56,0.06);
-      --shadow-sm: 0 2px 8px rgba(26,46,56,0.08);
-      --shadow:    0 4px 16px rgba(26,46,56,0.10);
+        /* Shadows — gentle, not dramatic */
+        --shadow-xs: 0 1px 3px rgba(26, 46, 56, 0.06);
+        --shadow-sm: 0 2px 8px rgba(26, 46, 56, 0.08);
+        --shadow: 0 4px 16px rgba(26, 46, 56, 0.1);
 
-      /* Layout */
-      --radius:    14px;
-      --radius-sm: 9px;
-      --maxw:      720px;
-      --nav-h:     52px;
-      --bnav-h:    60px;
-    }
+        /* Layout */
+        --radius: 14px;
+        --radius-sm: 9px;
+        --maxw: 720px;
+        --nav-h: 52px;
+        --bnav-h: 60px;
+      }
 
-    [data-theme="dark"] {
-      --bg:        #0D1C28;
-      --bg-alt:    #102030;
-      --surface:   #152A3A;
-      --surface-2: #1C3650;
-      --text:      #DDEEF7;
-      --text-muted:#7BAEC5;
-      --text-sub:  #4A7A98;
-      --border:    rgba(79,163,199,0.14);
-      --border-2:  rgba(79,163,199,0.22);
-      --shadow-xs: 0 1px 3px rgba(0,0,0,0.25);
-      --shadow-sm: 0 2px 8px rgba(0,0,0,0.35);
-      --shadow:    0 4px 16px rgba(0,0,0,0.45);
-      --sand:      #152A3A;
-      --ivory:     #0D1C28;
-    }
+      [data-theme="dark"] {
+        --bg: #0d1c28;
+        --bg-alt: #102030;
+        --surface: #152a3a;
+        --surface-2: #1c3650;
+        --text: #ddeef7;
+        --text-muted: #7baec5;
+        --text-sub: #4a7a98;
+        --border: rgba(79, 163, 199, 0.14);
+        --border-2: rgba(79, 163, 199, 0.22);
+        --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.25);
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+        --shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+        --sand: #152a3a;
+        --ivory: #0d1c28;
+      }
 
-    /* ================================================================
+      /* ================================================================
        RESET & BASE
        ================================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: calc(var(--nav-h) + 8px);
-    }
-    body {
-      font-family: "Inter", system-ui, -apple-system, sans-serif;
-      font-size: 15px;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-    /* Bottom nav body padding on mobile */
-    @media (max-width: 767px) {
-      body { padding-bottom: var(--bnav-h); }
-    }
-    h1, h2, h3 { line-height: 1.25; font-weight: 700; }
-    a { color: inherit; text-decoration: none; }
-    button { font-family: inherit; cursor: pointer; }
-    ul { list-style: none; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(var(--nav-h) + 8px);
+      }
+      body {
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        font-size: 15px;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        transition:
+          background 0.3s ease,
+          color 0.3s ease;
+      }
+      /* Bottom nav body padding on mobile */
+      @media (max-width: 767px) {
+        body {
+          padding-bottom: var(--bnav-h);
+        }
+      }
+      h1,
+      h2,
+      h3 {
+        line-height: 1.25;
+        font-weight: 700;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font-family: inherit;
+        cursor: pointer;
+      }
+      ul {
+        list-style: none;
+      }
 
-    /* Minimal, calm scrollbar */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 99px; }
+      /* Minimal, calm scrollbar */
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border-2);
+        border-radius: 99px;
+      }
 
-    /* ================================================================
+      /* ================================================================
        LAYOUT
        ================================================================ */
-    .container {
-      width: 100%;
-      max-width: var(--maxw);
-      margin-inline: auto;
-      padding-inline: 20px;
-    }
-    .section {
-      padding: 40px 0;
-    }
-    .section + .section {
-      border-top: 1px solid var(--border);
-    }
+      .container {
+        width: 100%;
+        max-width: var(--maxw);
+        margin-inline: auto;
+        padding-inline: 20px;
+      }
+      .section {
+        padding: 40px 0;
+      }
+      .section + .section {
+        border-top: 1px solid var(--border);
+      }
 
-    /* Subtle section label */
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-sub);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .section-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .section-sub {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
+      /* Subtle section label */
+      .section-label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-sub);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .section-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .section-sub {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        margin-bottom: 24px;
+      }
 
-    /* Fade-in on scroll */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) {
-      .fade-in { opacity: 1; transform: none; transition: none; }
-    }
+      /* Fade-in on scroll */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(12px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .fade-in {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
 
-    /* ================================================================
+      /* ================================================================
        SCROLL PROGRESS
        ================================================================ */
-    #scroll-progress {
-      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
-      background: linear-gradient(90deg, var(--ocean), var(--teal));
-      z-index: 1001; pointer-events: none;
-      transition: width 0.08s linear;
-    }
+      #scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        width: 0%;
+        background: linear-gradient(90deg, var(--ocean), var(--teal));
+        z-index: 1001;
+        pointer-events: none;
+        transition: width 0.08s linear;
+      }
 
-    /* ================================================================
+      /* ================================================================
        TOP NAVIGATION
        ================================================================ */
-    .top-nav {
-      position: sticky; top: 0; z-index: 900;
-      height: var(--nav-h);
-      display: flex; align-items: center;
-      background: color-mix(in srgb, var(--bg) 90%, transparent);
-      -webkit-backdrop-filter: blur(12px);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex; align-items: center; gap: 12px;
-      width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 20px;
-    }
-    .nav-brand {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 0.95rem; font-weight: 600; color: var(--text);
-    }
-    .nav-brand-icon {
-      width: 28px; height: 28px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--ocean), var(--teal));
-      display: grid; place-items: center; font-size: 13px;
-      flex-shrink: 0;
-    }
-    .nav-links-desktop {
-      display: flex; gap: 2px; margin-left: auto;
-      overflow-x: auto; scrollbar-width: none;
-    }
-    .nav-links-desktop::-webkit-scrollbar { display: none; }
-    .nav-links-desktop a {
-      padding: 6px 14px; border-radius: 999px; font-size: 0.84rem; font-weight: 500;
-      color: var(--text-muted); white-space: nowrap; transition: all 0.18s ease;
-    }
-    .nav-links-desktop a:hover { color: var(--text); background: var(--surface-2); }
-    .nav-links-desktop a.active { color: var(--ocean-dk); background: rgba(79,163,199,0.12); }
-    .nav-actions { display: flex; gap: 6px; margin-left: auto; }
-    .nav-links-desktop + .nav-actions { margin-left: 8px; }
-    .icon-btn {
-      width: 36px; height: 36px; border-radius: var(--radius-sm);
-      border: 1px solid var(--border); background: var(--surface);
-      color: var(--text-muted); font-size: 0.9rem; display: grid; place-items: center;
-      transition: all 0.18s ease; flex-shrink: 0;
-    }
-    .icon-btn:hover { color: var(--ocean-dk); border-color: var(--ocean); }
-
-    @media (max-width: 767px) {
-      .nav-links-desktop { display: none; }
-    }
-
-    /* ================================================================
-       TROPICAL COUNTDOWN BANNER
-       ================================================================ */
-    .countdown-banner-wrap {
-      position: relative;
-      background: linear-gradient(160deg, #dff0f8 0%, #fdf6e3 50%, #dff0f8 100%);
-      padding: 36px 24px 0;
-      text-align: center;
-      overflow: hidden;
-    }
-    [data-theme="dark"] .countdown-banner-wrap {
-      background: linear-gradient(160deg, #182530 0%, #1e1b0e 50%, #182530 100%);
-    }
-
-    /* Palm tree decorations */
-    .ct-palm {
-      position: absolute; bottom: 24px;
-      font-size: 4rem; line-height: 1;
-      pointer-events: none; user-select: none;
-      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.12));
-    }
-    .ct-palm-l { left: 2px;  transform: scaleX(-1) rotate(-6deg); transform-origin: bottom left; }
-    .ct-palm-r { right: 2px; transform: rotate(6deg); transform-origin: bottom right; }
-
-    /* Small extra leaf accents */
-    .ct-leaf {
-      position: absolute; top: 18px;
-      font-size: 1.6rem; line-height: 1;
-      pointer-events: none; user-select: none; opacity: 0.55;
-    }
-    .ct-leaf-l { left: 80px; transform: rotate(-30deg); }
-    .ct-leaf-r { right: 80px; transform: rotate(30deg); }
-
-    /* Countdown content */
-    .ct-countdown { padding-bottom: 30px; }
-    .ct-countdown.hidden { display: none; }
-    .ct-pre {
-      font-size: 0.72rem; color: var(--text-sub); font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px;
-    }
-    .ct-units {
-      display: inline-flex; align-items: flex-start; gap: 10px;
-      justify-content: center;
-    }
-    .ct-unit { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-    .ct-num {
-      font-size: 1.8rem; font-weight: 800; color: #fff;
-      background: linear-gradient(160deg, var(--ocean) 0%, var(--ocean-dk) 100%);
-      width: 60px; height: 60px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 14px;
-      font-variant-numeric: tabular-nums; font-feature-settings: "tnum";
-      box-shadow: 0 6px 20px rgba(46,94,114,0.28), inset 0 1px 0 rgba(255,255,255,0.18);
-      letter-spacing: -0.02em;
-    }
-    .ct-lbl {
-      font-size: 0.56rem; text-transform: uppercase; letter-spacing: 0.12em;
-      color: var(--text-sub); font-weight: 700;
-    }
-    .ct-sep {
-      font-size: 1.4rem; font-weight: 700; color: var(--ocean-dk);
-      padding-top: 10px; opacity: 0.35;
-    }
-    .ct-post {
-      font-size: 0.88rem; color: var(--text-muted); font-weight: 500;
-      margin-top: 14px;
-    }
-    @media (max-width: 380px) {
-      .ct-num { width: 50px; height: 50px; font-size: 1.5rem; border-radius: 11px; }
-      .ct-units { gap: 7px; }
-      .ct-palm { font-size: 3rem; }
-    }
-
-    /* Wave transition */
-    .ct-wave { display: block; line-height: 0; margin-top: -1px; }
-    .ct-wave svg { width: 100%; height: 44px; display: block; }
-
-    /* Status badge — shown when trip is live or finished */
-    .trip-status-badge {
-      display: inline-block; padding: 7px 20px; border-radius: 999px;
-      font-size: 0.95rem; font-weight: 600; margin-bottom: 28px;
-    }
-    .trip-status-badge.live {
-      background: rgba(74,155,127,0.16); color: var(--palm);
-    }
-    .trip-status-badge.done {
-      background: var(--surface-2); color: var(--text-sub);
-    }
-
-    /* Maps link in checklist */
-    .cl-maps {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
-      background: rgba(79,163,199,0.08); color: var(--ocean-dk);
-      font-size: 0.72rem; font-weight: 700; text-decoration: none;
-      border: 1px solid var(--border); transition: all 0.18s ease;
-      -webkit-tap-highlight-color: transparent; margin-top: 1px;
-    }
-    .cl-maps:hover, .cl-maps:focus-visible { background: var(--ocean); color: #fff; border-color: var(--ocean); }
-
-
-    /* ================================================================
-       DAY CARDS — the primary UI
-       ================================================================ */
-    .timeline {
-      display: flex; flex-direction: column; gap: 10px;
-      margin-top: 8px;
-    }
-
-    .day-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-xs);
-      overflow: hidden;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .day-card.open {
-      border-color: var(--border-2);
-      box-shadow: var(--shadow-sm);
-    }
-
-    /* Day header button */
-    .day-toggle {
-      width: 100%; display: flex; align-items: center; gap: 0;
-      border: none; background: transparent; color: var(--text);
-      cursor: pointer; padding: 0; text-align: left;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .day-toggle:focus-visible { outline: 2px solid var(--ocean); outline-offset: -2px; }
-
-    /* Colored left bar */
-    .day-bar { width: 4px; align-self: stretch; flex-shrink: 0; }
-
-    /* Header content */
-    .day-toggle-body {
-      display: flex; align-items: center; gap: 12px;
-      padding: 14px 16px; flex: 1; min-width: 0;
-    }
-    .day-badge {
-      width: 36px; height: 36px; border-radius: 10px;
-      display: grid; place-items: center; font-size: 1.1rem;
-      flex-shrink: 0; background: var(--bg-alt);
-    }
-    .day-info { flex: 1; min-width: 0; }
-    .day-pill {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; display: block; margin-bottom: 3px;
-    }
-    .day-name { font-size: 1rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .day-sub  { font-size: 0.78rem; color: var(--text-muted); margin-top: 1px; }
-    .day-meta-right {
-      display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0;
-    }
-    .day-chevron {
-      width: 26px; height: 26px; border-radius: 999px;
-      display: grid; place-items: center;
-      color: var(--text-sub); font-size: 0.75rem;
-      transition: transform 0.3s ease; background: var(--bg-alt);
-    }
-    .day-card.open .day-chevron { transform: rotate(180deg); }
-
-    /* Collapsible body */
-    .day-body {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .day-card.open .day-body { max-height: 2000px; }
-    .day-body-inner { padding: 0 16px 16px; }
-
-    /* Separator */
-    .day-sep { height: 1px; background: var(--border); margin: 0 16px 14px; }
-
-    /* Day description */
-    .day-desc {
-      font-size: 0.85rem; color: var(--text-muted); line-height: 1.55;
-      margin-bottom: 14px; padding: 10px 12px;
-      background: var(--bg-alt); border-radius: var(--radius-sm);
-    }
-
-    /* Checklist */
-    .checklist { display: flex; flex-direction: column; }
-    .cl-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 11px 0; border-bottom: 1px solid var(--border);
-    }
-    .cl-item:last-child { border-bottom: none; }
-    .cl-check {
-      flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px;
-      border: 1.5px solid var(--border-2); background: transparent; color: #fff;
-      display: grid; place-items: center; cursor: pointer; margin-top: 1px;
-      transition: all 0.18s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .cl-check:hover { border-color: var(--ocean); }
-    .cl-check:focus-visible { outline: 2px solid var(--ocean); outline-offset: 1px; }
-    .cl-check svg { width: 13px; height: 13px; opacity: 0; transform: scale(0.3); transition: all 0.18s ease; }
-    .cl-check.done {
-      background: var(--ocean);
-      border-color: var(--ocean);
-      box-shadow: 0 2px 6px rgba(79,163,199,0.35);
-    }
-    .cl-check.done svg { opacity: 1; transform: scale(1); }
-    .cl-label { flex: 1; font-size: 0.93rem; line-height: 1.4; padding-top: 4px; transition: color 0.18s, text-decoration 0.18s; }
-    .cl-check.done + .cl-label { color: var(--text-sub); text-decoration: line-through; }
-    .cl-type { font-size: 0.9rem; flex-shrink: 0; margin-top: 4px; opacity: 0.65; }
-
-    /* Small action buttons */
-    .btn-sm {
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 7px 13px; border-radius: 999px; font-size: 0.78rem; font-weight: 600;
-      border: 1.5px solid var(--border); background: var(--surface);
-      color: var(--text-muted); cursor: pointer; transition: all 0.18s ease;
-      text-decoration: none; -webkit-tap-highlight-color: transparent;
-    }
-    .btn-sm:hover { border-color: var(--ocean); color: var(--ocean-dk); }
-    .btn-sm.primary {
-      background: var(--ocean); color: #fff; border-color: var(--ocean);
-    }
-    .btn-sm.primary:hover { background: var(--ocean-dk); border-color: var(--ocean-dk); }
-
-    /* ================================================================
-       PER-DAY MAP
-       ================================================================ */
-    .day-map-wrap {
-      margin-top: 16px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm); overflow: hidden;
-    }
-    .day-map-head {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 9px 13px; background: var(--bg-alt); border-bottom: 1px solid var(--border);
-    }
-    .day-map-label { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); }
-    .day-map-el { height: 240px; width: 100%; display: block; }
-    .day-map-actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-
-    /* ================================================================
-       FULL TRIP MAP
-       ================================================================ */
-    .map-filter-row {
-      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; overflow-x: auto;
-      scrollbar-width: none; padding-bottom: 2px;
-    }
-    .map-filter-row::-webkit-scrollbar { display: none; }
-    .map-filter-btn {
-      padding: 7px 15px; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
-      border: 1.5px solid var(--border); background: var(--surface); color: var(--text-muted);
-      cursor: pointer; transition: all 0.18s ease; white-space: nowrap; flex-shrink: 0;
-    }
-    .map-filter-btn:hover:not(.on) { border-color: var(--ocean); color: var(--ocean-dk); }
-    .map-filter-btn.on { color: #fff; border-color: transparent; }
-    #full-map {
-      height: 400px; width: 100%; border-radius: var(--radius); overflow: hidden;
-      border: 1px solid var(--border); box-shadow: var(--shadow-sm);
-    }
-    @media (min-width: 600px) { #full-map { height: 460px; } }
-    .map-legend {
-      display: flex; gap: 16px; flex-wrap: wrap; margin-top: 14px;
-      font-size: 0.78rem; color: var(--text-muted);
-    }
-    .legend-item { display: flex; align-items: center; gap: 7px; }
-    .legend-dot  { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-
-    /* ================================================================
-       SUMMARY STATS
-       ================================================================ */
-    .stats-row {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
-    }
-    @media (min-width: 480px) { .stats-row { grid-template-columns: repeat(4, 1fr); } }
-    .stat-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 18px 14px; text-align: center;
-      box-shadow: var(--shadow-xs); transition: transform 0.2s ease;
-    }
-    .stat-card:hover { transform: translateY(-2px); }
-    .stat-icon { font-size: 1.4rem; display: block; margin-bottom: 8px; }
-    .stat-num {
-      font-size: 2rem; font-weight: 700; display: block;
-      color: var(--ocean-dk); line-height: 1;
-    }
-    .stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 5px; display: block; }
-
-    /* Area chips */
-    .chips-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-    .chip {
-      padding: 7px 14px; border-radius: 999px; font-size: 0.82rem; font-weight: 500;
-      background: var(--bg-alt); color: var(--text-muted);
-      border: 1px solid var(--border); transition: all 0.18s ease;
-    }
-    .chip:hover { background: var(--ocean); color: #fff; border-color: var(--ocean); }
-
-
-    /* ================================================================
-       FOOTER
-       ================================================================ */
-    footer {
-      padding: 32px 0; border-top: 1px solid var(--border);
-      text-align: center; color: var(--text-sub); font-size: 0.82rem;
-    }
-    footer p + p { margin-top: 6px; }
-    .heart { color: var(--coral); }
-
-    /* ================================================================
-       BACK TO TOP
-       ================================================================ */
-    #back-to-top {
-      position: fixed; right: 20px; bottom: calc(var(--bnav-h) + 14px); z-index: 700;
-      width: 40px; height: 40px; border-radius: 50%;
-      background: var(--ocean-dk); color: #fff; border: none;
-      font-size: 1rem; display: grid; place-items: center;
-      box-shadow: var(--shadow); opacity: 0; pointer-events: none;
-      transform: translateY(10px); transition: all 0.25s ease;
-    }
-    @media (min-width: 768px) {
-      #back-to-top { bottom: 24px; }
-    }
-    #back-to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
-    #back-to-top:hover { transform: translateY(-2px) scale(1.05); }
-
-    /* ================================================================
-       TOAST
-       ================================================================ */
-    #toast {
-      position: fixed; left: 50%; bottom: calc(var(--bnav-h) + 12px); z-index: 9000;
-      transform: translate(-50%, 8px) scale(0.96);
-      background: var(--text); color: var(--bg);
-      padding: 10px 22px; border-radius: 999px;
-      font-weight: 600; font-size: 0.86rem;
-      opacity: 0; pointer-events: none;
-      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-      white-space: nowrap; max-width: 92vw;
-    }
-    @media (min-width: 768px) { #toast { bottom: 20px; } }
-    #toast.show { opacity: 1; transform: translate(-50%, 0) scale(1); }
-
-    /* ================================================================
-       BOTTOM NAVIGATION — mobile only
-       ================================================================ */
-    .bnav {
-      display: none; /* hidden on desktop */
-    }
-    @media (max-width: 767px) {
-      .bnav {
-        display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 800;
-        height: var(--bnav-h);
-        background: color-mix(in srgb, var(--bg) 94%, transparent);
+      .top-nav {
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        background: color-mix(in srgb, var(--bg) 90%, transparent);
         -webkit-backdrop-filter: blur(12px);
         backdrop-filter: blur(12px);
-        border-top: 1px solid var(--border);
-        padding: 0 4px;
-        align-items: center;
+        border-bottom: 1px solid var(--border);
       }
-    }
-    .bnav-item {
-      flex: 1; display: flex; flex-direction: column; align-items: center;
-      justify-content: center; gap: 3px; height: 100%;
-      border: none; background: transparent; cursor: pointer;
-      padding: 4px 2px; color: var(--text-sub); min-width: 0;
-      transition: color 0.18s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .bnav-item.active { color: var(--ocean-dk); }
-    .bnav-num {
-      width: 24px; height: 24px; border-radius: 7px;
-      background: var(--surface-2); font-size: 0.75rem; font-weight: 700;
-      display: grid; place-items: center;
-      transition: background 0.18s ease, color 0.18s ease;
-    }
-    .bnav-item.active .bnav-num { background: var(--dc, var(--ocean)); color: #fff; }
-    .bnav-label { font-size: 0.58rem; font-weight: 500; white-space: nowrap; overflow: hidden; }
-    .bnav-icon  { font-size: 1.05rem; line-height: 1; }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        max-width: var(--maxw);
+        margin-inline: auto;
+        padding-inline: 20px;
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .nav-brand-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--ocean), var(--teal));
+        display: grid;
+        place-items: center;
+        font-size: 13px;
+        flex-shrink: 0;
+      }
+      .nav-links-desktop {
+        display: flex;
+        gap: 2px;
+        margin-left: auto;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .nav-links-desktop::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-links-desktop a {
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 0.84rem;
+        font-weight: 500;
+        color: var(--text-muted);
+        white-space: nowrap;
+        transition: all 0.18s ease;
+      }
+      .nav-links-desktop a:hover {
+        color: var(--text);
+        background: var(--surface-2);
+      }
+      .nav-links-desktop a.active {
+        color: var(--ocean-dk);
+        background: rgba(79, 163, 199, 0.12);
+      }
+      .nav-actions {
+        display: flex;
+        gap: 6px;
+        margin-left: auto;
+      }
+      .nav-links-desktop + .nav-actions {
+        margin-left: 8px;
+      }
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        display: grid;
+        place-items: center;
+        transition: all 0.18s ease;
+        flex-shrink: 0;
+      }
+      .icon-btn:hover {
+        color: var(--ocean-dk);
+        border-color: var(--ocean);
+      }
 
-    /* ================================================================
+      @media (max-width: 767px) {
+        .nav-links-desktop {
+          display: none;
+        }
+      }
+
+      /* ================================================================
+       TROPICAL COUNTDOWN BANNER
+       ================================================================ */
+      .countdown-banner-wrap {
+        position: relative;
+        background: linear-gradient(
+          160deg,
+          #dff0f8 0%,
+          #fdf6e3 50%,
+          #dff0f8 100%
+        );
+        padding: 36px 24px 0;
+        text-align: center;
+        overflow: hidden;
+      }
+      [data-theme="dark"] .countdown-banner-wrap {
+        background: linear-gradient(
+          160deg,
+          #182530 0%,
+          #1e1b0e 50%,
+          #182530 100%
+        );
+      }
+
+      /* Palm tree decorations */
+      .ct-palm {
+        position: absolute;
+        bottom: 24px;
+        font-size: 4rem;
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+        filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.12));
+      }
+      .ct-palm-l {
+        left: 2px;
+        transform: scaleX(-1) rotate(-6deg);
+        transform-origin: bottom left;
+      }
+      .ct-palm-r {
+        right: 2px;
+        transform: rotate(6deg);
+        transform-origin: bottom right;
+      }
+
+      /* Small extra leaf accents */
+      .ct-leaf {
+        position: absolute;
+        top: 18px;
+        font-size: 1.6rem;
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+        opacity: 0.55;
+      }
+      .ct-leaf-l {
+        left: 80px;
+        transform: rotate(-30deg);
+      }
+      .ct-leaf-r {
+        right: 80px;
+        transform: rotate(30deg);
+      }
+
+      /* Countdown content */
+      .ct-countdown {
+        padding-bottom: 30px;
+      }
+      .ct-countdown.hidden {
+        display: none;
+      }
+      .ct-pre {
+        font-size: 0.72rem;
+        color: var(--text-sub);
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      .ct-units {
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 10px;
+        justify-content: center;
+      }
+      .ct-unit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+      }
+      .ct-num {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #fff;
+        background: linear-gradient(
+          160deg,
+          var(--ocean) 0%,
+          var(--ocean-dk) 100%
+        );
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px;
+        font-variant-numeric: tabular-nums;
+        font-feature-settings: "tnum";
+        box-shadow:
+          0 6px 20px rgba(46, 94, 114, 0.28),
+          inset 0 1px 0 rgba(255, 255, 255, 0.18);
+        letter-spacing: -0.02em;
+      }
+      .ct-lbl {
+        font-size: 0.56rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--text-sub);
+        font-weight: 700;
+      }
+      .ct-sep {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--ocean-dk);
+        padding-top: 10px;
+        opacity: 0.35;
+      }
+      .ct-post {
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        font-weight: 500;
+        margin-top: 14px;
+      }
+      @media (max-width: 380px) {
+        .ct-num {
+          width: 50px;
+          height: 50px;
+          font-size: 1.5rem;
+          border-radius: 11px;
+        }
+        .ct-units {
+          gap: 7px;
+        }
+        .ct-palm {
+          font-size: 3rem;
+        }
+      }
+
+      /* Wave transition */
+      .ct-wave {
+        display: block;
+        line-height: 0;
+        margin-top: -1px;
+      }
+      .ct-wave svg {
+        width: 100%;
+        height: 44px;
+        display: block;
+      }
+
+      /* Status badge — shown when trip is live or finished */
+      .trip-status-badge {
+        display: inline-block;
+        padding: 7px 20px;
+        border-radius: 999px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 28px;
+      }
+      .trip-status-badge.live {
+        background: rgba(74, 155, 127, 0.16);
+        color: var(--palm);
+      }
+      .trip-status-badge.done {
+        background: var(--surface-2);
+        color: var(--text-sub);
+      }
+
+      /* Maps link in checklist */
+      .cl-maps {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        flex-shrink: 0;
+        background: rgba(79, 163, 199, 0.08);
+        color: var(--ocean-dk);
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-decoration: none;
+        border: 1px solid var(--border);
+        transition: all 0.18s ease;
+        -webkit-tap-highlight-color: transparent;
+        margin-top: 1px;
+      }
+      .cl-maps:hover,
+      .cl-maps:focus-visible {
+        background: var(--ocean);
+        color: #fff;
+        border-color: var(--ocean);
+      }
+
+      /* ================================================================
+       DAY CARDS — the primary UI
+       ================================================================ */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .day-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-xs);
+        overflow: hidden;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .day-card.open {
+        border-color: var(--border-2);
+        box-shadow: var(--shadow-sm);
+      }
+
+      /* Day header button */
+      .day-toggle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 0;
+        border: none;
+        background: transparent;
+        color: var(--text);
+        cursor: pointer;
+        padding: 0;
+        text-align: left;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .day-toggle:focus-visible {
+        outline: 2px solid var(--ocean);
+        outline-offset: -2px;
+      }
+
+      /* Colored left bar */
+      .day-bar {
+        width: 4px;
+        align-self: stretch;
+        flex-shrink: 0;
+      }
+
+      /* Header content */
+      .day-toggle-body {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px;
+        flex: 1;
+        min-width: 0;
+      }
+      .day-badge {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        background: var(--bg-alt);
+      }
+      .day-info {
+        flex: 1;
+        min-width: 0;
+      }
+      .day-pill {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 3px;
+      }
+      .day-name {
+        font-size: 1rem;
+        font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .day-sub {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin-top: 1px;
+      }
+      .day-meta-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 4px;
+        flex-shrink: 0;
+      }
+      .day-chevron {
+        width: 26px;
+        height: 26px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        color: var(--text-sub);
+        font-size: 0.75rem;
+        transition: transform 0.3s ease;
+        background: var(--bg-alt);
+      }
+      .day-card.open .day-chevron {
+        transform: rotate(180deg);
+      }
+
+      /* Collapsible body */
+      .day-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .day-card.open .day-body {
+        max-height: 2000px;
+      }
+      .day-body-inner {
+        padding: 0 16px 16px;
+      }
+
+      /* Separator */
+      .day-sep {
+        height: 1px;
+        background: var(--border);
+        margin: 0 16px 14px;
+      }
+
+      /* Day description */
+      .day-desc {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.55;
+        margin-bottom: 14px;
+        padding: 10px 12px;
+        background: var(--bg-alt);
+        border-radius: var(--radius-sm);
+      }
+
+      /* Checklist */
+      .checklist {
+        display: flex;
+        flex-direction: column;
+      }
+      .cl-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .cl-item:last-child {
+        border-bottom: none;
+      }
+      .cl-check {
+        flex-shrink: 0;
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
+        border: 1.5px solid var(--border-2);
+        background: transparent;
+        color: #fff;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        margin-top: 1px;
+        transition: all 0.18s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .cl-check:hover {
+        border-color: var(--ocean);
+      }
+      .cl-check:focus-visible {
+        outline: 2px solid var(--ocean);
+        outline-offset: 1px;
+      }
+      .cl-check svg {
+        width: 13px;
+        height: 13px;
+        opacity: 0;
+        transform: scale(0.3);
+        transition: all 0.18s ease;
+      }
+      .cl-check.done {
+        background: var(--ocean);
+        border-color: var(--ocean);
+        box-shadow: 0 2px 6px rgba(79, 163, 199, 0.35);
+      }
+      .cl-check.done svg {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .cl-label {
+        flex: 1;
+        font-size: 0.93rem;
+        line-height: 1.4;
+        padding-top: 4px;
+        transition:
+          color 0.18s,
+          text-decoration 0.18s;
+      }
+      .cl-check.done + .cl-label {
+        color: var(--text-sub);
+        text-decoration: line-through;
+      }
+      .cl-type {
+        font-size: 0.9rem;
+        flex-shrink: 0;
+        margin-top: 4px;
+        opacity: 0.65;
+      }
+
+      /* Small action buttons */
+      .btn-sm {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 7px 13px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        border: 1.5px solid var(--border);
+        background: var(--surface);
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.18s ease;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .btn-sm:hover {
+        border-color: var(--ocean);
+        color: var(--ocean-dk);
+      }
+      .btn-sm.primary {
+        background: var(--ocean);
+        color: #fff;
+        border-color: var(--ocean);
+      }
+      .btn-sm.primary:hover {
+        background: var(--ocean-dk);
+        border-color: var(--ocean-dk);
+      }
+
+      /* ================================================================
+       PER-DAY MAP
+       ================================================================ */
+      .day-map-wrap {
+        margin-top: 16px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+      }
+      .day-map-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 9px 13px;
+        background: var(--bg-alt);
+        border-bottom: 1px solid var(--border);
+      }
+      .day-map-label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+      .day-map-el {
+        height: 240px;
+        width: 100%;
+        display: block;
+      }
+      .day-map-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+
+      /* ================================================================
+       FULL TRIP MAP
+       ================================================================ */
+      .map-filter-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+      }
+      .map-filter-row::-webkit-scrollbar {
+        display: none;
+      }
+      .map-filter-btn {
+        padding: 7px 15px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border: 1.5px solid var(--border);
+        background: var(--surface);
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.18s ease;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .map-filter-btn:hover:not(.on) {
+        border-color: var(--ocean);
+        color: var(--ocean-dk);
+      }
+      .map-filter-btn.on {
+        color: #fff;
+        border-color: transparent;
+      }
+      #full-map {
+        height: 400px;
+        width: 100%;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-sm);
+      }
+      @media (min-width: 600px) {
+        #full-map {
+          height: 460px;
+        }
+      }
+      .map-legend {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+        font-size: 0.78rem;
+        color: var(--text-muted);
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .legend-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      /* ================================================================
+       SUMMARY STATS
+       ================================================================ */
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      @media (min-width: 480px) {
+        .stats-row {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      .stat-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px 14px;
+        text-align: center;
+        box-shadow: var(--shadow-xs);
+        transition: transform 0.2s ease;
+      }
+      .stat-card:hover {
+        transform: translateY(-2px);
+      }
+      .stat-icon {
+        font-size: 1.4rem;
+        display: block;
+        margin-bottom: 8px;
+      }
+      .stat-num {
+        font-size: 2rem;
+        font-weight: 700;
+        display: block;
+        color: var(--ocean-dk);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: 5px;
+        display: block;
+      }
+
+      /* Area chips */
+      .chips-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 20px;
+      }
+      .chip {
+        padding: 7px 14px;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 500;
+        background: var(--bg-alt);
+        color: var(--text-muted);
+        border: 1px solid var(--border);
+        transition: all 0.18s ease;
+      }
+      .chip:hover {
+        background: var(--ocean);
+        color: #fff;
+        border-color: var(--ocean);
+      }
+
+      /* ================================================================
+       FOOTER
+       ================================================================ */
+      footer {
+        padding: 32px 0;
+        border-top: 1px solid var(--border);
+        text-align: center;
+        color: var(--text-sub);
+        font-size: 0.82rem;
+      }
+      footer p + p {
+        margin-top: 6px;
+      }
+      .heart {
+        color: var(--coral);
+      }
+
+      /* ================================================================
+       BACK TO TOP
+       ================================================================ */
+      #back-to-top {
+        position: fixed;
+        right: 20px;
+        bottom: calc(var(--bnav-h) + 14px);
+        z-index: 700;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--ocean-dk);
+        color: #fff;
+        border: none;
+        font-size: 1rem;
+        display: grid;
+        place-items: center;
+        box-shadow: var(--shadow);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition: all 0.25s ease;
+      }
+      @media (min-width: 768px) {
+        #back-to-top {
+          bottom: 24px;
+        }
+      }
+      #back-to-top.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+      #back-to-top:hover {
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      /* ================================================================
+       TOAST
+       ================================================================ */
+      #toast {
+        position: fixed;
+        left: 50%;
+        bottom: calc(var(--bnav-h) + 12px);
+        z-index: 9000;
+        transform: translate(-50%, 8px) scale(0.96);
+        background: var(--text);
+        color: var(--bg);
+        padding: 10px 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.86rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        white-space: nowrap;
+        max-width: 92vw;
+      }
+      @media (min-width: 768px) {
+        #toast {
+          bottom: 20px;
+        }
+      }
+      #toast.show {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+      }
+
+      /* ================================================================
+       BOTTOM NAVIGATION — mobile only
+       ================================================================ */
+      .bnav {
+        display: none; /* hidden on desktop */
+      }
+      @media (max-width: 767px) {
+        .bnav {
+          display: flex;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 800;
+          height: var(--bnav-h);
+          background: color-mix(in srgb, var(--bg) 94%, transparent);
+          -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+          border-top: 1px solid var(--border);
+          padding: 0 4px;
+          align-items: center;
+        }
+      }
+      .bnav-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        height: 100%;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding: 4px 2px;
+        color: var(--text-sub);
+        min-width: 0;
+        transition: color 0.18s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .bnav-item.active {
+        color: var(--ocean-dk);
+      }
+      .bnav-num {
+        width: 24px;
+        height: 24px;
+        border-radius: 7px;
+        background: var(--surface-2);
+        font-size: 0.75rem;
+        font-weight: 700;
+        display: grid;
+        place-items: center;
+        transition:
+          background 0.18s ease,
+          color 0.18s ease;
+      }
+      .bnav-item.active .bnav-num {
+        background: var(--dc, var(--ocean));
+        color: #fff;
+      }
+      .bnav-label {
+        font-size: 0.58rem;
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .bnav-icon {
+        font-size: 1.05rem;
+        line-height: 1;
+      }
+
+      /* ================================================================
        LEAFLET OVERRIDES
        ================================================================ */
-    .leaflet-popup-content { font-family: "Inter", sans-serif; font-size: 0.85rem; line-height: 1.5; }
-    .leaflet-popup-content strong { font-weight: 700; }
+      .leaflet-popup-content {
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+      .leaflet-popup-content strong {
+        font-weight: 700;
+      }
 
-    /* ================================================================
+      /* ================================================================
        PRINT MODE
        ================================================================ */
-    @media print {
-      #scroll-progress, .bnav, #back-to-top, #toast,
-      .day-map-wrap, #full-map-section,
-      .day-map-actions, .top-nav { display: none !important; }
-      body { background: #fff; color: #000; padding-bottom: 0; }
-      .trip-header { border: none; }
-      .day-body { max-height: none !important; overflow: visible !important; }
-      .day-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
-      .fade-in { opacity: 1; transform: none; }
-      .section { padding: 16px 0; }
-    }
-  </style>
-</head>
-<body>
+      @media print {
+        #scroll-progress,
+        .bnav,
+        #back-to-top,
+        #toast,
+        .day-map-wrap,
+        #full-map-section,
+        .day-map-actions,
+        .top-nav {
+          display: none !important;
+        }
+        body {
+          background: #fff;
+          color: #000;
+          padding-bottom: 0;
+        }
+        .trip-header {
+          border: none;
+        }
+        .day-body {
+          max-height: none !important;
+          overflow: visible !important;
+        }
+        .day-card {
+          break-inside: avoid;
+          box-shadow: none;
+          border: 1px solid #ccc;
+        }
+        .fade-in {
+          opacity: 1;
+          transform: none;
+        }
+        .section {
+          padding: 16px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Scroll progress -->
+    <div id="scroll-progress" aria-hidden="true"></div>
 
-  <!-- Scroll progress -->
-  <div id="scroll-progress" aria-hidden="true"></div>
+    <!-- ==================== TOP NAVIGATION ==================== -->
+    <nav class="top-nav" aria-label="Navigasi">
+      <div class="nav-inner">
+        <a href="#top" class="nav-brand" aria-label="Bali Trip 2026">
+          <span class="nav-brand-icon" aria-hidden="true">🌴</span>
+          <span>Bali Trip 2026</span>
+        </a>
+        <nav class="nav-links-desktop" aria-label="Lompat ke bagian">
+          <a href="#itinerary">Itinerary</a>
+          <a href="#full-map-section">Peta</a>
+          <a href="#summary">Ringkasan</a>
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="icon-btn"
+            id="copy-btn"
+            aria-label="Salin itinerary"
+            title="Salin"
+          >
+            📋
+          </button>
+          <button
+            class="icon-btn"
+            id="print-btn"
+            aria-label="Cetak"
+            title="Cetak / PDF"
+          >
+            🖨️
+          </button>
+          <button
+            class="icon-btn"
+            id="theme-btn"
+            aria-label="Ganti tema"
+            title="Mode gelap"
+          >
+            🌙
+          </button>
+        </div>
+      </div>
+    </nav>
 
-  <!-- ==================== TOP NAVIGATION ==================== -->
-  <nav class="top-nav" aria-label="Navigasi">
-    <div class="nav-inner">
-      <a href="#top" class="nav-brand" aria-label="Bali Trip 2026">
-        <span class="nav-brand-icon" aria-hidden="true">🌴</span>
-        <span>Bali Trip 2026</span>
-      </a>
-      <nav class="nav-links-desktop" aria-label="Lompat ke bagian">
-        <a href="#itinerary">Itinerary</a>
-        <a href="#full-map-section">Peta</a>
-        <a href="#summary">Ringkasan</a>
-      </nav>
-      <div class="nav-actions">
-        <button class="icon-btn" id="copy-btn" aria-label="Salin itinerary" title="Salin">📋</button>
-        <button class="icon-btn" id="print-btn" aria-label="Cetak" title="Cetak / PDF">🖨️</button>
-        <button class="icon-btn" id="theme-btn" aria-label="Ganti tema" title="Mode gelap">🌙</button>
+    <!-- ==================== COUNTDOWN BANNER ==================== -->
+    <div class="countdown-banner-wrap" id="top">
+      <!-- Tropical decorations -->
+      <span class="ct-palm ct-palm-l" aria-hidden="true">🌴</span>
+      <span class="ct-palm ct-palm-r" aria-hidden="true">🌴</span>
+      <span class="ct-leaf ct-leaf-l" aria-hidden="true">🌿</span>
+      <span class="ct-leaf ct-leaf-r" aria-hidden="true">🌿</span>
+
+      <!-- Countdown (hidden when trip starts) -->
+      <div id="countdown-wrap" class="ct-countdown">
+        <p class="ct-pre">kurang</p>
+        <div class="ct-units">
+          <div class="ct-unit">
+            <span class="ct-num" id="cd-days">--</span>
+            <span class="ct-lbl">Hari</span>
+          </div>
+          <span class="ct-sep">:</span>
+          <div class="ct-unit">
+            <span class="ct-num" id="cd-hours">--</span>
+            <span class="ct-lbl">Jam</span>
+          </div>
+          <span class="ct-sep">:</span>
+          <div class="ct-unit">
+            <span class="ct-num" id="cd-mins">--</span>
+            <span class="ct-lbl">Mnt</span>
+          </div>
+          <span class="ct-sep">:</span>
+          <div class="ct-unit">
+            <span class="ct-num" id="cd-secs">--</span>
+            <span class="ct-lbl">Dtk</span>
+          </div>
+        </div>
+        <p class="ct-post">
+          sebelum kita berangkat ke Bali <br />
+          🚗💨
+        </p>
+      </div>
+
+      <!-- Status badge (live / selesai) -->
+      <span
+        class="trip-status-badge"
+        id="trip-status-badge"
+        style="display: none"
+      ></span>
+
+      <!-- Wave transition to page background -->
+      <div class="ct-wave" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 44"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,22 C240,44 480,0 720,22 C900,38 1080,10 1260,20 C1350,25 1400,28 1440,24 L1440,44 L0,44 Z"
+            fill="var(--bg)"
+          />
+        </svg>
       </div>
     </div>
-  </nav>
 
-  <!-- ==================== COUNTDOWN BANNER ==================== -->
-  <div class="countdown-banner-wrap" id="top">
-    <!-- Tropical decorations -->
-    <span class="ct-palm ct-palm-l" aria-hidden="true">🌴</span>
-    <span class="ct-palm ct-palm-r" aria-hidden="true">🌴</span>
-    <span class="ct-leaf ct-leaf-l" aria-hidden="true">🌿</span>
-    <span class="ct-leaf ct-leaf-r" aria-hidden="true">🌿</span>
-
-    <!-- Countdown (hidden when trip starts) -->
-    <div id="countdown-wrap" class="ct-countdown">
-      <p class="ct-pre">kurang</p>
-      <div class="ct-units">
-        <div class="ct-unit">
-          <span class="ct-num" id="cd-days">--</span>
-          <span class="ct-lbl">Hari</span>
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main>
+      <!-- Daily Itinerary — primary section -->
+      <section class="section" id="itinerary">
+        <div class="container">
+          <p class="section-label">📅 Rencana Harian</p>
+          <!-- Day cards rendered by JS -->
+          <div class="timeline" id="timeline" aria-live="polite"></div>
         </div>
-        <span class="ct-sep">:</span>
-        <div class="ct-unit">
-          <span class="ct-num" id="cd-hours">--</span>
-          <span class="ct-lbl">Jam</span>
+      </section>
+
+      <!-- Full Trip Map -->
+      <section class="section" id="full-map-section">
+        <div class="container">
+          <p class="section-label">🗺️ Peta Perjalanan</p>
+          <h2 class="section-title">Seluruh Rute</h2>
+          <p class="section-sub">
+            Filter berdasarkan hari. Klik penanda untuk detail lokasi.
+          </p>
+          <div
+            class="map-filter-row"
+            id="map-filters"
+            role="group"
+            aria-label="Filter hari"
+          ></div>
+          <div
+            id="full-map"
+            role="application"
+            aria-label="Peta rute Bali"
+          ></div>
+          <div class="map-legend" id="map-legend"></div>
         </div>
-        <span class="ct-sep">:</span>
-        <div class="ct-unit">
-          <span class="ct-num" id="cd-mins">--</span>
-          <span class="ct-lbl">Mnt</span>
+      </section>
+
+      <!-- Trip Summary -->
+      <section class="section" id="summary">
+        <div class="container">
+          <p class="section-label">📊 Ringkasan</p>
+          <div class="stats-row">
+            <div class="stat-card fade-in">
+              <span class="stat-icon">📅</span>
+              <span class="stat-num" data-count="5">0</span>
+              <span class="stat-label">Hari Perjalanan</span>
+            </div>
+            <div class="stat-card fade-in">
+              <span class="stat-icon">📍</span>
+              <span class="stat-num" id="sum-dest" data-count="0">0</span>
+              <span class="stat-label">Total Destinasi</span>
+            </div>
+            <div class="stat-card fade-in">
+              <span class="stat-icon">🗺️</span>
+              <span class="stat-num" data-count="7">0</span>
+              <span class="stat-label">Area Dikunjungi</span>
+            </div>
+            <div class="stat-card fade-in">
+              <span class="stat-icon">⛴️</span>
+              <span class="stat-num" data-count="2">0</span>
+              <span class="stat-label">Penyeberangan</span>
+            </div>
+          </div>
+          <div class="chips-row">
+            <span class="chip">⚓ Ketapang</span>
+            <span class="chip">🚢 Gilimanuk</span>
+            <span class="chip">🏖️ Seminyak</span>
+            <span class="chip">🌊 Uluwatu</span>
+            <span class="chip">🎨 Ubud</span>
+            <span class="chip">🏄 Canggu</span>
+            <span class="chip">⛰️ Kintamani</span>
+          </div>
         </div>
-        <span class="ct-sep">:</span>
-        <div class="ct-unit">
-          <span class="ct-num" id="cd-secs">--</span>
-          <span class="ct-lbl">Dtk</span>
-        </div>
-      </div>
-      <p class="ct-post">sebelum kita berangkat ke Bali ✈️</p>
-    </div>
+      </section>
+    </main>
 
-    <!-- Status badge (live / selesai) -->
-    <span class="trip-status-badge" id="trip-status-badge" style="display:none;"></span>
-
-    <!-- Wave transition to page background -->
-    <div class="ct-wave" aria-hidden="true">
-      <svg viewBox="0 0 1440 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,22 C240,44 480,0 720,22 C900,38 1080,10 1260,20 C1350,25 1400,28 1440,24 L1440,44 L0,44 Z" fill="var(--bg)"/>
-      </svg>
-    </div>
-  </div>
-
-  <!-- ==================== MAIN CONTENT ==================== -->
-  <main>
-
-    <!-- Daily Itinerary — primary section -->
-    <section class="section" id="itinerary">
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
       <div class="container">
-        <p class="section-label">📅 Rencana Harian</p>
-        <!-- Day cards rendered by JS -->
-        <div class="timeline" id="timeline" aria-live="polite"></div>
+        <p>Bali Trip 2026 · 21–25 Juni</p>
+        <p>
+          Dibuat dengan <span class="heart">♥</span> · Peta ©
+          <a
+            href="https://www.openstreetmap.org/copyright"
+            target="_blank"
+            rel="noopener"
+            style="color: var(--ocean)"
+            >OpenStreetMap</a
+          >
+        </p>
       </div>
-    </section>
+    </footer>
 
-    <!-- Full Trip Map -->
-    <section class="section" id="full-map-section">
-      <div class="container">
-        <p class="section-label">🗺️ Peta Perjalanan</p>
-        <h2 class="section-title">Seluruh Rute</h2>
-        <p class="section-sub">Filter berdasarkan hari. Klik penanda untuk detail lokasi.</p>
-        <div class="map-filter-row" id="map-filters" role="group" aria-label="Filter hari"></div>
-        <div id="full-map" role="application" aria-label="Peta rute Bali"></div>
-        <div class="map-legend" id="map-legend"></div>
-      </div>
-    </section>
+    <!-- Back to top -->
+    <button id="back-to-top" aria-label="Kembali ke atas">↑</button>
 
-    <!-- Trip Summary -->
-    <section class="section" id="summary">
-      <div class="container">
-        <p class="section-label">📊 Ringkasan</p>
-        <div class="stats-row">
-          <div class="stat-card fade-in">
-            <span class="stat-icon">📅</span>
-            <span class="stat-num" data-count="5">0</span>
-            <span class="stat-label">Hari Perjalanan</span>
-          </div>
-          <div class="stat-card fade-in">
-            <span class="stat-icon">📍</span>
-            <span class="stat-num" id="sum-dest" data-count="0">0</span>
-            <span class="stat-label">Total Destinasi</span>
-          </div>
-          <div class="stat-card fade-in">
-            <span class="stat-icon">🗺️</span>
-            <span class="stat-num" data-count="7">0</span>
-            <span class="stat-label">Area Dikunjungi</span>
-          </div>
-          <div class="stat-card fade-in">
-            <span class="stat-icon">⛴️</span>
-            <span class="stat-num" data-count="2">0</span>
-            <span class="stat-label">Penyeberangan</span>
-          </div>
-        </div>
-        <div class="chips-row">
-          <span class="chip">⚓ Ketapang</span>
-          <span class="chip">🚢 Gilimanuk</span>
-          <span class="chip">🏖️ Seminyak</span>
-          <span class="chip">🌊 Uluwatu</span>
-          <span class="chip">🎨 Ubud</span>
-          <span class="chip">🏄 Canggu</span>
-          <span class="chip">⛰️ Kintamani</span>
-        </div>
-      </div>
-    </section>
+    <!-- Toast -->
+    <div id="toast" role="status" aria-live="polite"></div>
 
-  </main>
+    <!-- ==================== BOTTOM NAVIGATION (mobile) ==================== -->
+    <nav class="bnav" id="bnav" aria-label="Navigasi hari">
+      <button
+        class="bnav-item"
+        data-target="day-card-1"
+        aria-label="Hari 1 — 21 Jun"
+      >
+        <span class="bnav-num" style="--dc: #f97316">1</span>
+        <span class="bnav-label">21 Jun</span>
+      </button>
+      <button
+        class="bnav-item"
+        data-target="day-card-2"
+        aria-label="Hari 2 — 22 Jun"
+      >
+        <span class="bnav-num" style="--dc: #4fa3c7">2</span>
+        <span class="bnav-label">22 Jun</span>
+      </button>
+      <button
+        class="bnav-item"
+        data-target="day-card-3"
+        aria-label="Hari 3 — 23 Jun"
+      >
+        <span class="bnav-num" style="--dc: #8b5cf6">3</span>
+        <span class="bnav-label">23 Jun</span>
+      </button>
+      <button
+        class="bnav-item"
+        data-target="day-card-4"
+        aria-label="Hari 4 — 24 Jun"
+      >
+        <span class="bnav-num" style="--dc: #22c55e">4</span>
+        <span class="bnav-label">24 Jun</span>
+      </button>
+      <button
+        class="bnav-item"
+        data-target="day-card-5"
+        aria-label="Hari 5 — 25 Jun"
+      >
+        <span class="bnav-num" style="--dc: #ec4899">5</span>
+        <span class="bnav-label">25 Jun</span>
+      </button>
+      <button
+        class="bnav-item"
+        data-target="full-map-section"
+        aria-label="Peta"
+      >
+        <span class="bnav-icon">🗺️</span>
+        <span class="bnav-label">Peta</span>
+      </button>
+    </nav>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer>
-    <div class="container">
-      <p>Bali Trip 2026 · 21–25 Juni</p>
-      <p>Dibuat dengan <span class="heart">♥</span> ·
-        Peta © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener"
-          style="color:var(--ocean);">OpenStreetMap</a>
-      </p>
-    </div>
-  </footer>
+    <!-- ==================== TRIP DATA (edit maps links here) ==================== -->
+    <script type="application/json" id="trip-data">
+      {
+        "days": [
+          {
+            "id": 1,
+            "date": "Minggu, 21 Juni",
+            "title": "Dari Jawa ke Bali",
+            "subtitle": "Menghapus penat dengan cahaya mentari.",
+            "emoji": "⛴️",
+            "items": [
+              {
+                "name": "Meetpoint : Gerbang Tol Singosari",
+                "type": "location",
+                "maps": "https://maps.app.goo.gl/HUnWpT7JkiGiwhrf9",
+                "coord": [-7.923893288295111, 112.67190007637812]
+              },
+              {
+                "name": "Ferry Ketapang - Gilimanuk",
+                "type": "transport",
+                "maps": "https://maps.app.goo.gl/AAzSUjqRnc3rJmnB6",
+                "coord": [-8.14254868921127, 114.40057444747066]
+              },
+              {
+                "name": "Ayam Betutu Men Tempeh",
+                "type": "food",
+                "maps": "https://maps.app.goo.gl/ecgsaEzSSoJRjCPF6",
+                "coord": [-8.167987343999878, 114.43605453835515]
+              },
+              {
+                "name": "Check-in : Seminyak Lagoon All Suites Hotel",
+                "type": "hotel",
+                "maps": "https://maps.app.goo.gl/NpEHB1HfUhUESsmS7",
+                "coord": [-8.683906454034982, 115.17408251156812]
+              },
+              {
+                "name": "Pantai Kelan",
+                "type": "beach",
+                "maps": "https://maps.app.goo.gl/zL1sNs96ChwS1CmQ9",
+                "coord": [-8.7535070415331, 115.1662443976666]
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "date": "Senin, 22 Juni",
+            "title": "Uluwatu x Sanur",
+            "subtitle": "Mengejar ombak, menemukan rasa syukur.",
+            "emoji": "🌊",
+            "items": [
+              {
+                "name": "Sarapan di Seminyak Lagoon",
+                "type": "hotel",
+                "maps": "https://maps.app.goo.gl/wSNQinY2vKvWz4fcA",
+                "coord": [-8.68395948367868, 115.17402886748219]
+              },
+              {
+                "name": "Pantai Gunung Payung",
+                "type": "beach",
+                "maps": "https://maps.app.goo.gl/69Gz1MB3uK3UaULe7",
+                "coord": [-8.839078982127107, 115.19975036011728]
+              },
+              {
+                "name": "Warung D'Segara Bangsal",
+                "type": "food",
+                "maps": "https://maps.app.goo.gl/H4h8BTYCZWP6T7nw9",
+                "coord": [-8.673586353256136, 115.26322551385539]
+              },
+              {
+                "name": "Stuja di Pantai",
+                "type": "cafe",
+                "maps": "https://maps.app.goo.gl/hhQVzHzH4zkAheso9",
+                "coord": [-8.706776947656017, 115.2623459246505]
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "date": "Selasa, 23 Juni",
+            "title": "Jelajahi Ubud, kembali ke Canggu",
+            "subtitle": "Menyusuri budaya, membawa cerita baru.",
+            "emoji": "🎨",
+            "desc": "Sarapan lalu check-out dari Seminyak, jelajahi Ubud, kemudian check-in di La Lucee Villa.",
+            "items": [
+              {
+                "name": "Sarapan & Check-out Seminyak Lagoon",
+                "type": "hotel",
+                "maps": "https://maps.app.goo.gl/wSNQinY2vKvWz4fcA",
+                "coord": [-8.68395948367868, 115.17402886748219]
+              },
+              {
+                "name": "Ubud Art Market",
+                "type": "market",
+                "maps": "https://maps.app.goo.gl/gjS8isBTasTGTa1N6",
+                "coord": [-8.506225285129949, 115.26199636770588]
+              },
+              {
+                "name": "Nasi Ayam Ibu Mangku",
+                "type": "food",
+                "maps": "https://maps.app.goo.gl/g27xZ59Q5oWeM2uo7",
+                "coord": [-8.483388322559938, 115.24646109881058]
+              },
+              {
+                "name": "Check-in : La Lucee Villa, Canggu",
+                "type": "hotel",
+                "maps": "https://maps.app.goo.gl/TKafnZBCQwjzyniJA",
+                "coord": [-8.62695970057892, 115.15084942789049]
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "date": "Rabu, 24 Juni",
+            "title": "Free Day Canggu, bebas mau ke mana",
+            "subtitle": "Mengikuti kata hati tanpa rencana.",
+            "emoji": "🏄",
+            "items": [
+              {
+                "name": "Full santai — villa atau bebas ke mana saja",
+                "type": "note",
+                "maps": "https://maps.app.goo.gl/TKafnZBCQwjzyniJA",
+                "coord": [-8.62695970057892, 115.15084942789049]
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "date": "Kamis, 25 Juni",
+            "title": "Pulang Lewat Utara",
+            "subtitle": "Menutup perjalanan dengan cerita yang berbeda.",
+            "emoji": "⛰️",
+            "items": [
+              {
+                "name": "Check-out La Lucee Villa",
+                "type": "hotel",
+                "maps": "https://maps.app.goo.gl/TKafnZBCQwjzyniJA",
+                "coord": [-8.62695970057892, 115.15084942789049]
+              },
+              {
+                "name": "AKASA Kintamani",
+                "type": "food",
+                "maps": "https://maps.app.goo.gl/iLPYasiiPxWMfsgM8",
+                "coord": [-8.279447108861415, 115.35785940776792]
+              },
+              {
+                "name": "Mama Durian Bali",
+                "type": "food",
+                "maps": "https://maps.app.goo.gl/RCD2nrmf7MJ5CEUw6",
+                "coord": [-8.38343184270234, 115.19517418433347]
+              },
+              {
+                "name": "Ferry Gilimanuk - Ketapang",
+                "type": "transport",
+                "maps": "https://maps.app.goo.gl/rgMnQFzEWtAcCyRr9",
+                "coord": [-8.161896559299082, 114.4371309054724]
+              },
+              {
+                "name": "Check-in : Ketapang Indah Hotel",
+                "type": "hotel",
+                "maps": "https://maps.app.goo.gl/eaYq4vc4oV5UgBR58",
+                "coord": [-8.159563339191987, 114.3914358719806]
+              }
+            ]
+          }
+        ]
+      }
+    </script>
 
-  <!-- Back to top -->
-  <button id="back-to-top" aria-label="Kembali ke atas">↑</button>
-
-  <!-- Toast -->
-  <div id="toast" role="status" aria-live="polite"></div>
-
-  <!-- ==================== BOTTOM NAVIGATION (mobile) ==================== -->
-  <nav class="bnav" id="bnav" aria-label="Navigasi hari">
-    <button class="bnav-item" data-target="day-card-1" aria-label="Hari 1 — 21 Jun">
-      <span class="bnav-num" style="--dc:#f97316">1</span>
-      <span class="bnav-label">21 Jun</span>
-    </button>
-    <button class="bnav-item" data-target="day-card-2" aria-label="Hari 2 — 22 Jun">
-      <span class="bnav-num" style="--dc:#4FA3C7">2</span>
-      <span class="bnav-label">22 Jun</span>
-    </button>
-    <button class="bnav-item" data-target="day-card-3" aria-label="Hari 3 — 23 Jun">
-      <span class="bnav-num" style="--dc:#8b5cf6">3</span>
-      <span class="bnav-label">23 Jun</span>
-    </button>
-    <button class="bnav-item" data-target="day-card-4" aria-label="Hari 4 — 24 Jun">
-      <span class="bnav-num" style="--dc:#22c55e">4</span>
-      <span class="bnav-label">24 Jun</span>
-    </button>
-    <button class="bnav-item" data-target="day-card-5" aria-label="Hari 5 — 25 Jun">
-      <span class="bnav-num" style="--dc:#ec4899">5</span>
-      <span class="bnav-label">25 Jun</span>
-    </button>
-    <button class="bnav-item" data-target="full-map-section" aria-label="Peta">
-      <span class="bnav-icon">🗺️</span>
-      <span class="bnav-label">Peta</span>
-    </button>
-  </nav>
-
-  <!-- ==================== JAVASCRIPT ==================== -->
-  <script>
-    /* ================================================================
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+      /* ================================================================
        DATA — itinerary + map coordinates
        Coordinates verified from official sources where possible.
        TODO comments mark best-effort approximations to be verified.
        ================================================================ */
 
-    // Per-day route colors
-    const DAY_COLORS = ['#f97316', '#4FA3C7', '#8b5cf6', '#22c55e', '#ec4899'];
+      // Per-day route colors
+      const DAY_COLORS = [
+        "#f97316",
+        "#4FA3C7",
+        "#8b5cf6",
+        "#22c55e",
+        "#ec4899",
+      ];
 
-    // Type → emoji mapping for checklist items
-    const TYPE_ICON = {
-      transport: '🚢', food: '🍽️', beach: '🏖️', hotel: '🏨',
-      temple: '🛕', market: '🎨', cafe: '☕', activity: '🌟', note: '📝'
-    };
+      // Type → emoji mapping for checklist items
+      const TYPE_ICON = {
+        location: "📍",
+        transport: "🚢",
+        food: "🍽️",
+        beach: "🏖️",
+        hotel: "🏨",
+        temple: "🛕",
+        market: "🎨",
+        cafe: "☕️",
+        activity: "💃🏻",
+        note: "📝",
+      };
 
-    // Accommodation details — coordinates verified from official sources.
-    // NOTE: All three Maps URLs are the same (as provided); update individually when available.
-    const ACCOMMODATIONS = [
-      {
-        name:       "Seminyak Lagoon All Suites Hotel",
-        type:       "hotel",
-        address:    "Jl. Dewi Saraswati III No. 4, Seminyak, Bali 80361",
-        checkIn:    "Minggu, 21 Juni",
-        checkOut:   "Selasa, 23 Juni",
-        nights:     2,
-        nightsLabel:"2 malam",
-        coord:      [-8.6842, 115.1741],
-        mapsUrl:    "https://maps.app.goo.gl/wSNQinY2vKvWz4fcA",
-        stayDays:   [1, 2]
-      },
-      {
-        name:       "La Lucee Villa",
-        type:       "villa",
-        address:    "Jl. Pura Wr., Babakan, Canggu, Bali 80361",
-        checkIn:    "Selasa, 23 Juni",
-        checkOut:   "Kamis, 25 Juni",
-        nights:     2,
-        nightsLabel:"2 malam",
-        coord:      [-8.6266, 115.1498],
-        mapsUrl:    "https://maps.app.goo.gl/Uki6NP4YMVS55UYH7",
-        stayDays:   [3, 4]
-      },
-      {
-        name:       "Ketapang Indah Hotel",
-        type:       "hotel",
-        address:    "Jl. Gatot Subroto Km. 6, Kalipuro, Banyuwangi, Jawa Timur 68421",
-        checkIn:    "Kamis, 25 Juni",
-        checkOut:   "Jumat, 26 Juni",
-        nights:     1,
-        nightsLabel:"1 malam",
-        coord:      [-8.1609, 114.3940],
-        mapsUrl:    "https://maps.app.goo.gl/iMrVozXPDsJHLjp99",
-        stayDays:   [5]
-      }
-    ];
+      // ── Trip data ── edit maps links below, paste Google Maps short URLs
+      const ITINERARY = JSON.parse(
+        document.getElementById("trip-data").textContent,
+      ).days;
 
-    // Main itinerary data
-    const ITINERARY = [
-      {
-        id: 1,
-        date: "Minggu, 21 Juni",
-        title: "Masuk Bali",
-        emoji: "⛴️",
-        desc: "Menyeberang dari Jawa, mampir makan siang legendaris, dan check-in di Seminyak.",
-        items: [
-          { name: "Ferry Ketapang – Gilimanuk",                   coord: [-8.1530, 114.4100], type: "transport" },
-          { name: "Ayam Betutu Men Tempeh",                        coord: [-8.1658, 114.4368], type: "food" },     // TODO: verify exact address
-          { name: "Check-in Seminyak Lagoon All Suites Hotel",     coord: [-8.6842, 115.1741], type: "hotel" },
-          { name: "Pantai Kelan",                                  coord: [-8.7540, 115.1652], type: "beach" }
-        ]
-      },
-      {
-        id: 2,
-        date: "Senin, 22 Juni",
-        title: "Uluwatu",
-        emoji: "🌊",
-        desc: "Jelajahi tebing-tebing Uluwatu, pantai tersembunyi, dan makan siang dengan view laut.",
-        items: [
-          { name: "Sarapan di Seminyak Lagoon",                    coord: null,               type: "hotel" },
-          { name: "Pantai Gunung Payung",                          coord: [-8.8389, 115.1882], type: "beach" },
-          { name: "Warung D'Segara Bangsal",                       coord: [-8.8448, 115.1897], type: "food" },     // TODO: approx near Kutuh
-          { name: "Stuja di Pantai",                               coord: [-8.8285, 115.0865], type: "cafe" }      // TODO: approx Bingin/Pecatu area
-        ]
-      },
-      {
-        id: 3,
-        date: "Selasa, 23 Juni",
-        title: "Sanur → Ubud",
-        emoji: "🎨",
-        subtitle: "Check-out Seminyak → Check-in La Lucee Villa",
-        desc: "Sarapan lalu check-out dari Seminyak, jelajahi Ubud, kemudian check-in di La Lucee Villa.",
-        items: [
-          { name: "Sarapan & Check-out Seminyak Lagoon",           coord: null,               type: "hotel" },
-          { name: "Ubud Art Market",                                coord: [-8.5069, 115.2625], type: "market" },
-          { name: "Nasi Ayam Ibu Mangku",                          coord: [-8.4895, 115.2495], type: "food" },     // TODO: approx Kedewatan
-          { name: "Check-in La Lucee Villa, Canggu",               coord: [-8.6266, 115.1498], type: "hotel" }
-        ]
-      },
-      {
-        id: 4,
-        date: "Rabu, 24 Juni",
-        title: "Free Day Canggu",
-        emoji: "🏄",
-        desc: "Hari bebas di La Lucee Villa. Nikmati private pool, berselancar, atau jelajahi kafe Canggu.",
-        items: [
-          { name: "Full santai — villa atau bebas ke mana saja",   coord: [-8.6266, 115.1498], type: "note" }
-        ]
-      },
-      {
-        id: 5,
-        date: "Kamis, 25 Juni",
-        title: "Pulang Lewat Utara",
-        emoji: "⛰️",
-        desc: "Check-out, lewati Kintamani yang sejuk, ferry kembali ke Banyuwangi.",
-        items: [
-          { name: "Check-out La Lucee Villa",                      coord: [-8.6266, 115.1498], type: "hotel" },
-          { name: "Pilih: AKASA Kintamani ATAU Mama Durian Bali", coord: [-8.2730, 115.3710], type: "food" },  // TODO: AKASA approx
-          { name: "Lanjut ke Gilimanuk",                           coord: [-8.1623, 114.4347], type: "transport" },
-          { name: "Ferry Gilimanuk – Ketapang",                    coord: [-8.1456, 114.3936], type: "transport" },
-          { name: "Check-in Ketapang Indah Hotel",                 coord: [-8.1609, 114.3940], type: "hotel" }
-        ]
-      }
-    ];
-
-    // All named map points for the full trip map
-    const ALL_POINTS = [
-      { name: "Ketapang Port",                    coord: [-8.1456, 114.3936], day: 1 },
-      { name: "Gilimanuk Port",                   coord: [-8.1623, 114.4347], day: 1 },
-      { name: "Ayam Betutu Men Tempeh",           coord: [-8.1658, 114.4368], day: 1 },
-      { name: "Pantai Kelan",                     coord: [-8.7540, 115.1652], day: 1 },
-      { name: "Seminyak Lagoon All Suites Hotel", coord: [-8.6842, 115.1741], day: 1 },
-      { name: "Pantai Gunung Payung",             coord: [-8.8389, 115.1882], day: 2 },
-      { name: "Warung D'Segara Bangsal",          coord: [-8.8448, 115.1897], day: 2 },
-      { name: "Stuja",                            coord: [-8.8285, 115.0865], day: 2 },
-      { name: "Ubud Art Market",                  coord: [-8.5069, 115.2625], day: 3 },
-      { name: "Nasi Ayam Ibu Mangku",             coord: [-8.4895, 115.2495], day: 3 },
-      { name: "La Lucee Villa, Canggu",           coord: [-8.6266, 115.1498], day: 3 },
-      { name: "La Lucee Villa (Free Day)",        coord: [-8.6266, 115.1498], day: 4 },
-      { name: "AKASA Kintamani",                  coord: [-8.2730, 115.3710], day: 5 }, // TODO approx
-      { name: "Mama Durian Bali",                 coord: [-8.3010, 115.3420], day: 5 }, // TODO approx
-      { name: "Ketapang Indah Hotel",             coord: [-8.1609, 114.3940], day: 5 }
-    ];
-
-    /* ================================================================
+      /* ================================================================
        UTILITIES
        ================================================================ */
-    function esc(str) {
-      return String(str).replace(/[&<>"']/g, c => ({
-        '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
-      }[c]));
-    }
-
-    // Returns a Google Maps URL for an itinerary item.
-    // Hotel items resolve to the accommodation's verified mapsUrl;
-    // items with coordinates use a direct coordinate link;
-    // all other items get a text search fallback.
-    function getMapsUrl(item) {
-      if (item.type === 'hotel' && item.coord) {
-        const acc = ACCOMMODATIONS.find(a =>
-          a.coord && a.coord[0] === item.coord[0] && a.coord[1] === item.coord[1]
+      function esc(str) {
+        return String(str).replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
         );
-        if (acc && acc.mapsUrl) return acc.mapsUrl;
       }
-      if (item.coord) return `https://maps.google.com/?q=${item.coord[0]},${item.coord[1]}`;
-      return null;
-    }
 
-    function showToast(msg, dur = 2400) {
-      const t = document.getElementById('toast');
-      t.textContent = msg;
-      t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), dur);
-    }
+      function getMapsUrl(item) {
+        return item.maps || null;
+      }
 
-    /* ================================================================
+      function showToast(msg, dur = 2400) {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        setTimeout(() => t.classList.remove("show"), dur);
+      }
+
+      /* ================================================================
        LIVE COUNTDOWN — ticks every second before trip starts;
        switches to status badge once trip is live or finished.
        ================================================================ */
-    const TRIP_START = new Date('2026-06-21T01:00:00+07:00');
-    const TRIP_END   = new Date('2026-06-25T23:59:59+07:00');
+      const TRIP_START = new Date("2026-06-21T01:00:00+07:00");
+      const TRIP_END = new Date("2026-06-25T23:59:59+07:00");
 
-    function updateCountdown() {
-      const now   = new Date();
-      const diff  = TRIP_START - now;
-      const wrap  = document.getElementById('countdown-wrap');
-      const badge = document.getElementById('trip-status-badge');
+      function updateCountdown() {
+        const now = new Date();
+        const diff = TRIP_START - now;
+        const wrap = document.getElementById("countdown-wrap");
+        const badge = document.getElementById("trip-status-badge");
 
-      if (now > TRIP_END) {
-        if (wrap)  wrap.classList.add('hidden');
-        if (badge) { badge.style.display = ''; badge.textContent = '✓ Trip Selesai'; badge.className = 'trip-status-badge done'; }
-        return;
+        if (now > TRIP_END) {
+          if (wrap) wrap.classList.add("hidden");
+          if (badge) {
+            badge.style.display = "";
+            badge.textContent = "✓ Trip Selesai";
+            badge.className = "trip-status-badge done";
+          }
+          return;
+        }
+        if (diff <= 0) {
+          if (wrap) wrap.classList.add("hidden");
+          if (badge) {
+            badge.style.display = "";
+            badge.textContent = "🌴 Sedang Berlangsung";
+            badge.className = "trip-status-badge live";
+          }
+          return;
+        }
+
+        // Still counting down — show compact ticker
+        if (wrap) wrap.classList.remove("hidden");
+        if (badge) badge.style.display = "none";
+
+        const d = Math.floor(diff / 864e5);
+        const h = Math.floor((diff % 864e5) / 36e5);
+        const m = Math.floor((diff % 36e5) / 6e4);
+        const s = Math.floor((diff % 6e4) / 1e3);
+        document.getElementById("cd-days").textContent = String(d).padStart(
+          2,
+          "0",
+        );
+        document.getElementById("cd-hours").textContent = String(h).padStart(
+          2,
+          "0",
+        );
+        document.getElementById("cd-mins").textContent = String(m).padStart(
+          2,
+          "0",
+        );
+        document.getElementById("cd-secs").textContent = String(s).padStart(
+          2,
+          "0",
+        );
       }
-      if (diff <= 0) {
-        if (wrap)  wrap.classList.add('hidden');
-        if (badge) { badge.style.display = ''; badge.textContent = '🌴 Sedang Berlangsung'; badge.className = 'trip-status-badge live'; }
-        return;
-      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
 
-      // Still counting down — show compact ticker
-      if (wrap)  wrap.classList.remove('hidden');
-      if (badge) badge.style.display = 'none';
-
-      const d = Math.floor(diff / 864e5);
-      const h = Math.floor((diff % 864e5) / 36e5);
-      const m = Math.floor((diff % 36e5) / 6e4);
-      const s = Math.floor((diff % 6e4) / 1e3);
-      document.getElementById('cd-days').textContent  = String(d).padStart(2, '0');
-      document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
-      document.getElementById('cd-mins').textContent  = String(m).padStart(2, '0');
-      document.getElementById('cd-secs').textContent  = String(s).padStart(2, '0');
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    /* ================================================================
+      /* ================================================================
        TIMELINE RENDERER — 5 day cards
        ================================================================ */
-    const timelineEl = document.getElementById('timeline');
-    let totalDests = 0;
-    const initializedMaps = new Set();
+      const timelineEl = document.getElementById("timeline");
+      let totalDests = 0;
+      const initializedMaps = new Set();
 
-    ITINERARY.forEach((day, idx) => {
-      totalDests += day.items.length;
+      ITINERARY.forEach((day, idx) => {
+        totalDests += day.items.length;
 
-      const mapItems = day.items.filter(it => it.coord);
+        const mapItems = day.items.filter((it) => it.coord);
 
-      const card = document.createElement('article');
-      card.className = 'day-card fade-in';
-      card.id = `day-card-${day.id}`;
-      if (idx === 0) card.classList.add('open');
+        const card = document.createElement("article");
+        card.className = "day-card fade-in";
+        card.id = `day-card-${day.id}`;
+        if (idx === 0) card.classList.add("open");
 
-      const checklistHTML = day.items.map((item, jdx) => {
-        const mUrl = getMapsUrl(item);
-        const mapsBtn = mUrl
-          ? `<a href="${esc(mUrl)}" target="_blank" rel="noopener noreferrer"
+        const checklistHTML = day.items
+          .map((item, jdx) => {
+            const mUrl = getMapsUrl(item);
+            const mapsBtn = mUrl
+              ? `<a href="${esc(mUrl)}" target="_blank" rel="noopener noreferrer"
                class="cl-maps" aria-label="Buka ${esc(item.name)} di Maps" title="Buka di Maps">↗</a>`
-          : '';
-        return `
+              : "";
+            return `
         <li class="cl-item">
           <button class="cl-check"
             aria-label="Tandai selesai: ${esc(item.name)}"
@@ -1042,13 +1743,16 @@
             </svg>
           </button>
           <span class="cl-label">${esc(item.name)}</span>
-          <span class="cl-type" aria-hidden="true">${TYPE_ICON[item.type] || '📌'}</span>
+          <span class="cl-type" aria-hidden="true">${TYPE_ICON[item.type] || "📌"}</span>
           ${mapsBtn}
         </li>`;
-      }).join('');
+          })
+          .join("");
 
-      // Map section — only if this day has located items
-      const mapSection = mapItems.length > 0 ? `
+        // Map section — only if this day has located items
+        const mapSection =
+          mapItems.length > 0
+            ? `
         <div class="day-map-wrap">
           <div class="day-map-head">
             <span class="day-map-label">Rute Hari ${day.id}</span>
@@ -1060,12 +1764,13 @@
           <button class="btn-sm" onclick="document.getElementById('full-map-section').scrollIntoView({behavior:'smooth'})">
             Lihat Seluruh Rute
           </button>
-        </div>` : `
+        </div>`
+            : `
         <p style="font-size:0.82rem;color:var(--text-sub);text-align:center;padding:16px 0;">
           Hari bebas — tidak ada rute khusus
         </p>`;
 
-      card.innerHTML = `
+        card.innerHTML = `
         <button class="day-toggle"
           aria-expanded="${idx === 0}"
           aria-controls="day-body-${idx}"
@@ -1078,7 +1783,7 @@
                 Hari ${day.id} &middot; ${esc(day.date)}
               </span>
               <div class="day-name">${esc(day.title)}</div>
-              ${day.subtitle ? `<div class="day-sub">${esc(day.subtitle)}</div>` : ''}
+              ${day.subtitle ? `<div class="day-sub">${esc(day.subtitle)}</div>` : ""}
             </div>
             <div class="day-meta-right">
               <span class="day-chevron" aria-hidden="true">▼</span>
@@ -1088,382 +1793,504 @@
         <div class="day-body" id="day-body-${idx}">
           <div class="day-sep"></div>
           <div class="day-body-inner">
-            ${day.desc ? `<p class="day-desc">${esc(day.desc)}</p>` : ''}
+            ${day.desc ? `<p class="day-desc">${esc(day.desc)}</p>` : ""}
             <ul class="checklist" aria-label="Aktivitas Hari ${day.id}">${checklistHTML}</ul>
             ${mapSection}
           </div>
         </div>`;
 
-      timelineEl.appendChild(card);
-    });
+        timelineEl.appendChild(card);
+      });
 
-    // Update destination counters
-    const totalStr = String(totalDests);
-    const sumDestEl = document.getElementById('sum-dest');
-    if (sumDestEl) sumDestEl.dataset.count = totalStr;
+      // Update destination counters
+      const totalStr = String(totalDests);
+      const sumDestEl = document.getElementById("sum-dest");
+      if (sumDestEl) sumDestEl.dataset.count = totalStr;
 
-    /* ================================================================
+      /* ================================================================
        DAY CARD EXPAND / COLLAPSE
        ================================================================ */
-    timelineEl.addEventListener('click', e => {
-      const toggle = e.target.closest('.day-toggle');
-      if (toggle) {
-        const card   = toggle.closest('.day-card');
-        const isOpen = card.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        if (isOpen) {
-          const idx = [...timelineEl.querySelectorAll('.day-card')].indexOf(card);
-          setTimeout(() => initDayMap(idx), 160);
+      timelineEl.addEventListener("click", (e) => {
+        const toggle = e.target.closest(".day-toggle");
+        if (toggle) {
+          const card = toggle.closest(".day-card");
+          const isOpen = card.classList.toggle("open");
+          toggle.setAttribute("aria-expanded", String(isOpen));
+          if (isOpen) {
+            const idx = [...timelineEl.querySelectorAll(".day-card")].indexOf(
+              card,
+            );
+            setTimeout(() => initDayMap(idx), 160);
+          }
+          return;
         }
-        return;
-      }
-      // Checklist toggle
-      const check = e.target.closest('.cl-check');
-      if (check) {
-        check.classList.toggle('done');
-        saveChecklist();
-      }
-    });
+        // Checklist toggle
+        const check = e.target.closest(".cl-check");
+        if (check) {
+          check.classList.toggle("done");
+          saveChecklist();
+        }
+      });
 
-    /* ================================================================
+      /* ================================================================
        PER-DAY MAP — lazy, initializes when card opens
        ================================================================ */
-    function makeMarkerIcon(num, color) {
-      return L.divIcon({
-        className: '',
-        html: `<div style="background:${color};width:28px;height:28px;
+      function makeMarkerIcon(num, color) {
+        return L.divIcon({
+          className: "",
+          html: `<div style="background:${color};width:28px;height:28px;
           border-radius:50% 50% 50% 0;transform:rotate(-45deg);
           box-shadow:0 3px 8px rgba(0,0,0,.25);border:2px solid #fff;
           display:flex;align-items:center;justify-content:center;">
           <span style="transform:rotate(45deg);font-size:10px;font-weight:800;color:#fff;">${num}</span>
         </div>`,
-        iconSize: [28, 28], iconAnchor: [14, 28], popupAnchor: [0, -28]
-      });
-    }
-
-    function initDayMap(dayIdx) {
-      if (initializedMaps.has(dayIdx)) return;
-      const day   = ITINERARY[dayIdx];
-      const mapEl = document.getElementById(`day-map-${dayIdx}`);
-      if (!mapEl) return;
-
-      initializedMaps.add(dayIdx);
-      const color = DAY_COLORS[dayIdx];
-      const pts   = day.items.filter(it => it.coord);
-      if (!pts.length) return;
-
-      const m = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true });
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        attribution: '© <a href="https://carto.com/">CARTO</a>', maxZoom: 19
-      }).addTo(m);
-
-      pts.forEach((p, i) => {
-        const acc = ACCOMMODATIONS.find(a => a.coord[0] === p.coord[0] && a.coord[1] === p.coord[1]);
-        const popup = acc
-          ? `<strong>${esc(acc.name)}</strong><br>
-             <span style="color:#4A9B7F;">Check-in: ${esc(acc.checkIn)}</span><br>
-             <span style="color:#E8956D;">Check-out: ${esc(acc.checkOut)}</span>`
-          : `<strong>${esc(p.name)}</strong>`;
-        L.marker(p.coord, { icon: makeMarkerIcon(i + 1, color) }).addTo(m).bindPopup(popup);
-      });
-
-      const coords = pts.map(p => p.coord);
-      if (coords.length > 1) {
-        L.polyline(coords, { color, weight: 3, opacity: 0.8, dashArray: '8 7', lineJoin: 'round' }).addTo(m);
-        m.fitBounds(L.latLngBounds(coords), { padding: [24, 24] });
-      } else {
-        m.setView(coords[0], 14);
+          iconSize: [28, 28],
+          iconAnchor: [14, 28],
+          popupAnchor: [0, -28],
+        });
       }
-    }
 
-    // Initialize first card's map (it's open by default)
-    setTimeout(() => initDayMap(0), 500);
+      function initDayMap(dayIdx) {
+        if (initializedMaps.has(dayIdx)) return;
+        const day = ITINERARY[dayIdx];
+        const mapEl = document.getElementById(`day-map-${dayIdx}`);
+        if (!mapEl) return;
 
-    /* ================================================================
+        initializedMaps.add(dayIdx);
+        const color = DAY_COLORS[dayIdx];
+        const pts = day.items.filter((it) => it.coord);
+        if (!pts.length) return;
+
+        const m = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true });
+        L.tileLayer(
+          "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+          {
+            attribution: '© <a href="https://carto.com/">CARTO</a>',
+            maxZoom: 19,
+          },
+        ).addTo(m);
+
+        pts.forEach((p, i) => {
+          const popup = `<strong>${esc(p.name)}</strong>${p.maps ? `<br><a href="${esc(p.maps)}" target="_blank" style="color:${color};">Buka di Maps ↗</a>` : ""}`;
+          L.marker(p.coord, { icon: makeMarkerIcon(i + 1, color) })
+            .addTo(m)
+            .bindPopup(popup);
+        });
+
+        const coords = pts.map((p) => p.coord);
+        if (coords.length > 1) {
+          L.polyline(coords, {
+            color,
+            weight: 3,
+            opacity: 0.8,
+            dashArray: "8 7",
+            lineJoin: "round",
+          }).addTo(m);
+          m.fitBounds(L.latLngBounds(coords), { padding: [24, 24] });
+        } else {
+          m.setView(coords[0], 14);
+        }
+      }
+
+      // Initialize first card's map (it's open by default)
+      setTimeout(() => initDayMap(0), 500);
+
+      /* ================================================================
        FULL TRIP MAP — day layer groups + filter buttons
        ================================================================ */
-    function initFullMap() {
-      const map = L.map('full-map', { scrollWheelZoom: false }).setView([-8.45, 115.0], 9);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        attribution: '© <a href="https://carto.com/">CARTO</a>', maxZoom: 19
-      }).addTo(map);
+      function initFullMap() {
+        const map = L.map("full-map", { scrollWheelZoom: false }).setView(
+          [-8.45, 115.0],
+          9,
+        );
+        L.tileLayer(
+          "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+          {
+            attribution: '© <a href="https://carto.com/">CARTO</a>',
+            maxZoom: 19,
+          },
+        ).addTo(map);
 
-      const dayGroups = {};
-      ITINERARY.forEach(d => { dayGroups[d.id] = L.layerGroup().addTo(map); });
-
-      const dayCounters = {};
-      ALL_POINTS.forEach(pt => {
-        const color = DAY_COLORS[pt.day - 1];
-        dayCounters[pt.day] = (dayCounters[pt.day] || 0) + 1;
-        const num   = dayCounters[pt.day];
-        const acc   = ACCOMMODATIONS.find(a => a.coord[0] === pt.coord[0] && a.coord[1] === pt.coord[1]);
-        const popup = acc
-          ? `<strong>${esc(acc.name)}</strong><br>
-             <span style="color:${color};font-weight:600;">Hari ${pt.day}</span><br>
-             <small style="color:#4A9B7F;">Check-in: ${esc(acc.checkIn)}</small><br>
-             <small style="color:#E8956D;">Check-out: ${esc(acc.checkOut)} · ${acc.nightsLabel}</small>`
-          : `<strong>${esc(pt.name)}</strong><br>
-             <span style="color:${color};font-weight:600;">Hari ${pt.day}</span>`;
-        const marker = L.marker(pt.coord, { icon: makeMarkerIcon(num, color) }).bindPopup(popup);
-        dayGroups[pt.day].addLayer(marker);
-      });
-
-      ITINERARY.forEach((day, i) => {
-        const pts = ALL_POINTS.filter(p => p.day === day.id);
-        if (pts.length > 1) {
-          dayGroups[day.id].addLayer(
-            L.polyline(pts.map(p => p.coord), {
-              color: DAY_COLORS[i], weight: 3.5, opacity: 0.75, dashArray: '9 7', lineJoin: 'round'
-            })
-          );
-        }
-      });
-
-      const allCoords = ALL_POINTS.map(p => p.coord);
-      map.fitBounds(L.latLngBounds(allCoords), { padding: [32, 32] });
-
-      // Filter buttons
-      const filtersEl = document.getElementById('map-filters');
-
-      const allBtn = document.createElement('button');
-      allBtn.className = 'map-filter-btn on';
-      allBtn.textContent = 'Semua Hari';
-      allBtn.style.background = var2hex('ocean');
-      allBtn.addEventListener('click', () => {
-        ITINERARY.forEach(d => { if (!map.hasLayer(dayGroups[d.id])) dayGroups[d.id].addTo(map); });
-        filtersEl.querySelectorAll('.map-filter-btn').forEach(b => {
-          b.classList.remove('on'); b.style.background = '';
+        const dayGroups = {};
+        ITINERARY.forEach((d) => {
+          dayGroups[d.id] = L.layerGroup().addTo(map);
         });
-        allBtn.classList.add('on');
-        allBtn.style.background = var2hex('ocean');
-        map.fitBounds(L.latLngBounds(allCoords), { padding: [32, 32] });
-      });
-      filtersEl.appendChild(allBtn);
 
-      ITINERARY.forEach((day, i) => {
-        const c = DAY_COLORS[i];
-        const btn = document.createElement('button');
-        btn.className = 'map-filter-btn';
-        btn.textContent = `${day.emoji} Hari ${day.id}`;
-        btn.addEventListener('click', () => {
-          ITINERARY.forEach(d => dayGroups[d.id].remove());
-          dayGroups[day.id].addTo(map);
-          filtersEl.querySelectorAll('.map-filter-btn').forEach(b => {
-            b.classList.remove('on'); b.style.background = '';
+        // Derive map points from ITINERARY (items with coord only)
+        const allMapPoints = [];
+        ITINERARY.forEach((day) => {
+          day.items.forEach((item) => {
+            if (item.coord)
+              allMapPoints.push({
+                name: item.name,
+                coord: item.coord,
+                day: day.id,
+                maps: item.maps,
+              });
           });
-          btn.classList.add('on'); btn.style.background = c;
-          const pts = ALL_POINTS.filter(p => p.day === day.id);
-          if (pts.length > 1) map.fitBounds(L.latLngBounds(pts.map(p => p.coord)), { padding: [32, 32] });
-          else if (pts.length === 1) map.setView(pts[0].coord, 13);
         });
-        filtersEl.appendChild(btn);
-      });
 
-      // Legend
-      const legendEl = document.getElementById('map-legend');
-      ITINERARY.forEach((day, i) => {
-        const item = document.createElement('div');
-        item.className = 'legend-item';
-        item.innerHTML = `<div class="legend-dot" style="background:${DAY_COLORS[i]};"></div>
-          Hari ${day.id} — ${esc(day.title)}`;
-        legendEl.appendChild(item);
-      });
-    }
-
-    // Helper: read a CSS var as hex (falls back to value for inline style)
-    function var2hex(name) {
-      const map = { ocean: '#4FA3C7' };
-      return map[name] || '#4FA3C7';
-    }
-
-    setTimeout(initFullMap, 300);
-
-    /* ================================================================
-       SCROLL PROGRESS BAR
-       ================================================================ */
-    const progEl = document.getElementById('scroll-progress');
-    window.addEventListener('scroll', () => {
-      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-      progEl.style.width = ((scrollTop / (scrollHeight - clientHeight)) * 100).toFixed(2) + '%';
-    }, { passive: true });
-
-    /* ================================================================
-       BACK TO TOP
-       ================================================================ */
-    const bttEl = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      bttEl.classList.toggle('show', window.scrollY > 500);
-    }, { passive: true });
-    bttEl.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    /* ================================================================
-       DARK MODE — persisted in localStorage
-       ================================================================ */
-    const themeBtn = document.getElementById('theme-btn');
-    const root     = document.documentElement;
-
-    function applyTheme(t) {
-      root.setAttribute('data-theme', t);
-      themeBtn.textContent = t === 'dark' ? '☀️' : '🌙';
-      themeBtn.title = t === 'dark' ? 'Mode terang' : 'Mode gelap';
-      themeBtn.setAttribute('aria-label', t === 'dark' ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
-      try { localStorage.setItem('bali-theme', t); } catch (_) {}
-    }
-    let savedTheme = null;
-    try { savedTheme = localStorage.getItem('bali-theme'); } catch (_) {}
-    applyTheme(savedTheme || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
-    themeBtn.addEventListener('click', () => {
-      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-    });
-
-    /* ================================================================
-       BOTTOM NAV — scroll-aware active state
-       ================================================================ */
-    function initBottomNav() {
-      const bnavItems = document.querySelectorAll('.bnav-item');
-
-      bnavItems.forEach(item => {
-        item.addEventListener('click', () => {
-          const target = document.getElementById(item.dataset.target);
-          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const dayCounters = {};
+        allMapPoints.forEach((pt) => {
+          const color = DAY_COLORS[pt.day - 1];
+          dayCounters[pt.day] = (dayCounters[pt.day] || 0) + 1;
+          const num = dayCounters[pt.day];
+          const popup = `<strong>${esc(pt.name)}</strong><br>
+                       <span style="color:${color};font-weight:600;">Hari ${pt.day}</span>
+                       ${pt.maps ? `<br><a href="${esc(pt.maps)}" target="_blank" style="color:${color};">Buka di Maps ↗</a>` : ""}`;
+          const marker = L.marker(pt.coord, {
+            icon: makeMarkerIcon(num, color),
+          }).bindPopup(popup);
+          dayGroups[pt.day].addLayer(marker);
         });
-      });
 
-      // Active state via IntersectionObserver
-      const targetIds = ['day-card-1','day-card-2','day-card-3','day-card-4','day-card-5','full-map-section'];
-      const targets   = targetIds.map(id => document.getElementById(id)).filter(Boolean);
-
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            bnavItems.forEach(item => item.classList.toggle('active', item.dataset.target === id));
+        ITINERARY.forEach((day, i) => {
+          const pts = allMapPoints.filter((p) => p.day === day.id);
+          if (pts.length > 1) {
+            dayGroups[day.id].addLayer(
+              L.polyline(
+                pts.map((p) => p.coord),
+                {
+                  color: DAY_COLORS[i],
+                  weight: 3.5,
+                  opacity: 0.75,
+                  dashArray: "9 7",
+                  lineJoin: "round",
+                },
+              ),
+            );
           }
         });
-      }, { threshold: 0.15, rootMargin: '0px 0px -50% 0px' });
 
-      targets.forEach(t => obs.observe(t));
-    }
-    setTimeout(initBottomNav, 150);
+        const allCoords = allMapPoints.map((p) => p.coord);
+        map.fitBounds(L.latLngBounds(allCoords), { padding: [32, 32] });
 
-    /* ================================================================
+        // Filter buttons
+        const filtersEl = document.getElementById("map-filters");
+
+        const allBtn = document.createElement("button");
+        allBtn.className = "map-filter-btn on";
+        allBtn.textContent = "Semua Hari";
+        allBtn.style.background = var2hex("ocean");
+        allBtn.addEventListener("click", () => {
+          ITINERARY.forEach((d) => {
+            if (!map.hasLayer(dayGroups[d.id])) dayGroups[d.id].addTo(map);
+          });
+          filtersEl.querySelectorAll(".map-filter-btn").forEach((b) => {
+            b.classList.remove("on");
+            b.style.background = "";
+          });
+          allBtn.classList.add("on");
+          allBtn.style.background = var2hex("ocean");
+          map.fitBounds(L.latLngBounds(allCoords), { padding: [32, 32] });
+        });
+        filtersEl.appendChild(allBtn);
+
+        ITINERARY.forEach((day, i) => {
+          const c = DAY_COLORS[i];
+          const btn = document.createElement("button");
+          btn.className = "map-filter-btn";
+          btn.textContent = `${day.emoji} Hari ${day.id}`;
+          btn.addEventListener("click", () => {
+            ITINERARY.forEach((d) => dayGroups[d.id].remove());
+            dayGroups[day.id].addTo(map);
+            filtersEl.querySelectorAll(".map-filter-btn").forEach((b) => {
+              b.classList.remove("on");
+              b.style.background = "";
+            });
+            btn.classList.add("on");
+            btn.style.background = c;
+            const pts = allMapPoints.filter((p) => p.day === day.id);
+            if (pts.length > 1)
+              map.fitBounds(L.latLngBounds(pts.map((p) => p.coord)), {
+                padding: [32, 32],
+              });
+            else if (pts.length === 1) map.setView(pts[0].coord, 13);
+          });
+          filtersEl.appendChild(btn);
+        });
+
+        // Legend
+        const legendEl = document.getElementById("map-legend");
+        ITINERARY.forEach((day, i) => {
+          const item = document.createElement("div");
+          item.className = "legend-item";
+          item.innerHTML = `<div class="legend-dot" style="background:${DAY_COLORS[i]};"></div>
+          Hari ${day.id} — ${esc(day.title)}`;
+          legendEl.appendChild(item);
+        });
+      }
+
+      // Helper: read a CSS var as hex (falls back to value for inline style)
+      function var2hex(name) {
+        const map = { ocean: "#4FA3C7" };
+        return map[name] || "#4FA3C7";
+      }
+
+      setTimeout(initFullMap, 300);
+
+      /* ================================================================
+       SCROLL PROGRESS BAR
+       ================================================================ */
+      const progEl = document.getElementById("scroll-progress");
+      window.addEventListener(
+        "scroll",
+        () => {
+          const { scrollTop, scrollHeight, clientHeight } =
+            document.documentElement;
+          progEl.style.width =
+            ((scrollTop / (scrollHeight - clientHeight)) * 100).toFixed(2) +
+            "%";
+        },
+        { passive: true },
+      );
+
+      /* ================================================================
+       BACK TO TOP
+       ================================================================ */
+      const bttEl = document.getElementById("back-to-top");
+      window.addEventListener(
+        "scroll",
+        () => {
+          bttEl.classList.toggle("show", window.scrollY > 500);
+        },
+        { passive: true },
+      );
+      bttEl.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
+      );
+
+      /* ================================================================
+       DARK MODE — persisted in localStorage
+       ================================================================ */
+      const themeBtn = document.getElementById("theme-btn");
+      const root = document.documentElement;
+
+      function applyTheme(t) {
+        root.setAttribute("data-theme", t);
+        themeBtn.textContent = t === "dark" ? "☀️" : "🌙";
+        themeBtn.title = t === "dark" ? "Mode terang" : "Mode gelap";
+        themeBtn.setAttribute(
+          "aria-label",
+          t === "dark" ? "Aktifkan mode terang" : "Aktifkan mode gelap",
+        );
+        try {
+          localStorage.setItem("bali-theme", t);
+        } catch (_) {}
+      }
+      let savedTheme = null;
+      try {
+        savedTheme = localStorage.getItem("bali-theme");
+      } catch (_) {}
+      applyTheme(
+        savedTheme ||
+          (matchMedia("(prefers-color-scheme:dark)").matches
+            ? "dark"
+            : "light"),
+      );
+      themeBtn.addEventListener("click", () => {
+        applyTheme(
+          root.getAttribute("data-theme") === "dark" ? "light" : "dark",
+        );
+      });
+
+      /* ================================================================
+       BOTTOM NAV — scroll-aware active state
+       ================================================================ */
+      function initBottomNav() {
+        const bnavItems = document.querySelectorAll(".bnav-item");
+
+        bnavItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            const target = document.getElementById(item.dataset.target);
+            if (target)
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+
+        // Active state via IntersectionObserver
+        const targetIds = [
+          "day-card-1",
+          "day-card-2",
+          "day-card-3",
+          "day-card-4",
+          "day-card-5",
+          "full-map-section",
+        ];
+        const targets = targetIds
+          .map((id) => document.getElementById(id))
+          .filter(Boolean);
+
+        const obs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = entry.target.id;
+                bnavItems.forEach((item) =>
+                  item.classList.toggle("active", item.dataset.target === id),
+                );
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -50% 0px" },
+        );
+
+        targets.forEach((t) => obs.observe(t));
+      }
+      setTimeout(initBottomNav, 150);
+
+      /* ================================================================
        FADE-IN ON SCROLL (IntersectionObserver)
        ================================================================ */
-    const fadeObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          fadeObs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+      const fadeObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              fadeObs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
+      );
 
-    function observeFades() {
-      document.querySelectorAll('.fade-in:not(.visible)').forEach(el => fadeObs.observe(el));
-    }
-    observeFades();
-    setTimeout(observeFades, 200);
+      function observeFades() {
+        document
+          .querySelectorAll(".fade-in:not(.visible)")
+          .forEach((el) => fadeObs.observe(el));
+      }
+      observeFades();
+      setTimeout(observeFades, 200);
 
-    /* ================================================================
+      /* ================================================================
        ANIMATED COUNTERS — on scroll into view
        ================================================================ */
-    const counterObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el     = entry.target;
-        const target = parseInt(el.dataset.count, 10) || 0;
-        let current  = 0;
-        const step   = Math.max(1, Math.ceil(target / 30));
-        const tick   = () => {
-          current = Math.min(target, current + step);
-          el.textContent = current;
-          if (current < target) requestAnimationFrame(tick);
-        };
-        tick();
-        counterObs.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('[data-count]').forEach(el => counterObs.observe(el));
+      const counterObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const target = parseInt(el.dataset.count, 10) || 0;
+            let current = 0;
+            const step = Math.max(1, Math.ceil(target / 30));
+            const tick = () => {
+              current = Math.min(target, current + step);
+              el.textContent = current;
+              if (current < target) requestAnimationFrame(tick);
+            };
+            tick();
+            counterObs.unobserve(el);
+          });
+        },
+        { threshold: 0.5 },
+      );
+      document
+        .querySelectorAll("[data-count]")
+        .forEach((el) => counterObs.observe(el));
 
-    /* ================================================================
+      /* ================================================================
        ACTIVE DESKTOP NAV LINK
        ================================================================ */
-    const navLinks = document.querySelectorAll('.nav-links-desktop a');
-    const sections = document.querySelectorAll('section[id], header[id]');
-    const secObs   = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-        }
-      });
-    }, { rootMargin: '-40% 0px -50% 0px' });
-    sections.forEach(s => secObs.observe(s));
+      const navLinks = document.querySelectorAll(".nav-links-desktop a");
+      const sections = document.querySelectorAll("section[id], header[id]");
+      const secObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              navLinks.forEach((a) =>
+                a.classList.toggle(
+                  "active",
+                  a.getAttribute("href") === "#" + id,
+                ),
+              );
+            }
+          });
+        },
+        { rootMargin: "-40% 0px -50% 0px" },
+      );
+      sections.forEach((s) => secObs.observe(s));
 
-    /* ================================================================
+      /* ================================================================
        COPY ITINERARY — plain text
        ================================================================ */
-    function buildItineraryText() {
-      let out = 'BALI TRIP 2026 · 21–25 Juni\n' + '─'.repeat(36) + '\n\n';
-      ITINERARY.forEach(day => {
-        out += `Hari ${day.id} — ${day.date}\n${day.title}`;
-        if (day.subtitle) out += ` (${day.subtitle})`;
-        out += '\n';
-        day.items.forEach(it => { out += `  ${TYPE_ICON[it.type] || '•'} ${it.name}\n`; });
-        out += '\n';
-      });
-      out += '─'.repeat(36) + '\n';
-      out += 'Area: Ketapang · Gilimanuk · Seminyak · Uluwatu · Ubud · Canggu · Kintamani';
-      return out;
-    }
-
-    async function copyItinerary() {
-      const text = buildItineraryText();
-      try {
-        await navigator.clipboard.writeText(text);
-        showToast('✅ Itinerary disalin!');
-      } catch (_) {
-        const ta = document.createElement('textarea');
-        ta.value = text; ta.style.cssText = 'position:fixed;left:-9999px;';
-        document.body.appendChild(ta); ta.select();
-        try { document.execCommand('copy'); showToast('✅ Itinerary disalin!'); }
-        catch (_2) { showToast('⚠️ Gagal menyalin'); }
-        document.body.removeChild(ta);
+      function buildItineraryText() {
+        let out = "BALI TRIP 2026 · 21–25 Juni\n" + "─".repeat(36) + "\n\n";
+        ITINERARY.forEach((day) => {
+          out += `Hari ${day.id} — ${day.date}\n${day.title}`;
+          if (day.subtitle) out += ` (${day.subtitle})`;
+          out += "\n";
+          day.items.forEach((it) => {
+            out += `  ${TYPE_ICON[it.type] || "•"} ${it.name}\n`;
+          });
+          out += "\n";
+        });
+        out += "─".repeat(36) + "\n";
+        out +=
+          "Area: Ketapang · Gilimanuk · Seminyak · Uluwatu · Ubud · Canggu · Kintamani";
+        return out;
       }
-    }
-    document.getElementById('copy-btn').addEventListener('click', copyItinerary);
 
-    /* ================================================================
+      async function copyItinerary() {
+        const text = buildItineraryText();
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast("✅ Itinerary disalin!");
+        } catch (_) {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          ta.style.cssText = "position:fixed;left:-9999px;";
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand("copy");
+            showToast("✅ Itinerary disalin!");
+          } catch (_2) {
+            showToast("⚠️ Gagal menyalin");
+          }
+          document.body.removeChild(ta);
+        }
+      }
+      document
+        .getElementById("copy-btn")
+        .addEventListener("click", copyItinerary);
+
+      /* ================================================================
        PRINT / PDF
        ================================================================ */
-    document.getElementById('print-btn').addEventListener('click', () => {
-      document.querySelectorAll('.day-card').forEach(d => d.classList.add('open'));
-      window.print();
-    });
+      document.getElementById("print-btn").addEventListener("click", () => {
+        document
+          .querySelectorAll(".day-card")
+          .forEach((d) => d.classList.add("open"));
+        window.print();
+      });
 
-
-    /* ================================================================
+      /* ================================================================
        CHECKLIST PERSISTENCE — localStorage
        ================================================================ */
-    function saveChecklist() {
-      const state = {};
-      document.querySelectorAll('.cl-check').forEach(btn => {
-        state[`${btn.dataset.day}-${btn.dataset.item}`] = btn.classList.contains('done');
-      });
-      try { localStorage.setItem('bali-checklist', JSON.stringify(state)); } catch (_) {}
-    }
+      function saveChecklist() {
+        const state = {};
+        document.querySelectorAll(".cl-check").forEach((btn) => {
+          state[`${btn.dataset.day}-${btn.dataset.item}`] =
+            btn.classList.contains("done");
+        });
+        try {
+          localStorage.setItem("bali-checklist", JSON.stringify(state));
+        } catch (_) {}
+      }
 
-    function loadChecklist() {
-      let state = {};
-      try {
-        const raw = localStorage.getItem('bali-checklist');
-        if (raw) state = JSON.parse(raw);
-      } catch (_) {}
-      document.querySelectorAll('.cl-check').forEach(btn => {
-        if (state[`${btn.dataset.day}-${btn.dataset.item}`]) btn.classList.add('done');
-      });
-    }
-    setTimeout(loadChecklist, 80);
-  </script>
-</body>
+      function loadChecklist() {
+        let state = {};
+        try {
+          const raw = localStorage.getItem("bali-checklist");
+          if (raw) state = JSON.parse(raw);
+        } catch (_) {}
+        document.querySelectorAll(".cl-check").forEach((btn) => {
+          if (state[`${btn.dataset.day}-${btn.dataset.item}`])
+            btn.classList.add("done");
+        });
+      }
+      setTimeout(loadChecklist, 80);
+    </script>
+  </body>
 </html>
