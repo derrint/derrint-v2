@@ -1190,14 +1190,6 @@
           </button>
           <button
             class="icon-btn"
-            id="print-btn"
-            aria-label="Cetak"
-            title="Cetak / PDF"
-          >
-            🖨️
-          </button>
-          <button
-            class="icon-btn"
             id="theme-btn"
             aria-label="Ganti tema"
             title="Mode gelap"
@@ -1716,8 +1708,11 @@
       const initializedMaps = new Set();
 
       // Auto-open today's day card; fall back to Day 1 before/after the trip.
-      const _dayOffset = Math.floor((Date.now() - new Date('2026-06-21T00:00:00+07:00')) / 864e5);
-      const activeIdx  = (_dayOffset >= 0 && _dayOffset < ITINERARY.length) ? _dayOffset : 0;
+      const _dayOffset = Math.floor(
+        (Date.now() - new Date("2026-06-21T00:00:00+07:00")) / 864e5,
+      );
+      const activeIdx =
+        _dayOffset >= 0 && _dayOffset < ITINERARY.length ? _dayOffset : 0;
 
       ITINERARY.forEach((day, idx) => {
         totalDests += day.items.length;
@@ -2086,7 +2081,8 @@
       try {
         savedTheme = localStorage.getItem("bali-theme");
       } catch (_) {}
-      applyTheme(savedTheme || "light");
+      const _hour = new Date().getHours(); // local device time
+      applyTheme(savedTheme || (_hour >= 18 || _hour < 6 ? "dark" : "light"));
       themeBtn.addEventListener("click", () => {
         applyTheme(
           root.getAttribute("data-theme") === "dark" ? "light" : "dark",
@@ -2254,15 +2250,6 @@
         .getElementById("copy-btn")
         .addEventListener("click", copyItinerary);
 
-      /* ================================================================
-       PRINT / PDF
-       ================================================================ */
-      document.getElementById("print-btn").addEventListener("click", () => {
-        document
-          .querySelectorAll(".day-card")
-          .forEach((d) => d.classList.add("open"));
-        window.print();
-      });
 
       /* ================================================================
        CHECKLIST PERSISTENCE — localStorage
