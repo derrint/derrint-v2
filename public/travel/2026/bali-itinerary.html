@@ -2086,12 +2086,8 @@
       try {
         savedTheme = localStorage.getItem("bali-theme");
       } catch (_) {}
-      applyTheme(
-        savedTheme ||
-          (matchMedia("(prefers-color-scheme:dark)").matches
-            ? "dark"
-            : "light"),
-      );
+      const _hour = new Date().getHours(); // local device time
+      applyTheme(savedTheme || (_hour >= 18 || _hour < 6 ? "dark" : "light"));
       themeBtn.addEventListener("click", () => {
         applyTheme(
           root.getAttribute("data-theme") === "dark" ? "light" : "dark",
