@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bali Trip 2026 — Ringkasan Pengeluaran</title>
+<meta name="description" content="Ringkasan pengeluaran Bali Trip 2026 dari Splitwise." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root {
+    --sand: #f6f1e8;
+    --ivory: #faf8f4;
+    --ocean: #4fa3c7;
+    --ocean-dk: #2e5e72;
+    --teal: #7ed6d4;
+    --coral: #f6a98a;
+    --warm: #e8956d;
+    --palm: #4a9b7f;
+
+    --bg: #faf8f4;
+    --bg-alt: #f6f1e8;
+    --surface: #ffffff;
+    --surface-2: #f4efea;
+    --text: #1a2e38;
+    --text-muted: #6b8ea3;
+    --text-sub: #9db5c2;
+    --border: rgba(46, 94, 114, 0.1);
+    --border-2: rgba(46, 94, 114, 0.16);
+
+    --shadow-xs: 0 1px 3px rgba(26, 46, 56, 0.06);
+    --shadow-sm: 0 2px 8px rgba(26, 46, 56, 0.08);
+    --shadow: 0 4px 16px rgba(26, 46, 56, 0.1);
+
+    --radius: 14px;
+    --radius-sm: 9px;
+    --maxw: 720px;
+    --nav-h: 52px;
+
+    --chart-1: #4fa3c7;
+    --chart-2: #4a9b7f;
+    --chart-3: #e8956d;
+    --chart-4: #f6a98a;
+    --chart-5: #7ed6d4;
+    --chart-6: #2e5e72;
+  }
+
+  [data-theme="dark"] {
+    --bg: #0d1c28;
+    --bg-alt: #102030;
+    --surface: #152a3a;
+    --surface-2: #1c3650;
+    --text: #ddeef7;
+    --text-muted: #7baec5;
+    --text-sub: #4a7a98;
+    --border: rgba(79, 163, 199, 0.14);
+    --border-2: rgba(79, 163, 199, 0.22);
+    --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.25);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+    --sand: #152a3a;
+    --ivory: #0d1c28;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .nav-brand-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--ocean), var(--teal));
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .nav-actions { margin-left: auto; }
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+  .icon-btn:hover {
+    color: var(--ocean-dk);
+    border-color: var(--ocean);
+  }
+
+  .hero {
+    background: linear-gradient(160deg, #dff0f8 0%, #fdf6e3 55%, #dff0f8 100%);
+    padding: 36px 20px 28px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  [data-theme="dark"] .hero {
+    background: linear-gradient(160deg, #182530 0%, #1e1b0e 50%, #182530 100%);
+  }
+  .hero-pre {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-sub);
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-size: clamp(1.45rem, 5vw, 1.85rem);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .hero-sub {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    max-width: 36ch;
+    margin: 0 auto;
+  }
+
+  .container {
+    width: 100%;
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding: 28px 20px 48px;
+  }
+
+  .section { padding: 28px 0; }
+  .section + .section { border-top: 1px solid var(--border); }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-sub);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .section-sub {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 10px;
+    text-align: center;
+    box-shadow: var(--shadow-xs);
+  }
+  .stat-icon { font-size: 1.25rem; display: block; margin-bottom: 6px; }
+  .stat-num {
+    font-size: clamp(0.95rem, 3.8vw, 1.35rem);
+    font-weight: 700;
+    display: block;
+    color: var(--ocean-dk);
+    line-height: 1.15;
+    word-break: break-word;
+  }
+  [data-theme="dark"] .stat-num { color: var(--teal); }
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+    display: block;
+  }
+
+  .balance-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  @media (min-width: 560px) {
+    .balance-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .balance-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow-xs);
+  }
+  .balance-card .name {
+    font-weight: 600;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .balance-card .amt {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-top: 8px;
+    color: var(--ocean-dk);
+  }
+  [data-theme="dark"] .balance-card .amt { color: var(--teal); }
+  .balance-card .note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .crown { font-size: 0.85rem; }
+
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  @media (min-width: 640px) {
+    .charts-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .chart-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow-xs);
+  }
+  .chart-card .section-label { margin-bottom: 12px; }
+
+  .chart-wrap {
+    position: relative;
+    width: 100%;
+  }
+  .chart-wrap--bar { height: 280px; }
+  .chart-wrap--cat-person { height: 320px; }
+  .chart-wrap--doughnut { height: 260px; }
+  .chart-wrap canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  @media (max-width: 480px) {
+    .chart-wrap--bar { height: 240px; }
+    .chart-wrap--cat-person { height: 360px; }
+    .chart-wrap--doughnut { height: 280px; }
+  }
+
+  .cat-tables {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cat-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-xs);
+    overflow: hidden;
+  }
+  .cat-block-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--border);
+  }
+  .cat-block-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cat-block-title .emoji { font-size: 1rem; }
+  .cat-block-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .cat-block-total {
+    font-weight: 700;
+    color: var(--ocean-dk);
+    font-variant-numeric: tabular-nums;
+  }
+  [data-theme="dark"] .cat-block-total { color: var(--teal); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 0.84rem;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    color: var(--text-sub);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  td.amt {
+    text-align: right;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    color: var(--ocean-dk);
+  }
+  [data-theme="dark"] td.amt { color: var(--teal); }
+  td.date {
+    color: var(--text-muted);
+    white-space: nowrap;
+    width: 1%;
+  }
+  td.desc { word-break: break-word; }
+  tbody tr:last-child td { border-bottom: none; }
+  tfoot td {
+    border-top: 1px solid var(--border);
+    border-bottom: none;
+    background: var(--bg-alt);
+    font-weight: 600;
+    font-size: 0.82rem;
+  }
+  tfoot .amt { font-weight: 700; }
+
+  @media (max-width: 480px) {
+    th, td { padding: 9px 12px; font-size: 0.8rem; }
+    .cat-block-head { padding: 12px 12px; }
+  }
+
+  footer {
+    padding: 28px 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-sub);
+    font-size: 0.82rem;
+  }
+</style>
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <span class="nav-brand-icon">🌴</span>
+        <span>Bali 2026</span>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme-btn" type="button" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-pre">Splitwise Summary</div>
+    <h1>Ringkasan Pengeluaran</h1>
+    <p class="hero-sub">Malang → Bali → Banyuwangi · 3–26 Juni 2026</p>
+  </header>
+
+  <div class="container">
+    <section class="section" style="padding-top: 0;">
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-icon">💰</span>
+          <span class="stat-num" id="stat-total"></span>
+          <span class="stat-label">Total Biaya</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">📅</span>
+          <span class="stat-num" id="stat-days"></span>
+          <span class="stat-label">Jumlah Hari</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">🧾</span>
+          <span class="stat-num" id="stat-tx"></span>
+          <span class="stat-label">Transaksi</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Per orang</div>
+      <h2 class="section-title">Total Pengeluaran</h2>
+      <p class="section-sub">Porsi biaya riil masing-masing (bukan siapa yang bayar duluan) — dihitung dari share aktual tiap item.</p>
+      <div class="balance-grid" id="balance-grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="chart-card">
+        <div class="section-label">Breakdown</div>
+        <h2 class="section-title" style="margin-bottom:14px;">Per Kategori per Orang</h2>
+        <div class="chart-wrap chart-wrap--cat-person">
+          <canvas id="catPersonChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="charts-grid">
+        <div class="chart-card">
+          <div class="section-label">Kategori</div>
+          <h2 class="section-title" style="margin-bottom:14px;">Per Kategori</h2>
+          <div class="chart-wrap chart-wrap--doughnut">
+            <canvas id="catChart"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="section-label">Timeline</div>
+          <h2 class="section-title" style="margin-bottom:14px;">Per Hari</h2>
+          <div class="chart-wrap chart-wrap--bar">
+            <canvas id="dateChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Detail</div>
+      <h2 class="section-title">Pengeluaran per Kategori</h2>
+      <p class="section-sub">Semua transaksi dikelompokkan per kategori, diurutkan dari yang terbesar.</p>
+      <div class="cat-tables" id="cat-tables"></div>
+    </section>
+  </div>
+
+  <footer>Dibuat dari Splitwise export · Bali 2026 Export Jul 13 - 2116.csv</footer>
+
+<script>
+const data = {
+  total_cost: 20488169.0,
+  n_days: 10,
+  n_transactions: 30,
+  totals: {
+    "Lorensio Derrint": 7318993.19,
+    "Chandra 18": 7441428.65,
+    "Apriady": 5727747.16
+  },
+  categories: {
+    "Hotel": 12249858.0,
+    "Dining out": 5236400.0,
+    "Transportation": 866311.0,
+    "Gas/fuel": 1438100.0,
+    "Groceries": 377500.0,
+    "Entertainment": 320000.0
+  },
+  cat_person: {
+    "Hotel": { "Lorensio Derrint": 4121378.55, "Chandra 18": 4292795.01, "Apriady": 3835684.44 },
+    "Dining out": { "Lorensio Derrint": 1912909.13, "Chandra 18": 1863928.15, "Apriady": 1459562.72 },
+    "Transportation": { "Lorensio Derrint": 333155.50, "Chandra 18": 333155.50, "Apriady": 200000.00 },
+    "Gas/fuel": { "Lorensio Derrint": 719050.00, "Chandra 18": 719050.00, "Apriady": 0.00 },
+    "Groceries": { "Lorensio Derrint": 125833.34, "Chandra 18": 125833.33, "Apriady": 125833.33 },
+    "Entertainment": { "Lorensio Derrint": 106666.67, "Chandra 18": 106666.66, "Apriady": 106666.67 }
+  },
+  by_date: {
+    "03 Jun": 2953806.0, "06 Jun": 3582170.0, "08 Jun": 5713882.0,
+    "20 Jun": 400000.0, "21 Jun": 1297300.0, "22 Jun": 2229700.0,
+    "23 Jun": 1658300.0, "24 Jun": 797000.0, "25 Jun": 729911.0, "26 Jun": 1126100.0
+  },
+  by_category: {
+    "Hotel": [
+      { date: "08 Jun", desc: "La Lucee Villa", cost: 5713882.0 },
+      { date: "06 Jun", desc: "Seminyak Lagoon Hotel", cost: 3582170.0 },
+      { date: "03 Jun", desc: "Ketapang Indah Hotel", cost: 2953806.0 }
+    ],
+    "Dining out": [
+      { date: "22 Jun", desc: "Stuja Di Pantai", cost: 881500.0 },
+      { date: "24 Jun", desc: "Menyame Kelan Beach", cost: 797000.0 },
+      { date: "21 Jun", desc: "Betutu Men Tempeh", cost: 610000.0 },
+      { date: "23 Jun", desc: "Grill Daging", cost: 590000.0 },
+      { date: "23 Jun", desc: "Nasi Ayam Kedewatan Ibu Mangku Ubud", cost: 404000.0 },
+      { date: "22 Jun", desc: "Warung Ikan D'Segara Bangsal", cost: 304000.0 },
+      { date: "23 Jun", desc: "Gelato Ubud", cost: 255000.0 },
+      { date: "23 Jun", desc: "Warung Bu Oki", cost: 244300.0 },
+      { date: "25 Jun", desc: "Butterman Berawa", cost: 214600.0 },
+      { date: "22 Jun", desc: "Nasi Bali Men Weti", cost: 208000.0 },
+      { date: "25 Jun", desc: "Lalapan Banyuwangi", cost: 204000.0 },
+      { date: "26 Jun", desc: "Badhogan Pinggir Jalan", cost: 200000.0 },
+      { date: "26 Jun", desc: "Warung Musthofa", cost: 142000.0 },
+      { date: "25 Jun", desc: "Jalan Cargo", cost: 137000.0 },
+      { date: "21 Jun", desc: "Kerupuk Men Tempeh", cost: 45000.0 }
+    ],
+    "Gas/fuel": [
+      { date: "20 Jun", desc: "Bensin Kepanjen Berangkat", cost: 400000.0 },
+      { date: "22 Jun", desc: "Bensin Sunset Road", cost: 400000.0 },
+      { date: "26 Jun", desc: "Bensin Ketapang", cost: 397600.0 },
+      { date: "26 Jun", desc: "Bensin Kepanjen Pulang", cost: 240500.0 }
+    ],
+    "Transportation": [
+      { date: "21 Jun", desc: "Ferry Ketapang", cost: 400000.0 },
+      { date: "25 Jun", desc: "Ferry Gilimanuk", cost: 174311.0 },
+      { date: "21 Jun", desc: "Tol Malang - Gending", cost: 146000.0 },
+      { date: "26 Jun", desc: "Tol Gending - Malang", cost: 146000.0 }
+    ],
+    "Groceries": [
+      { date: "23 Jun", desc: "Belanja Masak Villa", cost: 165000.0 },
+      { date: "22 Jun", desc: "Indomaret Indomie dkk", cost: 116200.0 },
+      { date: "21 Jun", desc: "Indomie dkk", cost: 96300.0 }
+    ],
+    "Entertainment": [
+      { date: "22 Jun", desc: "Pantai Gunung Payung", cost: 320000.0 }
+    ]
+  }
+};
+
+const shortNames = {
+  "Lorensio Derrint": "Derrint",
+  "Chandra 18": "Chandra",
+  "Apriady": "Apriady"
+};
+const shortCats = {
+  "Hotel": "Hotel",
+  "Dining out": "Makan",
+  "Transportation": "Transport",
+  "Gas/fuel": "Bensin",
+  "Groceries": "Belanja",
+  "Entertainment": "Hiburan"
+};
+
+const fmt = n => "Rp " + Math.round(n).toLocaleString("id-ID");
+const fmtShort = n => {
+  if (n >= 1e6) return "Rp " + (n / 1e6).toFixed(1).replace(/\.0$/, "") + "jt";
+  if (n >= 1e3) return "Rp " + Math.round(n / 1e3) + "rb";
+  return fmt(n);
+};
+
+const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+const isMobile = () => window.matchMedia("(max-width: 560px)").matches;
+
+function chartColors() {
+  return {
+    text: css("--text-muted"),
+    grid: css("--border"),
+    surface: css("--surface"),
+    people: [css("--chart-1"), css("--chart-2"), css("--chart-3")],
+    cats: [css("--chart-1"), css("--chart-2"), css("--chart-3"), css("--chart-4"), css("--chart-5"), css("--chart-6")],
+  };
+}
+
+document.getElementById("stat-total").textContent = fmtShort(data.total_cost);
+document.getElementById("stat-days").textContent = data.n_days;
+document.getElementById("stat-tx").textContent = data.n_transactions;
+
+const grid = document.getElementById("balance-grid");
+Object.entries(data.totals)
+  .sort((a, b) => b[1] - a[1])
+  .forEach(([name, val], i) => {
+    const div = document.createElement("div");
+    div.className = "balance-card";
+    div.innerHTML = `
+      <div class="name">${shortNames[name] || name}${i === 0 ? ' <span class="crown">👑</span>' : ""}</div>
+      <div class="amt">${fmt(val)}</div>
+      <div class="note">Total pengeluaran selama trip</div>
+    `;
+    grid.appendChild(div);
+  });
+
+const catLabels = Object.keys(data.cat_person);
+const peopleNames = Object.keys(data.totals);
+let catPersonChart, catChart, dateChart;
+
+function buildCharts() {
+  const colors = chartColors();
+  const mobile = isMobile();
+  const tickOpts = {
+    color: colors.text,
+    font: { size: mobile ? 10 : 11, family: "Inter" }
+  };
+  const legendOpts = {
+    position: "bottom",
+    labels: {
+      color: colors.text,
+      boxWidth: 10,
+      boxHeight: 10,
+      padding: mobile ? 10 : 14,
+      font: { size: mobile ? 10 : 11, family: "Inter" },
+      usePointStyle: true,
+      pointStyle: "circle"
+    }
+  };
+
+  if (catPersonChart) catPersonChart.destroy();
+  if (catChart) catChart.destroy();
+  if (dateChart) dateChart.destroy();
+
+  catPersonChart = new Chart(document.getElementById("catPersonChart"), {
+    type: "bar",
+    data: {
+      labels: catLabels.map(c => shortCats[c] || c),
+      datasets: peopleNames.map((name, i) => ({
+        label: shortNames[name] || name,
+        data: catLabels.map(c => data.cat_person[c][name]),
+        backgroundColor: colors.people[i],
+        borderRadius: 4,
+        borderSkipped: false,
+        maxBarThickness: mobile ? 22 : 36
+      }))
+    },
+    options: {
+      indexAxis: mobile ? "y" : "x",
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "nearest", axis: mobile ? "y" : "x", intersect: true },
+      plugins: {
+        legend: legendOpts,
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ${fmt(ctx.parsed[mobile ? "x" : "y"] || 0)}`
+          }
+        }
+      },
+      scales: {
+        x: {
+          stacked: true,
+          ticks: mobile
+            ? { ...tickOpts, callback: (v) => fmtShort(v), maxRotation: 0 }
+            : { ...tickOpts, maxRotation: 0 },
+          grid: {
+            color: mobile ? colors.grid : "transparent",
+            drawBorder: false
+          }
+        },
+        y: {
+          stacked: true,
+          ticks: mobile
+            ? tickOpts
+            : { ...tickOpts, callback: (v) => fmtShort(v) },
+          grid: {
+            color: mobile ? "transparent" : colors.grid,
+            drawBorder: false
+          }
+        }
+      }
+    }
+  });
+
+  catChart = new Chart(document.getElementById("catChart"), {
+    type: "doughnut",
+    data: {
+      labels: Object.keys(data.categories).map(c => shortCats[c] || c),
+      datasets: [{
+        data: Object.values(data.categories),
+        backgroundColor: colors.cats,
+        borderColor: colors.surface,
+        borderWidth: 3,
+        hoverOffset: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: mobile ? "58%" : "62%",
+      plugins: {
+        legend: {
+          ...legendOpts,
+          position: mobile ? "bottom" : "bottom"
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+              const pct = ((ctx.parsed / total) * 100).toFixed(0);
+              return ` ${ctx.label}: ${fmt(ctx.parsed)} (${pct}%)`;
+            }
+          }
+        }
+      }
+    }
+  });
+
+  dateChart = new Chart(document.getElementById("dateChart"), {
+    type: "bar",
+    data: {
+      labels: Object.keys(data.by_date).map(d => mobile ? d.replace(" Jun", "") : d),
+      datasets: [{
+        data: Object.values(data.by_date),
+        backgroundColor: colors.people[0],
+        borderRadius: 5,
+        borderSkipped: false,
+        maxBarThickness: mobile ? 18 : 28
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: items => Object.keys(data.by_date)[items[0].dataIndex],
+            label: ctx => ` ${fmt(ctx.parsed.y)}`
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { ...tickOpts, maxRotation: 0, autoSkip: false },
+          grid: { display: false, drawBorder: false }
+        },
+        y: {
+          ticks: {
+            ...tickOpts,
+            callback: (v) => fmtShort(v)
+          },
+          grid: { color: colors.grid, drawBorder: false }
+        }
+      }
+    }
+  });
+}
+
+buildCharts();
+
+let resizeTimer;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(buildCharts, 180);
+});
+
+const catIcons = {
+  "Hotel": "🏨",
+  "Dining out": "🍽️",
+  "Gas/fuel": "⛽",
+  "Transportation": "⛴️",
+  "Groceries": "🛒",
+  "Entertainment": "🎫"
+};
+
+const catTables = document.getElementById("cat-tables");
+Object.entries(data.by_category)
+  .sort((a, b) => data.categories[b[0]] - data.categories[a[0]])
+  .forEach(([cat, items]) => {
+    const total = data.categories[cat] || items.reduce((s, r) => s + r.cost, 0);
+    const block = document.createElement("div");
+    block.className = "cat-block";
+    const rows = items.map(row => `
+      <tr>
+        <td class="date">${row.date}</td>
+        <td class="desc">${row.desc}</td>
+        <td class="amt">${fmt(row.cost)}</td>
+      </tr>
+    `).join("");
+    block.innerHTML = `
+      <div class="cat-block-head">
+        <div class="cat-block-title">
+          <span class="emoji">${catIcons[cat] || "📌"}</span>
+          ${shortCats[cat] || cat}
+        </div>
+        <div class="cat-block-meta">${items.length} item · <span class="cat-block-total">${fmt(total)}</span></div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Tanggal</th>
+            <th>Deskripsi</th>
+            <th style="text-align:right">Biaya</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">Total</td>
+            <td class="amt">${fmt(total)}</td>
+          </tr>
+        </tfoot>
+      </table>
+    `;
+    catTables.appendChild(block);
+  });
+
+/* Theme toggle — same key as bali-itinerary.html */
+const root = document.documentElement;
+const themeBtn = document.getElementById("theme-btn");
+function applyTheme(t) {
+  root.setAttribute("data-theme", t);
+  themeBtn.textContent = t === "dark" ? "☀️" : "🌙";
+  themeBtn.title = t === "dark" ? "Mode terang" : "Mode gelap";
+  themeBtn.setAttribute("aria-label", t === "dark" ? "Aktifkan mode terang" : "Aktifkan mode gelap");
+  try { localStorage.setItem("bali-theme", t); } catch (_) {}
+  buildCharts();
+}
+let savedTheme = null;
+try { savedTheme = localStorage.getItem("bali-theme"); } catch (_) {}
+applyTheme(savedTheme || "light");
+themeBtn.addEventListener("click", () => {
+  applyTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
+});
+</script>
+</body>
+</html>
